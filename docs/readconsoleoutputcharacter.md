@@ -4,7 +4,7 @@ description: Kopiert eine Anzahl von Zeichen aus aufeinander folgenden Zellen ei
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/ReadConsoleOutputCharacter
 - wincon/ReadConsoleOutputCharacter
@@ -36,33 +36,32 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 8f761d10951e6df77a54fd075c29379657204a99
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: fa70841d5dccf3289807d29c67fab86e3b445279
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060363"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037722"
 ---
 # <a name="readconsoleoutputcharacter-function"></a>"Read consoleoutputcharacter"-Funktion
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Kopiert eine Anzahl von Zeichen aus aufeinander folgenden Zellen eines Konsolenbildschirm Puffers, beginnend an einem angegebenen Speicherort.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 BOOL WINAPI ReadConsoleOutputCharacter(
-  _In_  HANDLE  hConsoleOutput,
-  _Out_ LPTSTR  lpCharacter,
-  _In_  DWORD   nLength,
-  _In_  COORD   dwReadCoord,
-  _Out_ LPDWORD lpNumberOfCharsRead
+  _In_  HANDLE  hConsoleOutput,
+  _Out_ LPTSTR  lpCharacter,
+  _In_  DWORD   nLength,
+  _In_  COORD   dwReadCoord,
+  _Out_ LPDWORD lpNumberOfCharsRead
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *hconsoleoutput* \[ in\]  
 Ein Handle für den Bildschirm Puffer der Konsole. Das Handle muss über das **allgemeine \_ Lese** Zugriffsrecht verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
@@ -79,66 +78,32 @@ Die Koordinaten der ersten Zelle im Konsolenbildschirm Puffer, von der in Zeiche
 *lpnumofcharsread* \[ vorgenommen\]  
 Ein Zeiger auf eine Variable, die die Anzahl der tatsächlich gelesenen Zeichen empfängt.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
 
 Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Wenn sich die Anzahl der zu lesenden Zeichen über das Ende der angegebenen Bildschirm Puffer Zeile hinaus erstreckt, werden Zeichen aus der nächsten Zeile gelesen. Wenn die Anzahl der zu lesenden Zeichen über das Ende des Konsolenbildschirm Puffers hinausgeht, werden Zeichen bis zum Ende des Konsolenbildschirm Puffers gelesen.
 
-Diese Funktion verwendet entweder Unicode-Zeichen oder 8-Bit-Zeichen aus der aktuellen Codepage der Konsole. Die Standard Codepage der Konsole wird zunächst auf die OEM-Codepage des Systems eingestellt. Um die Codepage der Konsole zu ändern, verwenden Sie die Funktionen [**setconsolecp**](setconsolecp.md) oder [**setconsoleoutputcp**](setconsoleoutputcp.md) , oder verwenden Sie die Befehle **chcp** oder **Mode con CP Select =** .
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="requirements"></a>Anforderungen
-------------
+[!INCLUDE [no-vt-equiv-banner](./includes/no-vt-equiv-banner.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi2. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Unicode- und ANSI-Name</p></td>
-<td><p>"Read <strong>consoleoutputcharakteriw</strong> (Unicode)" und "read <strong>consoleoutputcharaka</strong> (ANSI)"</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
+| Unicode- und ANSI-Name | "Read **consoleoutputcharakteriw** (Unicode)" und "read **consoleoutputcharaka** (ANSI)" |
 
+## <a name="see-also"></a>Weitere Informationen
 
 [Konsolenfunktionen](console-functions.md)
 
@@ -146,24 +111,16 @@ Diese Funktion verwendet entweder Unicode-Zeichen oder 8-Bit-Zeichen aus der akt
 
 [Konsolenausgabe Funktionen auf niedriger Ebene](low-level-console-output-functions.md)
 
-[**"Read consoleoutput"**](readconsoleoutput.md)
+[**ReadConsoleOutput**](readconsoleoutput.md)
 
-[**"Read consoleoutputattribute"**](readconsoleoutputattribute.md)
+[**ReadConsoleOutputAttribute**](readconsoleoutputattribute.md)
 
-[**Setconsolecp**](setconsolecp.md)
+[**SetConsoleCP**](setconsolecp.md)
 
-[**Setconsoleoutputcp**](setconsoleoutputcp.md)
+[**SetConsoleOutputCP**](setconsoleoutputcp.md)
 
-[**Schreibconsoleoutput**](writeconsoleoutput.md)
+[**WriteConsoleOutput**](writeconsoleoutput.md)
 
-[**"Schreibconsoleoutputattribute"**](writeconsoleoutputattribute.md)
+[**WriteConsoleOutputAttribute**](writeconsoleoutputattribute.md)
 
-[**Schreibconsoleoutputcharacter**](writeconsoleoutputcharacter.md)
-
- 
-
- 
-
-
-
-
+[**WriteConsoleOutputCharacter**](writeconsoleoutputcharacter.md)

@@ -3,8 +3,8 @@ title: Erstellung einer Konsole
 description: Das System erstellt eine neue Konsole, wenn ein Konsolen Prozess gestartet wird. dabei handelt es sich um einen Zeichenmodus, dessen Einstiegspunkt die Hauptfunktion ist.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+ms.topic: conceptual
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 MS-HAID:
 - '\_win32\_creation\_of\_a\_console'
 - base.creation\_of\_a\_console
@@ -13,22 +13,21 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 84ec2559-cade-447e-8594-5b824d3d3e81
-ms.openlocfilehash: b3b4143596035fed6896243043853932ae68233f
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 78a77044452fe2287a7cea0bfe5a6542eceef337
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059898"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038238"
 ---
 # <a name="creation-of-a-console"></a>Erstellung einer Konsole
 
-
-Das System erstellt eine neue Konsole, wenn ein *Konsolen Prozess*gestartet wird. dabei handelt es sich um einen Zeichenmodus, dessen Einstiegspunkt die **Haupt** Funktion ist. Das System erstellt beispielsweise eine neue Konsole, wenn der Befehlsprozessor gestartet wird. Wenn der Befehlsprozessor einen neuen Konsolen Prozess startet, kann der Benutzer angeben, ob das System eine neue Konsole für den neuen Prozess erstellt oder ob er die Konsole des Befehls Prozessors erbt.
+Das System erstellt eine neue Konsole, wenn ein *Konsolen Prozess* gestartet wird. dabei handelt es sich um einen Zeichenmodus, dessen Einstiegspunkt die **Haupt** Funktion ist. Das System erstellt beispielsweise eine neue Konsole, wenn der Befehlsprozessor gestartet wird `cmd.exe` . Wenn der Befehlsprozessor einen neuen Konsolen Prozess startet, kann der Benutzer angeben, ob das System eine neue Konsole für den neuen Prozess erstellt oder ob er die Konsole des Befehls Prozessors erbt.
 
 Ein Prozess kann eine-Konsole mithilfe einer der folgenden Methoden erstellen:
 
-- Ein GUI-oder Konsolen Prozess kann mithilfe [**der Funktion**](https://msdn.microsoft.com/library/windows/desktop/ms682425) "Funktion erstellen" mit **Create \_ New \_ Console** einen Konsolen Prozess mit einer neuen Konsole erstellen. (Standardmäßig erbt ein Konsolen Prozess seine übergeordnete Konsole, und es gibt keine Garantie dafür, dass der Prozess, für den er vorgesehen war, Eingaben empfängt.)
-- Eine grafische Benutzeroberfläche (GUI) oder ein Konsolen Prozess, der zurzeit nicht an eine Konsole angefügt ist, kann die Funktion " [**Zuweisung**](allocconsole.md) " verwenden, um eine neue Konsole zu erstellen. (GUI-Prozesse werden nicht an eine Konsole angefügt, wenn Sie erstellt werden. Konsolen Prozesse werden nicht an eine Konsole angefügt, wenn [**Sie mithilfe von**](https://msdn.microsoft.com/library/windows/desktop/ms682425) "erstellter Prozess" mit einem getrennten ** \_ Prozess**erstellt werden.)
+- Eine grafische Benutzeroberfläche (GUI) oder ein Konsolen Prozess kann mithilfe [**der Funktion**](https://msdn.microsoft.com/library/windows/desktop/ms682425) "Funktion erstellen" und " **\_ neue \_ Konsole erstellen** " einen Konsolen Prozess mit einer neuen Konsole erstellen. (Standardmäßig erbt ein Konsolen Prozess seine übergeordnete Konsole, und es gibt keine Garantie dafür, dass der Prozess, für den er vorgesehen war, Eingaben empfängt.)
+- Ein GUI-oder Konsolen Prozess, der zurzeit nicht an eine Konsole angefügt ist, kann die Funktion " [**Zuweisung**](allocconsole.md) " verwenden, um eine neue Konsole zu erstellen. (GUI-Prozesse werden nicht an eine Konsole angefügt, wenn Sie erstellt werden. Konsolen Prozesse werden nicht an eine Konsole angefügt, wenn [**Sie mithilfe von**](https://msdn.microsoft.com/library/windows/desktop/ms682425) "erstellter Prozess" mit einem getrennten **\_ Prozess** erstellt werden.)
 
 In der Regel wird von einem Prozess mithilfe von " [**zuordcconsole**](allocconsole.md) " eine-Konsole erstellt, wenn ein Fehler bei der Interaktion mit dem Benutzer auftritt Beispielsweise kann ein GUI-Prozess eine-Konsole erstellen, wenn ein Fehler auftritt, der verhindert, dass die normale grafische Oberfläche verwendet wird, oder ein Konsolen Prozess, der normalerweise nicht mit dem Benutzer interagiert, kann eine-Konsole erstellen, um einen Fehler anzuzeigen.
 
@@ -48,25 +47,15 @@ Das System verwendet Standardwerte, wenn die [**STARTUPINFO**](https://msdn.micr
 
 Ein Prozess kann den Speicherort seines Konsolenfensters auf dem Bildschirm nicht ändern, aber die folgenden Konsolenfunktionen sind verfügbar, um die anderen Eigenschaften, die in der [**STARTUPINFO**](https://msdn.microsoft.com/library/windows/desktop/ms686331) -Struktur angegeben sind, festzulegen oder abzurufen.
 
-
-| Funktion                                                         | Beschreibung                                                          |
-|------------------------------------------------------------------|----------------------------------------------------------------------|
-| [**Getconsoleskreenbufferinfo**](getconsolescreenbufferinfo.md) | Ruft die Fenstergröße, die Bildschirm Puffergröße und die Farb Attribute ab. |
-| [**Setconsolewindowinfo**](setconsolewindowinfo.md)             | Ändert die Größe des Konsolenfensters.                              |
-| [**Setconsoleskreenbuffersize**](setconsolescreenbuffersize.md) | Ändert die Größe des Bildschirm Puffers der Konsole.                       |
-| [**SetConsoleTextAttribute**](setconsoletextattribute.md)       | Legt die Farb Attribute fest.                                           |
-| [**Setconsoletitle**](setconsoletitle.md)                       | Legt den Titel des Konsolenfensters fest.                                       |
-| [**Getconsoletitle**](getconsoletitle.md)                       | Ruft den Titel des Konsolenfensters ab.                                  |
-
-
-
+| Funktion | BESCHREIBUNG |
+|-|-|
+| [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) | Ruft die Fenstergröße, die Bildschirm Puffergröße und die Farb Attribute ab. |
+| [**SetConsoleWindowInfo**](setconsolewindowinfo.md)  | Ändert die Größe des Konsolenfensters.  |
+| [**SetConsoleScreenBufferSize**](setconsolescreenbuffersize.md) | Ändert die Größe des Bildschirm Puffers der Konsole. |
+| [**SetConsoleTextAttribute**](setconsoletextattribute.md) | Legt die Farb Attribute fest.  |
+| [**SetConsoleTitle**](setconsoletitle.md)  | Legt den Titel des Konsolenfensters fest. |
+| [**GetConsoleTitle**](getconsoletitle.md)  | Ruft den Titel des Konsolenfensters ab.  |
 
 Ein Prozess kann die [**freeconsole**](freeconsole.md) -Funktion verwenden, um sich selbst von einer geerbten Konsole oder von einer von " [**Zuweisung-Konsole**](allocconsole.md)" erstellten Konsole zu trennen.
 
-
-
-
-
-
-
-
+Ein Prozess kann die [**attachconsole**](attachconsole.md) -Funktion verwenden, um sich an eine andere vorhandene Konsolen Sitzung anzufügen, nachdem [**freeconsole**](freeconsole.md) zum Trennen von der eigenen Sitzung verwendet wurde (oder wenn andernfalls keine angefügte Sitzung vorhanden ist).

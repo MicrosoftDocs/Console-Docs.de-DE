@@ -4,7 +4,7 @@ description: Siehe Referenzinformationen zur getconsoleprocesslist-Funktion, die
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi3/GetConsoleProcessList
 - wincon/GetConsoleProcessList
@@ -25,30 +25,27 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 5b032754172886fd83a8152caeb5e2228b917930
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: bfc16edccb2f1be2b22c81992800d8f62d86cf4f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059778"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037982"
 ---
 # <a name="getconsoleprocesslist-function"></a>Getconsoleprocesslist-Funktion
 
-
 Ruft eine Liste der Prozesse ab, die an die aktuelle Konsole angefügt sind.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 DWORD WINAPI GetConsoleProcessList(
-  _Out_ LPDWORD lpdwProcessList,
-  _In_  DWORD   dwProcessCount
+  _Out_ LPDWORD lpdwProcessList,
+  _In_  DWORD   dwProcessCount
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *lpdwprocesslist* \[ vorgenommen\]  
 Ein Zeiger auf einen Puffer, der bei erfolgreicher Ausführung ein Array von Prozess Bezeichners empfängt. Dies muss ein gültiger Puffer sein und darf nicht sein `NULL` . Der Puffer muss über Speicherplatz verfügen, um mindestens eine zurückgegebene Prozess-ID zu erhalten.
@@ -56,8 +53,7 @@ Ein Zeiger auf einen Puffer, der bei erfolgreicher Ausführung ein Array von Pro
 *dwprocesscount* \[ in\]  
 Die maximale Anzahl von Prozess bezeichern, die im *lpdwprocesslist* -Puffer gespeichert werden können. Dieser Wert muss größer als 0 sein.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert kleiner oder gleich *dwprocesscount* und stellt die Anzahl der Prozess-IDs dar, die im *lpdwprocesslist* -Puffer gespeichert werden.
 
@@ -67,60 +63,24 @@ Wenn der Rückgabewert 0 (null) ist, ist bei der Funktion ein Fehler aufgetreten
 
 Wenn eine `NULL` Prozessliste bereitgestellt wurde oder die Prozess Anzahl 0 war, gibt der-Befehl 0 zurück und `GetLastError` gibt zurück `ERROR_INVALID_PARAMETER` . Geben Sie einen Puffer mit mindestens einem-Element an, um diese Funktion aufzurufen. Weisen Sie einen größeren Puffer zu, und wiederholen Sie den Vorgang, wenn der Rückgabecode größer als die Länge des bereitgestellten Puffers ist.
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
-Um eine Anwendung zu kompilieren, die diese Funktion verwendet, definieren Sie ** \_ Win32 \_ Winnt** als 0x0501 oder höher. Weitere Informationen finden Sie unter [Verwenden der Windows-Header](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Um eine Anwendung zu kompilieren, die diese Funktion verwendet, definieren Sie **\_ Win32 \_ Winnt** als 0x0501 oder höher. Weitere Informationen finden Sie unter [Verwenden der Windows-Header](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Anforderungen
-------------
+[!INCLUDE [no-vt-equiv-local-context](./includes/no-vt-equiv-local-context.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows XP [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows Server 2003 [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi3. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows XP \[ -Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows Server 2003 \[ -Desktop-Apps\] |
+| Header | ConsoleApi3. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
 
+## <a name="see-also"></a>Weitere Informationen
 
-[**Attachconsole**](attachconsole.md)
+[**AttachConsole**](attachconsole.md)
 
 [Konsolenfunktionen](console-functions.md)
-
- 
-
- 
-
-
-
-

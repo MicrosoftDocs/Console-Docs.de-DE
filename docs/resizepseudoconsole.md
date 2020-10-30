@@ -19,20 +19,18 @@ api_location:
 - KernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: a4f6ff773538eda4d4c84c4b0bac2e647f6b80d8
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 0d5a4ff954c8ebea688573f23d3981ee9c5d7d2a
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060347"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037538"
 ---
 # <a name="resizepseudoconsole-function"></a>Resizepseudoconsole-Funktion
 
-
 Ändert die Größe der internen Puffer für eine pseudoconsole auf die angegebene Größe.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 HRESULT WINAPI ResizePseudoConsole(
@@ -41,69 +39,38 @@ HRESULT WINAPI ResizePseudoConsole(
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *HPC* \[ in\]  
-Ein Handle für eine aktive psuedoconsole, wie von " [deepseudoconsole](createpseudoconsole.md)" geöffnet.
+Ein Handle für eine aktive pseudoconsole, wie von " [kreatepseudoconsole](createpseudoconsole.md)" geöffnet.
 
 *Größe* \[ in\]  
-Die Abmessungen des Fensters/Puffers in der Anzahl von Zeichen, die für den internen Puffer dieser pseudoconsole verwendet werden. 
+Die Abmessungen des Fensters/Puffers in der Anzahl von Zeichen, die für den internen Puffer dieser pseudoconsole verwendet werden.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Typ: **HRESULT**
 
-Wenn diese Methode erfolgreich ausgeführt wird, wird **S_OK**zurückgegeben. Andernfalls wird ein **HRESULT** -Fehlercode zurückgegeben.
+Wenn diese Methode erfolgreich ausgeführt wird, wird **S_OK** zurückgegeben. Andernfalls wird ein **HRESULT** -Fehlercode zurückgegeben.
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
-Diese Funktion kann die Größe der internen Puffer in der pseudoconsole-Sitzung ändern, sodass Sie der Fenster-/Puffergröße entspricht, die für die Anzeige am Terminal Ende verwendet wird. Dadurch wird sichergestellt, dass bei der Kommunikation mit den [Konsolenfunktionen](console-functions.md) angefügte Befehlszeilenschnittstelle (CUI) Anwendungen die richtigen Dimensionen in ihren Aufrufen zurückgegeben werden.
+Diese Funktion kann die Größe der internen Puffer in der pseudoconsole-Sitzung ändern, sodass Sie der Fenster-/Puffergröße entspricht, die für die Anzeige am Terminal Ende verwendet wird. Dadurch wird sichergestellt, dass für die Kommunikation angefügte Command-Line Interface (CUI)-Anwendungen, die die [Konsolenfunktionen](console-functions.md) verwenden, die richtigen Dimensionen in ihren Aufrufen zurückgegeben werden.
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 10 1809 [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows Server 2019 [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>Consoleapi. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Windows 10-Update vom Oktober 2018 (Version 1809) \[ nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows Server 2019 \[ -Desktop-Apps\] |
+| Header | Consoleapi. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
 [Pseudo Konsolen](pseudoconsoles.md)
 
-[**"Kreatepseudoconsole"**](createpseudoconsole.md)
+[**CreatePseudoConsole**](createpseudoconsole.md)
 
-[**Closepseudoconsole**](closepseudoconsole.md)
+[**ClosePseudoConsole**](closepseudoconsole.md)

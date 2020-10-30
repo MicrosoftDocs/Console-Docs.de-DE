@@ -4,7 +4,7 @@ description: Ruft die Größe des größtmöglichen Konsolenfensters basierend a
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/GetLargestConsoleWindowSize
 - wincon/GetLargestConsoleWindowSize
@@ -28,100 +28,62 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 086c09b00ba15ad3e1922655fbd9b5f39d872d41
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: ddaa4716886fccaaa87e86362719020eb2408765
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059690"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037838"
 ---
 # <a name="getlargestconsolewindowsize-function"></a>Getlargestconsolewindowsize-Funktion
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Ruft die Größe des größtmöglichen Konsolenfensters basierend auf der aktuellen Schriftart und der Größe der Anzeige ab.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 COORD WINAPI GetLargestConsoleWindowSize(
-  _In_ HANDLE hConsoleOutput
+  _In_ HANDLE hConsoleOutput
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *hconsoleoutput* \[ in\]  
 Ein Handle für den Bildschirm Puffer der Konsole.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
-Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert eine [**coord**](coord-str.md) -Struktur, die die Anzahl der Zeichen Zellen Spalten (**X** -Member) und der Zeilen (**Y** -Member) im größtmöglichen Konsolenfenster angibt. Andernfalls sind die Elemente der-Struktur 0 (null).
+Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert eine [**coord**](coord-str.md) -Struktur, die die Anzahl der Zeichen Zellen Spalten ( **X** -Member) und der Zeilen ( **Y** -Member) im größtmöglichen Konsolenfenster angibt. Andernfalls sind die Elemente der-Struktur 0 (null).
 
 Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Die-Funktion berücksichtigt nicht die Größe des Bildschirm Puffers der Konsole. Dies bedeutet, dass die zurückgegebene Fenstergröße möglicherweise größer als die Größe des Konsolenbildschirm Puffers ist. Mithilfe der [**getconsoleskreenbufferinfo**](getconsolescreenbufferinfo.md) -Funktion kann die maximale Größe des Konsolenfensters anhand der aktuellen Bildschirm Puffergröße, der aktuellen Schriftart und der Anzeige Größe bestimmt werden.
 
-<a name="requirements"></a>Anforderungen
-------------
+[!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi2. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
 
+## <a name="see-also"></a>Weitere Informationen
 
 [Konsolenfunktionen](console-functions.md)
 
 [**Koord**](coord-str.md)
 
-[**Getconsoleskreenbufferinfo**](getconsolescreenbufferinfo.md)
+[**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)
 
-[**Setconsolewindowinfo**](setconsolewindowinfo.md)
+[**SetConsoleWindowInfo**](setconsolewindowinfo.md)
 
 [Fenster-und Bildschirm Puffergröße](window-and-screen-buffer-size.md)
-
- 
-
- 
-
-
-
-

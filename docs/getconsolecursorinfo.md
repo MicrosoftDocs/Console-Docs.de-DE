@@ -4,7 +4,7 @@ description: Ruft Informationen über die Größe und die Sichtbarkeit des Curso
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/GetConsoleCursorInfo
 - wincon/GetConsoleCursorInfo
@@ -28,30 +28,29 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: d87fe0828451615e837c1c6c809a0160f15cf018
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 2d9869c5c291addaf94a06fa67e11e3195ead686
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059794"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038918"
 ---
 # <a name="getconsolecursorinfo-function"></a>Getconsolecursorinfo-Funktion
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Ruft Informationen über die Größe und die Sichtbarkeit des Cursors für den angegebenen Konsolenbildschirm Puffer ab.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 BOOL WINAPI GetConsoleCursorInfo(
-  _In_  HANDLE               hConsoleOutput,
-  _Out_ PCONSOLE_CURSOR_INFO lpConsoleCursorInfo
+  _In_  HANDLE               hConsoleOutput,
+  _Out_ PCONSOLE_CURSOR_INFO lpConsoleCursorInfo
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *hconsoleoutput* \[ in\]  
 Ein Handle für den Bildschirm Puffer der Konsole. Das Handle muss über das **allgemeine \_ Lese** Zugriffsrecht verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
@@ -59,66 +58,32 @@ Ein Handle für den Bildschirm Puffer der Konsole. Das Handle muss über das **a
 *lpconsolecursorinfo* \[ vorgenommen\]  
 Ein Zeiger auf eine [**Konsolen \_ Cursor \_ Info**](console-cursor-info-str.md) -Struktur, die Informationen über den Cursor der Konsole empfängt.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
 
 Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="remarks"></a>Bemerkungen
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi2. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+[!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+## <a name="requirements"></a>Requirements (Anforderungen)
 
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
+
+## <a name="see-also"></a>Weitere Informationen
 
 [Konsolenfunktionen](console-functions.md)
 
-[Konsolenbildschirm Puffer](console-screen-buffers.md)
+[Konsolenbildschirmpuffer](console-screen-buffers.md)
 
 [**Konsolen \_ Cursor \_ Informationen**](console-cursor-info-str.md)
 
-[**Setconsolecursorinfo**](setconsolecursorinfo.md)
-
- 
-
- 
-
-
-
-
+[**SetConsoleCursorInfo**](setconsolecursorinfo.md)

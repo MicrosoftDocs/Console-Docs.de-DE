@@ -4,7 +4,7 @@ description: Weitere Informationen finden Sie in den Referenzinformationen zur s
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/SetConsoleTitle
 - wincon/SetConsoleTitle
@@ -44,49 +44,48 @@ api_location:
 - API-MS-Win-Core-Kernel32-Legacy-L1-1-5.dll
 api_type:
 - DllExport
-ms.openlocfilehash: e1789243fd5c184221dd53038d8ec87c9b010749
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: fa4f79925af870f3d345f384dab52ff4b98c182c
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060484"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037033"
 ---
 # <a name="setconsoletitle-function"></a>Setconsoletitle-Funktion
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Legt den Titel für das aktuelle Konsolenfenster fest.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 BOOL WINAPI SetConsoleTitle(
-  _In_ LPCTSTR lpConsoleTitle
+  _In_ LPCTSTR lpConsoleTitle
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *lpconsoletitle* \[ in\]  
 Die Zeichenfolge, die in der Titelleiste des Konsolenfensters angezeigt werden soll. Die Gesamtgröße muss kleiner als 64K sein.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
 
 Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Wenn der Prozess beendet wird, stellt das System den ursprünglichen Konsolentitel wieder her.
 
-Diese Funktion verwendet entweder Unicode-Zeichen oder 8-Bit-Zeichen aus der aktuellen Codepage der Konsole. Die Standard Codepage der Konsole wird zunächst auf die OEM-Codepage des Systems eingestellt. Um die Codepage der Konsole zu ändern, verwenden Sie die Funktionen [**setconsolecp**](setconsolecp.md) oder [**setconsoleoutputcp**](setconsoleoutputcp.md) , oder verwenden Sie die Befehle **chcp** oder **Mode con CP Select =** .
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="examples"></a>Beispiele
---------
+> [!TIP]
+> Diese API verfügt über ein **[virtuelles Terminal](console-virtual-terminal-sequences.md)** Äquivalent in den **[Fenstertitel](console-virtual-terminal-sequences.md#window-title)** Sequenzen. _Virtuelle Terminal Sequenzen_ werden für alle neuen und laufenden Entwicklungen empfohlen.
+
+## <a name="examples"></a>Beispiele
 
 Im folgenden Beispiel wird gezeigt, wie der Konsolentitel abgerufen und geändert wird.
 
@@ -124,67 +123,25 @@ int main( void )
 }
 ```
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi2. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Unicode- und ANSI-Name</p></td>
-<td><p><strong>Setconsoletitlew</strong> (Unicode) und <strong>setconsoletitlea</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
+| Unicode- und ANSI-Name | **Setconsoletitlew** (Unicode) und **setconsoletitlea** (ANSI) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
-
+## <a name="see-also"></a>Weitere Informationen
 
 [Konsolenfunktionen](console-functions.md)
 
-[**Getconsoleoriginaltitle**](getconsoleoriginaltitle.md)
+[**GetConsoleOriginalTitle**](getconsoleoriginaltitle.md)
 
-[**Getconsoletitle**](getconsoletitle.md)
+[**GetConsoleTitle**](getconsoletitle.md)
 
-[**Setconsolecp**](setconsolecp.md)
+[**SetConsoleCP**](setconsolecp.md)
 
-[**Setconsoleoutputcp**](setconsoleoutputcp.md)
-
- 
-
- 
-
-
-
-
+[**SetConsoleOutputCP**](setconsoleoutputcp.md)

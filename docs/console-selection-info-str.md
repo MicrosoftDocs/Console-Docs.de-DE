@@ -4,7 +4,7 @@ description: Siehe Referenzinformationen zur CONSOLE_SELECTION_INFO Struktur, di
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi3/CONSOLE_SELECTION_INFO
 - wincon/CONSOLE_SELECTION_INFO
@@ -25,85 +25,44 @@ topic_type:
 api_name:
 - CONSOLE_SELECTION_INFO
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: a16fe43e7b7cc4b5890284921823aee7b79217b2
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: aaf1cfaea2a8822c142aab87f6dcf1b022b7160c
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060002"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038368"
 ---
 # <a name="console_selection_info-structure"></a>Konsolen \_ Auswahl \_ Info-Struktur
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Enthält Informationen für eine Konsolen Auswahl.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 typedef struct _CONSOLE_SELECTION_INFO {
-  DWORD      dwFlags;
-  COORD      dwSelectionAnchor;
+  DWORD      dwFlags;
+  COORD      dwSelectionAnchor;
   SMALL_RECT srSelection;
 } CONSOLE_SELECTION_INFO, *PCONSOLE_SELECTION_INFO;
 ```
 
-<a name="members"></a>Member
--------
+## <a name="members"></a>Member
 
 **dwFlags**  
 Der Auswahl Indikator. Dieser Member kann einen oder mehrere der folgenden Werte aufweisen.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Wert</th>
-<th>Bedeutung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="CONSOLE_MOUSE_DOWN"></span><span id="console_mouse_down"></span>
-<strong>CONSOLE_MOUSE_DOWN</strong> 0x0008</td>
-<td><p>Maus ist nicht gedrückt</p></td>
-</tr>
-<tr class="even">
-<td><span id="CONSOLE_MOUSE_SELECTION"></span><span id="console_mouse_selection"></span>
-<strong>CONSOLE_MOUSE_SELECTION</strong> 0x0004</td>
-<td><p>Auswählen mit der Maus</p></td>
-</tr>
-<tr class="odd">
-<td><span id="CONSOLE_NO_SELECTION"></span><span id="console_no_selection"></span>
-<strong>CONSOLE_NO_SELECTION</strong> 0x0000</td>
-<td><p>Keine Auswahl</p></td>
-</tr>
-<tr class="even">
-<td><span id="CONSOLE_SELECTION_IN_PROGRESS"></span><span id="console_selection_in_progress"></span>
-<strong>CONSOLE_SELECTION_IN_PROGRESS</strong> 0x0001</td>
-<td><p>Auswahl wurde begonnen.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="CONSOLE_SELECTION_NOT_EMPTY"></span><span id="console_selection_not_empty"></span>
-<strong>CONSOLE_SELECTION_NOT_EMPTY</strong> 0x0002</td>
-<td><p>Auswahl Rechteck ist nicht leer.</p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
-
- 
+| Wert | Bedeutung |
+|-|-|
+| **CONSOLE_MOUSE_DOWN** 0x0008 | Die Maus ist nicht gedrückt. Der Benutzer passt das Auswahl Rechteck aktiv mit der Maus an. |
+| **CONSOLE_MOUSE_SELECTION** 0x0004 | Auswählen mit der Maus. Wenn OFF, wird der Benutzer im Betriebs `conhost.exe` markermodus mit der Tastatur ausgewählt. |
+| **CONSOLE_NO_SELECTION** 0x0000 | Keine Auswahl. |
+| **CONSOLE_SELECTION_IN_PROGRESS** 0x0001 | Die Auswahl wurde begonnen. Bei einer Maus Auswahl tritt dies in der Regel nicht ohne das- `CONSOLE_SELECTION_NOT_EMPTY` Flag auf. Bei einer Tastaturauswahl kann dies vorkommen, wenn der Markierungs Modus eingegeben wurde, der Benutzer aber immer noch zur ursprünglichen Position navigiert. |
+| **CONSOLE_SELECTION_NOT_EMPTY** 0x0002 | Auswahl Rechteck ist nicht leer. Die Nutzlast von *dwselectionanchor* und *srselection* ist gültig.  |
 
 **dwselectionanchor**  
 Eine [**Koord**](coord-str.md) -Struktur, die den Auswahl Anker in Zeichen angibt.
@@ -111,43 +70,18 @@ Eine [**Koord**](coord-str.md) -Struktur, die den Auswahl Anker in Zeichen angib
 **srselection**  
 Eine [**kleine \_ Rect**](small-rect-str.md) -Struktur, die das Auswahl Rechteck angibt.
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows XP [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows Server 2003 [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi3. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows XP \[ -Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows Server 2003 \[ -Desktop-Apps\] |
+| Header | ConsoleApi3. h (über WinCon. h, Include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
-
+## <a name="see-also"></a>Weitere Informationen
 
 [**Koord**](coord-str.md)
 
-[**Getconsoleselectioninfo**](getconsoleselectioninfo.md)
+[**GetConsoleSelectionInfo**](getconsoleselectioninfo.md)
 
 [**kleine \_ Rect**](small-rect-str.md)
-
- 
-
- 
-
-
-
-

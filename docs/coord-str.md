@@ -1,10 +1,10 @@
 ---
-title: Coord-Struktur
+title: COORD-Struktur
 description: Definiert die Koordinaten einer Zeichen Zelle in einem Konsolenbildschirm Puffer.
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - wincontypes/COORD
 - wincon/COORD
@@ -25,23 +25,21 @@ topic_type:
 api_name:
 - COORD
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: c29594cbddd69ae8ca6d3f958acd0eeb3cb60e9b
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: c8e6f87c3a2730a8af21b9bc064c71900fb82f5b
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059939"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038308"
 ---
-# <a name="coord-structure"></a>Coord-Struktur
-
+# <a name="coord-structure"></a>COORD-Struktur
 
 Definiert die Koordinaten einer Zeichen Zelle in einem Konsolenbildschirm Puffer. Der Ursprung des Koordinatensystems (0,0) befindet sich in der oberen, linken Zelle des Puffers.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 typedef struct _COORD {
@@ -50,8 +48,7 @@ typedef struct _COORD {
 } COORD, *PCOORD;
 ```
 
-<a name="members"></a>Member
--------
+## <a name="members"></a>Member
 
 **X**  
 Der horizontale Koordinaten-oder Spaltenwert. Die Einheiten sind vom Funktions aufrufsbefehl abhängig.
@@ -59,37 +56,19 @@ Der horizontale Koordinaten-oder Spaltenwert. Die Einheiten sind vom Funktions a
 **J**  
 Der vertikale Koordinaten-oder Zeilen Wert. Die Einheiten sind vom Funktions aufrufsbefehl abhängig.
 
-<a name="examples"></a>Beispiele
---------
+## <a name="examples"></a>Beispiele
 
 Ein Beispiel finden Sie unter [Scrollen des Inhalts eines Bildschirm Puffers](scrolling-a-screen-buffer-s-contents.md).
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>Wincontypes. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | Wincontypes. h (über WinCon. h, Include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
-
+## <a name="see-also"></a>Weitere Informationen
 
 [**Informationen zur Konsolen \_ Schriftart \_**](console-font-info-str.md)
 
@@ -97,42 +76,34 @@ Ein Beispiel finden Sie unter [Scrollen des Inhalts eines Bildschirm Puffers](sc
 
 [**Konsolen \_ Auswahl \_ Informationen**](console-selection-info-str.md)
 
-[**Fillconsoleoutputattribute**](fillconsoleoutputattribute.md)
+[**FillConsoleOutputAttribute**](fillconsoleoutputattribute.md)
 
-[**Fillconsoleoutputcharacter**](fillconsoleoutputcharacter.md)
+[**FillConsoleOutputCharacter**](fillconsoleoutputcharacter.md)
 
-[**Getconsolefontsize**](getconsolefontsize.md)
+[**GetConsoleFontSize**](getconsolefontsize.md)
 
-[**Getlargestconsolewindowsize**](getlargestconsolewindowsize.md)
+[**GetLargestConsoleWindowSize**](getlargestconsolewindowsize.md)
 
 [**\_Ereignis \_ Daten Satz für Maus**](mouse-event-record-str.md)
 
-[**"Read consoleoutput"**](readconsoleoutput.md)
+[**ReadConsoleOutput**](readconsoleoutput.md)
 
-[**"Read consoleoutputattribute"**](readconsoleoutputattribute.md)
+[**ReadConsoleOutputAttribute**](readconsoleoutputattribute.md)
 
-[**"Read consoleoutputcharacter"**](readconsoleoutputcharacter.md)
+[**ReadConsoleOutputCharacter**](readconsoleoutputcharacter.md)
 
-[**Scrollconsoleskreenbuffer**](scrollconsolescreenbuffer.md)
+[**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md)
 
 [**SetConsoleCursorPosition**](setconsolecursorposition.md)
 
-[**Setconsoledisplaymode**](setconsoledisplaymode.md)
+[**SetConsoleDisplayMode**](setconsoledisplaymode.md)
 
-[**Setconsoleskreenbuffersize**](setconsolescreenbuffersize.md)
+[**SetConsoleScreenBufferSize**](setconsolescreenbuffersize.md)
 
 [**Datensatz der Fenster \_ Puffer \_ Größe \_**](window-buffer-size-record-str.md)
 
-[**Schreibconsoleoutput**](writeconsoleoutput.md)
+[**WriteConsoleOutput**](writeconsoleoutput.md)
 
-[**"Schreibconsoleoutputattribute"**](writeconsoleoutputattribute.md)
+[**WriteConsoleOutputAttribute**](writeconsoleoutputattribute.md)
 
-[**Schreibconsoleoutputcharacter**](writeconsoleoutputcharacter.md)
-
- 
-
- 
-
-
-
-
+[**WriteConsoleOutputCharacter**](writeconsoleoutputcharacter.md)

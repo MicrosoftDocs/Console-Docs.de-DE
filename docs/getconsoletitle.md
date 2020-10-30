@@ -4,7 +4,7 @@ description: Ruft den Titel und die Größe des Titels für das aktuelle Konsole
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/GetConsoleTitle
 - wincon/GetConsoleTitle
@@ -38,30 +38,29 @@ api_location:
 - Kernel32Legacy.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 5b8e78e65e52c3f10be14afa6a122fa12609a2eb
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 23b52ba1d5dde40ef842297249fdd2f87cebcb12
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059699"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037878"
 ---
 # <a name="getconsoletitle-function"></a>Getconsoletitle-Funktion
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Ruft den Titel für das aktuelle Konsolenfenster ab.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 DWORD WINAPI GetConsoleTitle(
-  _Out_ LPTSTR lpConsoleTitle,
-  _In_  DWORD  nSize
+  _Out_ LPTSTR lpConsoleTitle,
+  _In_  DWORD  nSize
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *lpconsoletitle* \[ vorgenommen\]  
 Ein Zeiger auf einen Puffer, der eine NULL-terminierte Zeichenfolge mit dem Titel empfängt. Wenn der Puffer zu klein ist, um den Titel zu speichern, speichert die Funktion so viele Zeichen des Titels, wie Sie in den Puffer passt, und endet mit einem NULL-Terminator.
@@ -69,86 +68,44 @@ Ein Zeiger auf einen Puffer, der eine NULL-terminierte Zeichenfolge mit dem Tite
 *nSize* \[ in\]  
 Die Größe des Puffers, auf den der *lpconsoletitle* -Parameter zeigt (in Zeichen).
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, entspricht der Rückgabewert der Länge des Konsolenfenster Titels in Zeichen.
 
 Wenn die Funktion fehlschlägt, ist der Rückgabewert 0 (null), und [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) gibt den Fehlercode zurück.
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Um den Titel für ein Konsolenfenster festzulegen, verwenden Sie die [**setconsoletitle**](setconsoletitle.md) -Funktion. Um die ursprüngliche Titel Zeichenfolge abzurufen, verwenden Sie die [**getconsoleoriginaltitle**](getconsoleoriginaltitle.md) -Funktion.
 
-Diese Funktion verwendet entweder Unicode-Zeichen oder 8-Bit-Zeichen aus der aktuellen Codepage der Konsole. Die Standard Codepage der Konsole wird zunächst auf die OEM-Codepage des Systems eingestellt. Um die Codepage der Konsole zu ändern, verwenden Sie die Funktionen [**setconsolecp**](setconsolecp.md) oder [**setconsoleoutputcp**](setconsoleoutputcp.md) , oder verwenden Sie die Befehle **chcp** oder **Mode con CP Select =** .
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="examples"></a>Beispiele
---------
+> [!TIP]
+> Diese API wird nicht empfohlen und verfügt nicht über ein entsprechendes **[virtuelles Terminal](console-virtual-terminal-sequences.md)** . Diese Entscheidung richtet die Windows-Plattform absichtlich mit anderen Betriebssystemen aus. Anwendungen, die Remoting über plattformübergreifende Hilfsprogramme und Transporte wie ssh verwenden, funktionieren möglicherweise nicht wie erwartet, wenn Sie diese API verwenden.
+
+## <a name="examples"></a>Beispiele
 
 Ein Beispiel finden Sie unter [**setconsoletitle**](setconsoletitle.md).
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi2. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Unicode- und ANSI-Name</p></td>
-<td><p><strong>Getconsoletitlew</strong> (Unicode) und <strong>getconsoletitlea</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
+| Unicode- und ANSI-Name | **Getconsoletitlew** (Unicode) und **getconsoletitlea** (ANSI) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
-
+## <a name="see-also"></a>Weitere Informationen
 
 [Konsolenfunktionen](console-functions.md)
 
-[**Getconsoleoriginaltitle**](getconsoleoriginaltitle.md)
+[**GetConsoleOriginalTitle**](getconsoleoriginaltitle.md)
 
-[**Setconsolecp**](setconsolecp.md)
+[**SetConsoleCP**](setconsolecp.md)
 
-[**Setconsoleoutputcp**](setconsoleoutputcp.md)
+[**SetConsoleOutputCP**](setconsoleoutputcp.md)
 
-[**Setconsoletitle**](setconsoletitle.md)
-
- 
-
- 
-
-
-
-
+[**SetConsoleTitle**](setconsoletitle.md)

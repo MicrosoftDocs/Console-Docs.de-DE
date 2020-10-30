@@ -2,12 +2,12 @@
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - wincontypes/SMALL_RECT
 - wincon/SMALL_RECT
 - SMALL_RECT
-title: SMALL_RECT Struktur
+title: SMALL_RECT-Struktur
 description: Definiert die Koordinaten der oberen linken und unteren rechten Ecke eines Rechtecks.
 MS-HAID:
 - '\_win32\_small\_rect\_str'
@@ -22,23 +22,21 @@ topic_type:
 api_name:
 - SMALL_RECT
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: b0c0bfe93c85af89c5aaefeda032795de72ed627
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 93121864c8754b281b92051a5e4a174b2d5956a3
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060555"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037098"
 ---
 # <a name="small_rect-structure"></a>Kleine \_ Rect-Struktur
 
-
 Definiert die Koordinaten der oberen linken und unteren rechten Ecke eines Rechtecks.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 typedef struct _SMALL_RECT {
@@ -49,8 +47,7 @@ typedef struct _SMALL_RECT {
 } SMALL_RECT;
 ```
 
-<a name="members"></a>Member
--------
+## <a name="members"></a>Member
 
 **Left**  
 Die x-Koordinate der oberen linken Ecke des Rechtecks.
@@ -61,54 +58,27 @@ Die y-Koordinate der oberen linken Ecke des Rechtecks.
 **Right**  
 Die x-Koordinate der unteren rechten Ecke des Rechtecks.
 
-**Unten**  
+**bottom**  
 Die y-Koordinate der unteren rechten Ecke des Rechtecks.
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Diese Struktur wird von Konsolenfunktionen verwendet, um rechteckige Bereiche von Konsolenbildschirm Puffern anzugeben, wobei die Koordinaten die Zeilen und Spalten von Bildschirm Puffer Zeichen Zellen angeben.
 
-<a name="examples"></a>Beispiele
---------
+## <a name="examples"></a>Beispiele
 
 Ein Beispiel finden Sie unter [Scrollen des Inhalts eines Bildschirm Puffers](scrolling-a-screen-buffer-s-contents.md).
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>Wincontypes. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | Wincontypes. h (über WinCon. h, Include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
-
+## <a name="see-also"></a>Weitere Informationen
 
 [**Rect**](https://msdn.microsoft.com/library/windows/desktop/dd162897)
 
 [**RECTL**](https://msdn.microsoft.com/library/windows/desktop/dd162907)
-
- 
-
- 
-
-
-
-

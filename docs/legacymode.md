@@ -3,15 +3,15 @@ title: Legacy-Konsolenmodus – Windows-Desktop
 description: Der Legacy Konsolenmodus ist ein Kompatibilitäts Tool zur Unterstützung beim Ausführen von Befehlszeilen Anwendungen, die möglicherweise nicht mit dem Windows 10-Konsolen Host funktionieren.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
+ms.topic: conceptual
 ms.prod: console
 keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API, Kompatibilität
-ms.openlocfilehash: a69e192426cc178ae98565db07c49f9ff2ce4961
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: eeddfd00ffa8c3ad9d99583b89e4b3be7959f445
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060035"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037708"
 ---
 # <a name="legacy-console-mode"></a>Legacy-Konsolenmodus
 
@@ -25,7 +25,8 @@ Klicken Sie mit der rechten Maustaste auf die Titelleiste der Anwendung, und wä
 
 Die Einstellung kann wieder hergestellt werden, indem Sie zum gleichen Eigenschaften Blatt Menü zurückkehren und dann das Kontrollkästchen deaktivieren `OK` .
 
-**Hinweis:** Diese Einstellung wird global auf alle Sitzungen angewendet, die gestartet werden, nachdem die Einstellung geändert wurde. Sitzungen, die bereits geöffnet sind, werden nicht geändert.
+> [!NOTE]
+>Diese Einstellung wird global auf alle Sitzungen angewendet, die gestartet werden, nachdem die Einstellung geändert wurde. Sitzungen, die bereits geöffnet sind, werden nicht geändert.
 
 ## <a name="differences-between-modes"></a>Unterschiede zwischen Modi
 
@@ -41,6 +42,6 @@ Der ältere Konsolen Host hat den Vorschlags Teil des IME innerhalb des hostingf
 
 ### <a name="api-differences"></a>API-Unterschiede
 
-Der Hauptunterschied zwischen Legacy und Current ist die Implementierung von UTF-8. Der Legacy Host hat eine extrem rudimentäre und häufig falsche Unterstützung von UTF-8 mit der [Codepage 65001](https://docs.microsoft.com/windows/win32/intl/code-pages). Der aktuelle Konsolen Host enthält inkrementelle Verbesserungen der Freigabe von Windows 10, um diese Unterstützung zu verbessern. Anwendungen, die versuchen, sich auf die Vorhersage von UTF-8 von UTF-8 von der Legacy Konsole aus zu verlassen, erhalten unterschiedliche Antworten, da die Unterstützung verbessert wird. 
+Der Hauptunterschied zwischen Legacy und Current ist die Implementierung von UTF-8. Der Legacy Host hat eine extrem rudimentäre und häufig falsche Unterstützung von UTF-8 mit der [Codepage 65001](https://docs.microsoft.com/windows/win32/intl/code-pages). Der aktuelle Konsolen Host enthält inkrementelle Verbesserungen der Freigabe von Windows 10, um diese Unterstützung zu verbessern. Anwendungen, die versuchen, sich auf die Vorhersage von UTF-8 von UTF-8 von der Legacy Konsole aus zu verlassen, erhalten unterschiedliche Antworten, da die Unterstützung verbessert wird.
 
-Andere Unterschiede in Bezug auf APIs sollten an das [Microsoft/Terminal](https://github.com/microsoft/terminal/) -GitHub-Repository oder über den [Feedback-Hub](https://docs.microsoft.com/windows-insider/feedback-hub/feedback-hub-app) gesendet werden, um selektiert und eine mögliche Behebung zu beheben.
+Andere Unterschiede in Bezug auf APIs sollten dem [Microsoft/Terminal-GitHub-Repository](https://github.com/microsoft/terminal/) oder über den [Feedback-Hub](https://docs.microsoft.com/windows-insider/feedback-hub/feedback-hub-app) für selektiert und mögliche Behebung gemeldet werden.

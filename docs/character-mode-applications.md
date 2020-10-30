@@ -1,10 +1,10 @@
 ---
-title: Trö
+title: Zeichenmodus-Anwendungen
 description: Konsolen verwalten Eingabe und Ausgabe (e/a) für Anwendungen im Zeichenmodus (Anwendungen, die keine eigene grafische Benutzeroberfläche bereitstellen).
 author: miniksa
 ms.author: miniksa
-ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+ms.topic: conceptual
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 MS-HAID:
 - '\_win32\_character\_mode\_applications'
 - base.character\_mode\_applications
@@ -13,15 +13,14 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: ea3ea214-892c-4953-bc22-7905efbc173f
-ms.openlocfilehash: 99f351efbf6b68733b5c3e7b94cee03708d6cbef
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 5e1b0b2b5162360122580f3ea7a100750b96272e
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060203"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037348"
 ---
-# <a name="consoles"></a>Trö
-
+# <a name="character-mode-applications"></a>Zeichenmodus-Anwendungen
 
 Konsolen verwalten Eingabe und Ausgabe (e/a) für Anwendungen im Zeichenmodus (Anwendungen, die keine eigene grafische Benutzeroberfläche bereitstellen).
 
@@ -29,14 +28,6 @@ Die Konsolenfunktionen ermöglichen unterschiedliche Zugriffsebenen auf eine Kon
 
 In dieser Übersicht wird die Unterstützung für Anwendungen im Zeichenmodus beschrieben.
 
-- [Informationen zu-Konsolen](about-character-mode-applications.md)
+- [Informationen zu Konsolen](about-character-mode-applications.md)
 - [Verwenden der Konsole](using-the-console.md)
 - [Konsolen Referenz](console-reference.md)
-
- 
-
- 
-
-
-
-

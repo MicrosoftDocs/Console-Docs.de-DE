@@ -4,7 +4,7 @@ description: Ruft die erforderliche Größe für den Puffer ab, der von der getc
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi3/GetConsoleAliasesLength
 - wincon/GetConsoleAliasesLength
@@ -32,106 +32,63 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 23d820574aab837c89f2598e9934536b91715426
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 395acba39600fe1a98a80ed06ea23646b0b9f174
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059810"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038958"
 ---
 # <a name="getconsolealiaseslength-function"></a>Getconsolealiaseslength-Funktion
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Ruft die erforderliche Größe für den Puffer ab, der von der [**getconsolealiases**](getconsolealiases.md) -Funktion verwendet wird.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 DWORD WINAPI GetConsoleAliasesLength(
-  _In_ LPTSTR lpExeName
+  _In_ LPTSTR lpExeName
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *lpexename* \[ in\]  
 Der Name der ausführbaren Datei, deren Konsolen Aliase abgerufen werden sollen.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Die Größe des Puffers, der zum Speichern aller für diese ausführbaren Datei definierten Konsolen Aliase in Bytes erforderlich ist.
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
-Um eine Anwendung zu kompilieren, die diese Funktion verwendet, definieren Sie ** \_ Win32 \_ Winnt** als 0x0501 oder höher. Weitere Informationen finden Sie unter [Verwenden der Windows-Header](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Um eine Anwendung zu kompilieren, die diese Funktion verwendet, definieren Sie **\_ Win32 \_ Winnt** als 0x0501 oder höher. Weitere Informationen finden Sie unter [Verwenden der Windows-Header](https://msdn.microsoft.com/library/windows/desktop/aa383745).
 
-<a name="requirements"></a>Anforderungen
-------------
+[!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi3. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Unicode- und ANSI-Name</p></td>
-<td><p><strong>Getconsolealiaseslengthw</strong> (Unicode) und <strong>getconsolealiaseslengtha</strong> (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi3. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
+| Unicode- und ANSI-Name | **Getconsolealiaseslengthw** (Unicode) und **getconsolealiaseslengtha** (ANSI) |
 
+## <a name="see-also"></a>Weitere Informationen
 
-[**Addconsolealias**](addconsolealias.md)
+[**AddConsoleAlias**](addconsolealias.md)
 
-[Konsolen Aliase](console-aliases.md)
+[Konsolenaliase](console-aliases.md)
 
 [Konsolenfunktionen](console-functions.md)
 
-[**Getconsolealias**](getconsolealias.md)
+[**GetConsoleAlias**](getconsolealias.md)
 
-[**Getconsolealiases**](getconsolealiases.md)
+[**GetConsoleAliases**](getconsolealiases.md)
 
-[**Getconsolealiasexes**](getconsolealiasexes.md)
-
- 
-
- 
-
-
-
-
+[**GetConsoleAliasExes**](getconsolealiasexes.md)

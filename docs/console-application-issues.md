@@ -1,10 +1,10 @@
 ---
-title: Konsolen Anwendungsprobleme
+title: Probleme mit der Konsolenanwendung
 description: Überprüfen Sie Konsolen Anwendungsprobleme, z. b. Funktionen, die Zeichen folgen im OEM-Zeichensatz akzeptieren oder zurückgeben, oder Funktionen, die ANSI-Zeichensatz Zeichenfolgen verwenden
 author: miniksa
 ms.author: miniksa
-ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+ms.topic: conceptual
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 MS-HAID:
 - '\_win32\_console\_application\_issues'
 - base.console\_application\_issues
@@ -13,18 +13,20 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: a561fbdd-b50d-4687-92d7-735377a7991d
-ms.openlocfilehash: 4bf0d6792a991d8ae141ec0b1b9c940311e00ab9
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: a1e49e605d1379984ebff7d1737db5ef96c4ff0f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060170"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038458"
 ---
-# <a name="console-application-issues"></a>Konsolen Anwendungsprobleme
+# <a name="console-application-issues"></a>Probleme mit der Konsolenanwendung
 
 Die 8-Bit-Konsolenfunktionen verwenden die OEM-Codepage. Alle anderen Funktionen verwenden standardmäßig die ANSI-Codepage. Dies bedeutet, dass Zeichen folgen, die von den Konsolenfunktionen zurückgegeben werden, von den anderen Funktionen möglicherweise nicht ordnungsgemäß verarbeitet werden und umgekehrt. Wenn **findfirstmelea** z. b. eine Zeichenfolge zurückgibt, die bestimmte Erweiterte ANSI-Zeichen enthält, wird die Zeichenfolge in " **Write-Consolea** " nicht ordnungsgemäß angezeigt.
 
-Die beste langfristige Lösung für eine Konsolenanwendung ist die Verwendung von Unicode. Wenn Sie diese Lösung auslassen, sollte eine Konsolenanwendung die [setfileapistooem](https://msdn.microsoft.com/library/windows/desktop/aa365534) -Funktion verwenden. Diese Funktion ändert relevante Dateifunktionen, sodass Sie anstelle von ANSI-Zeichen folgen Zeichen folgen für den OEM-Zeichensatz erzeugt werden.
+Die beste langfristige Lösung für eine Konsolenanwendung ist die Verwendung von **[Unicode](https://docs.microsoft.com/windows/win32/intl/unicode)** . Die-Konsole akzeptiert UTF-16-Codierung für die W-Variante der APIs oder UTF-8-Codierung für eine Variante der APIs nach der Verwendung von **[setconsolecp](setconsolecp.md)** und **[setconsoleoutputcp](setconsoleoutputcp.md)** `65001` `CP_UTF8` für die UTF-8-Codepage (konstant).
+
+Wenn Sie diese Lösung auslassen, sollte eine Konsolenanwendung die [setfileapistooem](https://msdn.microsoft.com/library/windows/desktop/aa365534) -Funktion verwenden. Diese Funktion ändert relevante Dateifunktionen, sodass Sie anstelle von ANSI-Zeichen folgen Zeichen folgen für den OEM-Zeichensatz erzeugt werden.
 
 Im folgenden sind die Dateifunktionen aufgeführt:
 
