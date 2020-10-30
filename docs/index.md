@@ -3,15 +3,15 @@ title: Konsolendokumentation
 description: Lesen Sie die Startseite zur Windows-Konsolendokumentation, in der beschrieben wird, wie Sie die Windows-Konsole programmseitig steuern und mit ihr interagieren können.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
+ms.topic: landing-page
 keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
-ms.openlocfilehash: 7e78e0ab28a32dd43d1751491ddc9263d957bb11
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: e8dcb122f416c92e6d7a89a3090224e11198452e
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89058515"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93038568"
 ---
-# <a name="welcome-to-the-windows-console-documentation"></a><span data-ttu-id="9d18b-104">Willkommen bei der Windows-Konsolendokumentation.</span><span class="sxs-lookup"><span data-stu-id="9d18b-104">Welcome to the Windows Console documentation!</span></span>
+# <a name="welcome-to-the-windows-console-documentation"></a><span data-ttu-id="6e97c-104">Willkommen bei der Windows-Konsolendokumentation.</span><span class="sxs-lookup"><span data-stu-id="6e97c-104">Welcome to the Windows Console documentation!</span></span>
 
-<span data-ttu-id="9d18b-105">In den Abschnitten links auf dieser Seite finden Sie Informationen zu den Konzepten, APIs und verwandten Funktionen, Strukturen usw., mit denen Sie die Windows-Konsole programmseitig steuern und mit ihnen interagieren können.</span><span class="sxs-lookup"><span data-stu-id="9d18b-105">In the sections on the left of this page, you'll find information about the concepts, APIs and related functions, structures, etc. through which you can programmatically control and interact with the Windows Console.</span></span>
+<span data-ttu-id="6e97c-105">In den Abschnitten links auf dieser Seite finden Sie Informationen zu den Konzepten, APIs und verwandten Funktionen, Strukturen usw., mit denen Sie die Windows-Konsole programmseitig steuern und mit ihnen interagieren können.</span><span class="sxs-lookup"><span data-stu-id="6e97c-105">In the sections on the left of this page, you'll find information about the concepts, APIs and related functions, structures, etc. through which you can programmatically control and interact with the Windows Console.</span></span>

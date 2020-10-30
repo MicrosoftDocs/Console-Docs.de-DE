@@ -4,7 +4,7 @@ description: Liest Zeichen-und Farb Attributdaten aus einem rechteckigen Block v
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/ReadConsoleOutput
 - wincon/ReadConsoleOutput
@@ -36,147 +36,103 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 382ed9cd06586ab86097c6efd2f6b8ea92f03eaf
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 0ce2a5a62ee7719d0184247c9ef3327850e12c1b
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060410"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037758"
 ---
-# <a name="readconsoleoutput-function"></a><span data-ttu-id="bc164-104">Funktion "Read consoleoutput"</span><span class="sxs-lookup"><span data-stu-id="bc164-104">ReadConsoleOutput function</span></span>
+# <a name="readconsoleoutput-function"></a><span data-ttu-id="e946b-104">Funktion "Read consoleoutput"</span><span class="sxs-lookup"><span data-stu-id="e946b-104">ReadConsoleOutput function</span></span>
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
-<span data-ttu-id="bc164-105">Liest Zeichen-und Farb Attributdaten aus einem rechteckigen Block von Zeichen Zellen in einem Konsolenbildschirm Puffer, und die-Funktion schreibt die Daten in einen rechteckigen Block an einer bestimmten Position im Ziel Puffer.</span><span class="sxs-lookup"><span data-stu-id="bc164-105">Reads character and color attribute data from a rectangular block of character cells in a console screen buffer, and the function writes the data to a rectangular block at a specified location in the destination buffer.</span></span>
+<span data-ttu-id="e946b-105">Liest Zeichen-und Farb Attributdaten aus einem rechteckigen Block von Zeichen Zellen in einem Konsolenbildschirm Puffer, und die-Funktion schreibt die Daten in einen rechteckigen Block an einer bestimmten Position im Ziel Puffer.</span><span class="sxs-lookup"><span data-stu-id="e946b-105">Reads character and color attribute data from a rectangular block of character cells in a console screen buffer, and the function writes the data to a rectangular block at a specified location in the destination buffer.</span></span>
 
-<a name="syntax"></a><span data-ttu-id="bc164-106">Syntax</span><span class="sxs-lookup"><span data-stu-id="bc164-106">Syntax</span></span>
-------
+## <a name="syntax"></a><span data-ttu-id="e946b-106">Syntax</span><span class="sxs-lookup"><span data-stu-id="e946b-106">Syntax</span></span>
 
 ```C
 BOOL WINAPI ReadConsoleOutput(
-  _In_    HANDLE      hConsoleOutput,
-  _Out_   PCHAR_INFO  lpBuffer,
-  _In_    COORD       dwBufferSize,
-  _In_    COORD       dwBufferCoord,
-  _Inout_ PSMALL_RECT lpReadRegion
+  _In_    HANDLE      hConsoleOutput,
+  _Out_   PCHAR_INFO  lpBuffer,
+  _In_    COORD       dwBufferSize,
+  _In_    COORD       dwBufferCoord,
+  _Inout_ PSMALL_RECT lpReadRegion
 );
 ```
 
-<a name="parameters"></a><span data-ttu-id="bc164-107">Parameter</span><span class="sxs-lookup"><span data-stu-id="bc164-107">Parameters</span></span>
-----------
+## <a name="parameters"></a><span data-ttu-id="e946b-107">Parameter</span><span class="sxs-lookup"><span data-stu-id="e946b-107">Parameters</span></span>
 
-<span data-ttu-id="bc164-108">*hconsoleoutput* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="bc164-108">*hConsoleOutput* \[in\]</span></span>  
-<span data-ttu-id="bc164-109">Ein Handle für den Bildschirm Puffer der Konsole.</span><span class="sxs-lookup"><span data-stu-id="bc164-109">A handle to the console screen buffer.</span></span> <span data-ttu-id="bc164-110">Das Handle muss über das **allgemeine \_ Lese** Zugriffsrecht verfügen.</span><span class="sxs-lookup"><span data-stu-id="bc164-110">The handle must have the **GENERIC\_READ** access right.</span></span> <span data-ttu-id="bc164-111">Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).</span><span class="sxs-lookup"><span data-stu-id="bc164-111">For more information, see [Console Buffer Security and Access Rights](console-buffer-security-and-access-rights.md).</span></span>
+<span data-ttu-id="e946b-108">*hconsoleoutput* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="e946b-108">*hConsoleOutput* \[in\]</span></span>  
+<span data-ttu-id="e946b-109">Ein Handle für den Bildschirm Puffer der Konsole.</span><span class="sxs-lookup"><span data-stu-id="e946b-109">A handle to the console screen buffer.</span></span> <span data-ttu-id="e946b-110">Das Handle muss über das **allgemeine \_ Lese** Zugriffsrecht verfügen.</span><span class="sxs-lookup"><span data-stu-id="e946b-110">The handle must have the **GENERIC\_READ** access right.</span></span> <span data-ttu-id="e946b-111">Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).</span><span class="sxs-lookup"><span data-stu-id="e946b-111">For more information, see [Console Buffer Security and Access Rights](console-buffer-security-and-access-rights.md).</span></span>
 
-<span data-ttu-id="bc164-112">*lpBuffer* \[ vorgenommen\]</span><span class="sxs-lookup"><span data-stu-id="bc164-112">*lpBuffer* \[out\]</span></span>  
-<span data-ttu-id="bc164-113">Ein Zeiger auf einen Ziel Puffer, der die aus dem Konsolenbildschirm Puffer gelesenen Daten empfängt.</span><span class="sxs-lookup"><span data-stu-id="bc164-113">A pointer to a destination buffer that receives the data read from the console screen buffer.</span></span> <span data-ttu-id="bc164-114">Dieser Zeiger wird als Ursprung eines zweidimensionalen Arrays von [**Char \_ Info**](char-info-str.md) -Strukturen behandelt, deren Größe durch den *dwbuffersize* -Parameter angegeben wird.</span><span class="sxs-lookup"><span data-stu-id="bc164-114">This pointer is treated as the origin of a two-dimensional array of [**CHAR\_INFO**](char-info-str.md) structures whose size is specified by the *dwBufferSize* parameter.</span></span>
+<span data-ttu-id="e946b-112">*lpBuffer* \[ vorgenommen\]</span><span class="sxs-lookup"><span data-stu-id="e946b-112">*lpBuffer* \[out\]</span></span>  
+<span data-ttu-id="e946b-113">Ein Zeiger auf einen Ziel Puffer, der die aus dem Konsolenbildschirm Puffer gelesenen Daten empfängt.</span><span class="sxs-lookup"><span data-stu-id="e946b-113">A pointer to a destination buffer that receives the data read from the console screen buffer.</span></span> <span data-ttu-id="e946b-114">Dieser Zeiger wird als Ursprung eines zweidimensionalen Arrays von [**Char \_ Info**](char-info-str.md) -Strukturen behandelt, deren Größe durch den *dwbuffersize* -Parameter angegeben wird.</span><span class="sxs-lookup"><span data-stu-id="e946b-114">This pointer is treated as the origin of a two-dimensional array of [**CHAR\_INFO**](char-info-str.md) structures whose size is specified by the *dwBufferSize* parameter.</span></span>
 
-<span data-ttu-id="bc164-115">*dwbuffersize* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="bc164-115">*dwBufferSize* \[in\]</span></span>  
-<span data-ttu-id="bc164-116">Die Größe des *lpBuffer* -Parameters in Zeichen Zellen.</span><span class="sxs-lookup"><span data-stu-id="bc164-116">The size of the *lpBuffer* parameter, in character cells.</span></span> <span data-ttu-id="bc164-117">Der **X** -Member der [**coord**](coord-str.md) -Struktur ist die Anzahl der Spalten. der **Y** -Member ist die Anzahl der Zeilen.</span><span class="sxs-lookup"><span data-stu-id="bc164-117">The **X** member of the [**COORD**](coord-str.md) structure is the number of columns; the **Y** member is the number of rows.</span></span>
+<span data-ttu-id="e946b-115">*dwbuffersize* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="e946b-115">*dwBufferSize* \[in\]</span></span>  
+<span data-ttu-id="e946b-116">Die Größe des *lpBuffer* -Parameters in Zeichen Zellen.</span><span class="sxs-lookup"><span data-stu-id="e946b-116">The size of the *lpBuffer* parameter, in character cells.</span></span> <span data-ttu-id="e946b-117">Der **X** -Member der [**coord**](coord-str.md) -Struktur ist die Anzahl der Spalten. der **Y** -Member ist die Anzahl der Zeilen.</span><span class="sxs-lookup"><span data-stu-id="e946b-117">The **X** member of the [**COORD**](coord-str.md) structure is the number of columns; the **Y** member is the number of rows.</span></span>
 
-<span data-ttu-id="bc164-118">*dwbuffercoord* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="bc164-118">*dwBufferCoord* \[in\]</span></span>  
-<span data-ttu-id="bc164-119">Die Koordinaten der linken oberen Zelle im *lpBuffer* -Parameter, die die aus dem Konsolenbildschirm Puffer gelesenen Daten empfängt.</span><span class="sxs-lookup"><span data-stu-id="bc164-119">The coordinates of the upper-left cell in the *lpBuffer* parameter that receives the data read from the console screen buffer.</span></span> <span data-ttu-id="bc164-120">Der **X** -Member der [**coord**](coord-str.md) -Struktur ist die-Spalte, und der **Y** -Member ist die Zeile.</span><span class="sxs-lookup"><span data-stu-id="bc164-120">The **X** member of the [**COORD**](coord-str.md) structure is the column, and the **Y** member is the row.</span></span>
+<span data-ttu-id="e946b-118">*dwbuffercoord* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="e946b-118">*dwBufferCoord* \[in\]</span></span>  
+<span data-ttu-id="e946b-119">Die Koordinaten der linken oberen Zelle im *lpBuffer* -Parameter, die die aus dem Konsolenbildschirm Puffer gelesenen Daten empfängt.</span><span class="sxs-lookup"><span data-stu-id="e946b-119">The coordinates of the upper-left cell in the *lpBuffer* parameter that receives the data read from the console screen buffer.</span></span> <span data-ttu-id="e946b-120">Der **X** -Member der [**coord**](coord-str.md) -Struktur ist die-Spalte, und der **Y** -Member ist die Zeile.</span><span class="sxs-lookup"><span data-stu-id="e946b-120">The **X** member of the [**COORD**](coord-str.md) structure is the column, and the **Y** member is the row.</span></span>
 
-<span data-ttu-id="bc164-121">*lpreadregion* \[ in, out\]</span><span class="sxs-lookup"><span data-stu-id="bc164-121">*lpReadRegion* \[in, out\]</span></span>  
-<span data-ttu-id="bc164-122">Ein Zeiger auf eine [**kleine \_ Rect**](small-rect-str.md) -Struktur.</span><span class="sxs-lookup"><span data-stu-id="bc164-122">A pointer to a [**SMALL\_RECT**](small-rect-str.md) structure.</span></span> <span data-ttu-id="bc164-123">Bei der Eingabe geben die Strukturmember die oberen linken und unteren rechten Koordinaten des Konsolenbildschirm-Puffer Rechtecks an, von dem die Funktion gelesen werden soll.</span><span class="sxs-lookup"><span data-stu-id="bc164-123">On input, the structure members specify the upper-left and lower-right coordinates of the console screen buffer rectangle from which the function is to read.</span></span> <span data-ttu-id="bc164-124">Bei der Ausgabe geben die Strukturmember das tatsächliche Rechteck an, das verwendet wurde.</span><span class="sxs-lookup"><span data-stu-id="bc164-124">On output, the structure members specify the actual rectangle that was used.</span></span>
+<span data-ttu-id="e946b-121">*lpreadregion* \[ in, out\]</span><span class="sxs-lookup"><span data-stu-id="e946b-121">*lpReadRegion* \[in, out\]</span></span>  
+<span data-ttu-id="e946b-122">Ein Zeiger auf eine [**kleine \_ Rect**](small-rect-str.md) -Struktur.</span><span class="sxs-lookup"><span data-stu-id="e946b-122">A pointer to a [**SMALL\_RECT**](small-rect-str.md) structure.</span></span> <span data-ttu-id="e946b-123">Bei der Eingabe geben die Strukturmember die oberen linken und unteren rechten Koordinaten des Konsolenbildschirm-Puffer Rechtecks an, von dem die Funktion gelesen werden soll.</span><span class="sxs-lookup"><span data-stu-id="e946b-123">On input, the structure members specify the upper-left and lower-right coordinates of the console screen buffer rectangle from which the function is to read.</span></span> <span data-ttu-id="e946b-124">Bei der Ausgabe geben die Strukturmember das tatsächliche Rechteck an, das verwendet wurde.</span><span class="sxs-lookup"><span data-stu-id="e946b-124">On output, the structure members specify the actual rectangle that was used.</span></span>
 
-<a name="return-value"></a><span data-ttu-id="bc164-125">Rückgabewert</span><span class="sxs-lookup"><span data-stu-id="bc164-125">Return value</span></span>
-------------
+## <a name="return-value"></a><span data-ttu-id="e946b-125">Rückgabewert</span><span class="sxs-lookup"><span data-stu-id="e946b-125">Return value</span></span>
 
-<span data-ttu-id="bc164-126">Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).</span><span class="sxs-lookup"><span data-stu-id="bc164-126">If the function succeeds, the return value is nonzero.</span></span>
+<span data-ttu-id="e946b-126">Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).</span><span class="sxs-lookup"><span data-stu-id="e946b-126">If the function succeeds, the return value is nonzero.</span></span>
 
-<span data-ttu-id="bc164-127">Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null.</span><span class="sxs-lookup"><span data-stu-id="bc164-127">If the function fails, the return value is zero.</span></span> <span data-ttu-id="bc164-128">Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span><span class="sxs-lookup"><span data-stu-id="bc164-128">To get extended error information, call [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span></span>
+<span data-ttu-id="e946b-127">Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null.</span><span class="sxs-lookup"><span data-stu-id="e946b-127">If the function fails, the return value is zero.</span></span> <span data-ttu-id="e946b-128">Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span><span class="sxs-lookup"><span data-stu-id="e946b-128">To get extended error information, call [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).</span></span>
 
-<a name="remarks"></a><span data-ttu-id="bc164-129">Hinweise</span><span class="sxs-lookup"><span data-stu-id="bc164-129">Remarks</span></span>
--------
+## <a name="remarks"></a><span data-ttu-id="e946b-129">Bemerkungen</span><span class="sxs-lookup"><span data-stu-id="e946b-129">Remarks</span></span>
 
-<span data-ttu-id="bc164-130">Der Bildschirm Puffer der Konsole und der Ziel Puffer werden von "read **consoleoutput** " als zweidimensionale Arrays (Spalten und Zeilen von Zeichen Zellen) behandelt.</span><span class="sxs-lookup"><span data-stu-id="bc164-130">**ReadConsoleOutput** treats the console screen buffer and the destination buffer as two-dimensional arrays (columns and rows of character cells).</span></span> <span data-ttu-id="bc164-131">Das Rechteck, auf das durch den *lpreadregion* -Parameter verwiesen wird, gibt die Größe und Position des Blocks an, der aus dem Konsolenbildschirm Puffer gelesen werden soll.</span><span class="sxs-lookup"><span data-stu-id="bc164-131">The rectangle pointed to by the *lpReadRegion* parameter specifies the size and location of the block to be read from the console screen buffer.</span></span> <span data-ttu-id="bc164-132">Ein Ziel Rechteck derselben Größe befindet sich mit seiner oberen linken Zelle an den Koordinaten des Parameters " *dwbuffercoord* " im *lpBuffer* -Array.</span><span class="sxs-lookup"><span data-stu-id="bc164-132">A destination rectangle of the same size is located with its upper-left cell at the coordinates of the *dwBufferCoord* parameter in the *lpBuffer* array.</span></span> <span data-ttu-id="bc164-133">Aus den Zellen des Konsolenbildschirm-Puffer Quell Rechtecks gelesene Daten werden in die entsprechenden Zellen im Ziel Puffer kopiert.</span><span class="sxs-lookup"><span data-stu-id="bc164-133">Data read from the cells in the console screen buffer source rectangle is copied to the corresponding cells in the destination buffer.</span></span> <span data-ttu-id="bc164-134">Wenn sich die entsprechende Zelle außerhalb der Grenzen des Ziel Puffer Rechtecks befindet (dessen Abmessungen durch den *dwbuffersize* -Parameter angegeben werden), werden die Daten nicht kopiert.</span><span class="sxs-lookup"><span data-stu-id="bc164-134">If the corresponding cell is outside the boundaries of the destination buffer rectangle (whose dimensions are specified by the *dwBufferSize* parameter), the data is not copied.</span></span>
+<span data-ttu-id="e946b-130">Der Bildschirm Puffer der Konsole und der Ziel Puffer werden von "read **consoleoutput** " als zweidimensionale Arrays (Spalten und Zeilen von Zeichen Zellen) behandelt.</span><span class="sxs-lookup"><span data-stu-id="e946b-130">**ReadConsoleOutput** treats the console screen buffer and the destination buffer as two-dimensional arrays (columns and rows of character cells).</span></span> <span data-ttu-id="e946b-131">Das Rechteck, auf das durch den *lpreadregion* -Parameter verwiesen wird, gibt die Größe und Position des Blocks an, der aus dem Konsolenbildschirm Puffer gelesen werden soll.</span><span class="sxs-lookup"><span data-stu-id="e946b-131">The rectangle pointed to by the *lpReadRegion* parameter specifies the size and location of the block to be read from the console screen buffer.</span></span> <span data-ttu-id="e946b-132">Ein Ziel Rechteck derselben Größe befindet sich mit seiner oberen linken Zelle an den Koordinaten des Parameters " *dwbuffercoord* " im *lpBuffer* -Array.</span><span class="sxs-lookup"><span data-stu-id="e946b-132">A destination rectangle of the same size is located with its upper-left cell at the coordinates of the *dwBufferCoord* parameter in the *lpBuffer* array.</span></span> <span data-ttu-id="e946b-133">Aus den Zellen des Konsolenbildschirm-Puffer Quell Rechtecks gelesene Daten werden in die entsprechenden Zellen im Ziel Puffer kopiert.</span><span class="sxs-lookup"><span data-stu-id="e946b-133">Data read from the cells in the console screen buffer source rectangle is copied to the corresponding cells in the destination buffer.</span></span> <span data-ttu-id="e946b-134">Wenn sich die entsprechende Zelle außerhalb der Grenzen des Ziel Puffer Rechtecks befindet (dessen Abmessungen durch den *dwbuffersize* -Parameter angegeben werden), werden die Daten nicht kopiert.</span><span class="sxs-lookup"><span data-stu-id="e946b-134">If the corresponding cell is outside the boundaries of the destination buffer rectangle (whose dimensions are specified by the *dwBufferSize* parameter), the data is not copied.</span></span>
 
-<span data-ttu-id="bc164-135">Zellen im Ziel Puffer, die den Koordinaten entsprechen, die sich nicht innerhalb der Grenzen des Konsolenbildschirm Puffers befinden, bleiben unverändert.</span><span class="sxs-lookup"><span data-stu-id="bc164-135">Cells in the destination buffer corresponding to coordinates that are not within the boundaries of the console screen buffer are left unchanged.</span></span> <span data-ttu-id="bc164-136">Anders ausgedrückt: Dies sind die Zellen, für die keine Bildschirm Puffer Daten zum Lesen verfügbar sind.</span><span class="sxs-lookup"><span data-stu-id="bc164-136">In other words, these are the cells for which no screen buffer data is available to be read.</span></span>
+<span data-ttu-id="e946b-135">Zellen im Ziel Puffer, die den Koordinaten entsprechen, die sich nicht innerhalb der Grenzen des Konsolenbildschirm Puffers befinden, bleiben unverändert.</span><span class="sxs-lookup"><span data-stu-id="e946b-135">Cells in the destination buffer corresponding to coordinates that are not within the boundaries of the console screen buffer are left unchanged.</span></span> <span data-ttu-id="e946b-136">Anders ausgedrückt: Dies sind die Zellen, für die keine Bildschirm Puffer Daten zum Lesen verfügbar sind.</span><span class="sxs-lookup"><span data-stu-id="e946b-136">In other words, these are the cells for which no screen buffer data is available to be read.</span></span>
 
-<span data-ttu-id="bc164-137">Vor der Rückgabe von "read **consoleoutput** " werden die Member der Struktur, auf die durch den *lpreadregion* -Parameter verwiesen wird, auf das tatsächliche Bildschirm Puffer Rechteck festgelegt, dessen Zellen in den Ziel Puffer kopiert wurden.</span><span class="sxs-lookup"><span data-stu-id="bc164-137">Before **ReadConsoleOutput** returns, it sets the members of the structure pointed to by the *lpReadRegion* parameter to the actual screen buffer rectangle whose cells were copied into the destination buffer.</span></span> <span data-ttu-id="bc164-138">Dieses Rechteck reflektiert die Zellen im Quell Rechteck, für die im Ziel Puffer eine entsprechende Zelle vorhanden war, da die Dimensionen des Quell Rechtecks von "read **consoleoutput** " an die Grenzen des Konsolenbildschirm Puffers angepasst werden.</span><span class="sxs-lookup"><span data-stu-id="bc164-138">This rectangle reflects the cells in the source rectangle for which there existed a corresponding cell in the destination buffer, because **ReadConsoleOutput** clips the dimensions of the source rectangle to fit the boundaries of the console screen buffer.</span></span>
+<span data-ttu-id="e946b-137">Vor der Rückgabe von "read **consoleoutput** " werden die Member der Struktur, auf die durch den *lpreadregion* -Parameter verwiesen wird, auf das tatsächliche Bildschirm Puffer Rechteck festgelegt, dessen Zellen in den Ziel Puffer kopiert wurden.</span><span class="sxs-lookup"><span data-stu-id="e946b-137">Before **ReadConsoleOutput** returns, it sets the members of the structure pointed to by the *lpReadRegion* parameter to the actual screen buffer rectangle whose cells were copied into the destination buffer.</span></span> <span data-ttu-id="e946b-138">Dieses Rechteck reflektiert die Zellen im Quell Rechteck, für die im Ziel Puffer eine entsprechende Zelle vorhanden war, da die Dimensionen des Quell Rechtecks von "read **consoleoutput** " an die Grenzen des Konsolenbildschirm Puffers angepasst werden.</span><span class="sxs-lookup"><span data-stu-id="e946b-138">This rectangle reflects the cells in the source rectangle for which there existed a corresponding cell in the destination buffer, because **ReadConsoleOutput** clips the dimensions of the source rectangle to fit the boundaries of the console screen buffer.</span></span>
 
-<span data-ttu-id="bc164-139">Wenn das von *lpreadregion* angegebene Rechteck vollständig außerhalb der Grenzen des Konsolenbildschirm Puffers liegt oder das entsprechende Rechteck vollständig außerhalb der Grenzen des Ziel Puffers positioniert ist, werden keine Daten kopiert.</span><span class="sxs-lookup"><span data-stu-id="bc164-139">If the rectangle specified by *lpReadRegion* lies completely outside the boundaries of the console screen buffer, or if the corresponding rectangle is positioned completely outside the boundaries of the destination buffer, no data is copied.</span></span> <span data-ttu-id="bc164-140">In diesem Fall gibt die-Funktion mit den Elementen der Struktur zurück, auf die durch den *lpreadregion* -Parametersatz verwiesen wird, sodass der **Rechte** Member kleiner als der **linke**Wert ist oder der **untere** Member kleiner als der **obere**Wert ist.</span><span class="sxs-lookup"><span data-stu-id="bc164-140">In this case, the function returns with the members of the structure pointed to by the *lpReadRegion* parameter set such that the **Right** member is less than the **Left**, or the **Bottom** member is less than the **Top**.</span></span> <span data-ttu-id="bc164-141">Verwenden Sie die [**getconsoleskreenbufferinfo**](getconsolescreenbufferinfo.md) -Funktion, um die Größe des Konsolenbildschirm Puffers zu bestimmen.</span><span class="sxs-lookup"><span data-stu-id="bc164-141">To determine the size of the console screen buffer, use the [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) function.</span></span>
+<span data-ttu-id="e946b-139">Wenn das von *lpreadregion* angegebene Rechteck vollständig außerhalb der Grenzen des Konsolenbildschirm Puffers liegt oder das entsprechende Rechteck vollständig außerhalb der Grenzen des Ziel Puffers positioniert ist, werden keine Daten kopiert.</span><span class="sxs-lookup"><span data-stu-id="e946b-139">If the rectangle specified by *lpReadRegion* lies completely outside the boundaries of the console screen buffer, or if the corresponding rectangle is positioned completely outside the boundaries of the destination buffer, no data is copied.</span></span> <span data-ttu-id="e946b-140">In diesem Fall gibt die-Funktion mit den Elementen der Struktur zurück, auf die durch den *lpreadregion* -Parametersatz verwiesen wird, sodass der **Rechte** Member kleiner als der **linke** Wert ist oder der **untere** Member kleiner als der **obere** Wert ist.</span><span class="sxs-lookup"><span data-stu-id="e946b-140">In this case, the function returns with the members of the structure pointed to by the *lpReadRegion* parameter set such that the **Right** member is less than the **Left** , or the **Bottom** member is less than the **Top** .</span></span> <span data-ttu-id="e946b-141">Verwenden Sie die [**getconsoleskreenbufferinfo**](getconsolescreenbufferinfo.md) -Funktion, um die Größe des Konsolenbildschirm Puffers zu bestimmen.</span><span class="sxs-lookup"><span data-stu-id="e946b-141">To determine the size of the console screen buffer, use the [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md) function.</span></span>
 
-<span data-ttu-id="bc164-142">Die Funktion "read **consoleoutput** " hat keine Auswirkung auf die Cursorposition des Konsolenbildschirm Puffers.</span><span class="sxs-lookup"><span data-stu-id="bc164-142">The **ReadConsoleOutput** function has no effect on the console screen buffer's cursor position.</span></span> <span data-ttu-id="bc164-143">Der Inhalt des Konsolenbildschirm Puffers wird von der-Funktion nicht geändert.</span><span class="sxs-lookup"><span data-stu-id="bc164-143">The contents of the console screen buffer are not changed by the function.</span></span>
+<span data-ttu-id="e946b-142">Die Funktion "read **consoleoutput** " hat keine Auswirkung auf die Cursorposition des Konsolenbildschirm Puffers.</span><span class="sxs-lookup"><span data-stu-id="e946b-142">The **ReadConsoleOutput** function has no effect on the console screen buffer's cursor position.</span></span> <span data-ttu-id="e946b-143">Der Inhalt des Konsolenbildschirm Puffers wird von der-Funktion nicht geändert.</span><span class="sxs-lookup"><span data-stu-id="e946b-143">The contents of the console screen buffer are not changed by the function.</span></span>
 
-<span data-ttu-id="bc164-144">Diese Funktion verwendet entweder Unicode-Zeichen oder 8-Bit-Zeichen aus der aktuellen Codepage der Konsole.</span><span class="sxs-lookup"><span data-stu-id="bc164-144">This function uses either Unicode characters or 8-bit characters from the console's current code page.</span></span> <span data-ttu-id="bc164-145">Die Standard Codepage der Konsole wird zunächst auf die OEM-Codepage des Systems eingestellt.</span><span class="sxs-lookup"><span data-stu-id="bc164-145">The console's code page defaults initially to the system's OEM code page.</span></span> <span data-ttu-id="bc164-146">Um die Codepage der Konsole zu ändern, verwenden Sie die Funktionen [**setconsolecp**](setconsolecp.md) oder [**setconsoleoutputcp**](setconsoleoutputcp.md) , oder verwenden Sie die Befehle **chcp** oder **Mode con CP Select =** .</span><span class="sxs-lookup"><span data-stu-id="bc164-146">To change the console's code page, use the [**SetConsoleCP**](setconsolecp.md) or [**SetConsoleOutputCP**](setconsoleoutputcp.md) functions, or use the **chcp** or **mode con cp select=** commands.</span></span>
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="examples"></a><span data-ttu-id="bc164-147">Beispiele</span><span class="sxs-lookup"><span data-stu-id="bc164-147">Examples</span></span>
---------
+[!INCLUDE [no-vt-equiv-banner](./includes/no-vt-equiv-banner.md)]
 
-<span data-ttu-id="bc164-148">Ein Beispiel finden Sie unter [Lesen und Schreiben von Zeichen-und Attribut Blöcken](reading-and-writing-blocks-of-characters-and-attributes.md).</span><span class="sxs-lookup"><span data-stu-id="bc164-148">For an example, see [Reading and Writing Blocks of Characters and Attributes](reading-and-writing-blocks-of-characters-and-attributes.md).</span></span>
+## <a name="examples"></a><span data-ttu-id="e946b-144">Beispiele</span><span class="sxs-lookup"><span data-stu-id="e946b-144">Examples</span></span>
 
-<a name="requirements"></a><span data-ttu-id="bc164-149">Anforderungen</span><span class="sxs-lookup"><span data-stu-id="bc164-149">Requirements</span></span>
-------------
+<span data-ttu-id="e946b-145">Ein Beispiel finden Sie unter [Lesen und Schreiben von Zeichen-und Attribut Blöcken](reading-and-writing-blocks-of-characters-and-attributes.md).</span><span class="sxs-lookup"><span data-stu-id="e946b-145">For an example, see [Reading and Writing Blocks of Characters and Attributes](reading-and-writing-blocks-of-characters-and-attributes.md).</span></span>
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><span data-ttu-id="bc164-150">Unterstützte Mindestversion (Client)</span><span class="sxs-lookup"><span data-stu-id="bc164-150">Minimum supported client</span></span></p></td>
-<td><p><span data-ttu-id="bc164-151">Windows 2000 Professional [nur Desktop-Apps]</span><span class="sxs-lookup"><span data-stu-id="bc164-151">Windows 2000 Professional [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="bc164-152">Unterstützte Mindestversion (Server)</span><span class="sxs-lookup"><span data-stu-id="bc164-152">Minimum supported server</span></span></p></td>
-<td><p><span data-ttu-id="bc164-153">Windows 2000 Server [nur Desktop-Apps]</span><span class="sxs-lookup"><span data-stu-id="bc164-153">Windows 2000 Server [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="bc164-154">Header</span><span class="sxs-lookup"><span data-stu-id="bc164-154">Header</span></span></p></td>
-<td><span data-ttu-id="bc164-155">ConsoleApi2. h (über WinCon. h, Include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="bc164-155">ConsoleApi2.h (via Wincon.h, include Windows.h)</span></span></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="bc164-156">Bibliothek</span><span class="sxs-lookup"><span data-stu-id="bc164-156">Library</span></span></p></td>
-<td><span data-ttu-id="bc164-157">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="bc164-157">Kernel32.lib</span></span></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="bc164-158">DLL</span><span class="sxs-lookup"><span data-stu-id="bc164-158">DLL</span></span></p></td>
-<td><span data-ttu-id="bc164-159">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="bc164-159">Kernel32.dll</span></span></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="bc164-160">Unicode- und ANSI-Name</span><span class="sxs-lookup"><span data-stu-id="bc164-160">Unicode and ANSI names</span></span></p></td>
-<td><p><span data-ttu-id="bc164-161">"Read <strong>consoleoutputw</strong> (Unicode)" und "read <strong>consoleoutputa</strong> " (ANSI)</span><span class="sxs-lookup"><span data-stu-id="bc164-161"><strong>ReadConsoleOutputW</strong> (Unicode) and <strong>ReadConsoleOutputA</strong> (ANSI)</span></span></p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a><span data-ttu-id="e946b-146">Requirements (Anforderungen)</span><span class="sxs-lookup"><span data-stu-id="e946b-146">Requirements</span></span>
 
-## <a name="span-idsee_alsospansee-also"></a><span data-ttu-id="bc164-162"><span id="see_also"></span>Siehe auch</span><span class="sxs-lookup"><span data-stu-id="bc164-162"><span id="see_also"></span>See also</span></span>
+| &nbsp; | &nbsp; |
+|-|-|
+| <span data-ttu-id="e946b-147">Unterstützte Mindestversion (Client)</span><span class="sxs-lookup"><span data-stu-id="e946b-147">Minimum supported client</span></span> | <span data-ttu-id="e946b-148">Nur Windows 2000 Professional \[ Desktop-Apps\]</span><span class="sxs-lookup"><span data-stu-id="e946b-148">Windows 2000 Professional \[desktop apps only\]</span></span> |
+| <span data-ttu-id="e946b-149">Unterstützte Mindestversion (Server)</span><span class="sxs-lookup"><span data-stu-id="e946b-149">Minimum supported server</span></span> | <span data-ttu-id="e946b-150">Nur Windows 2000 \[ -Server Desktop-Apps\]</span><span class="sxs-lookup"><span data-stu-id="e946b-150">Windows 2000 Server \[desktop apps only\]</span></span> |
+| <span data-ttu-id="e946b-151">Header</span><span class="sxs-lookup"><span data-stu-id="e946b-151">Header</span></span> | <span data-ttu-id="e946b-152">ConsoleApi2. h (über WinCon. h, Include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="e946b-152">ConsoleApi2.h (via WinCon.h, include Windows.h)</span></span> |
+| <span data-ttu-id="e946b-153">Bibliothek</span><span class="sxs-lookup"><span data-stu-id="e946b-153">Library</span></span> | <span data-ttu-id="e946b-154">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="e946b-154">Kernel32.lib</span></span> |
+| <span data-ttu-id="e946b-155">DLL</span><span class="sxs-lookup"><span data-stu-id="e946b-155">DLL</span></span> | <span data-ttu-id="e946b-156">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="e946b-156">Kernel32.dll</span></span> |
+| <span data-ttu-id="e946b-157">Unicode- und ANSI-Name</span><span class="sxs-lookup"><span data-stu-id="e946b-157">Unicode and ANSI names</span></span> | <span data-ttu-id="e946b-158">"Read **consoleoutputw** (Unicode)" und "read **consoleoutputa** " (ANSI)</span><span class="sxs-lookup"><span data-stu-id="e946b-158">**ReadConsoleOutputW** (Unicode) and **ReadConsoleOutputA** (ANSI)</span></span> |
 
+## <a name="see-also"></a><span data-ttu-id="e946b-159">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="e946b-159">See also</span></span>
 
-[<span data-ttu-id="bc164-163">Konsolenfunktionen</span><span class="sxs-lookup"><span data-stu-id="bc164-163">Console Functions</span></span>](console-functions.md)
+[<span data-ttu-id="e946b-160">Konsolenfunktionen</span><span class="sxs-lookup"><span data-stu-id="e946b-160">Console Functions</span></span>](console-functions.md)
 
-[<span data-ttu-id="bc164-164">Konsolenausgabe Funktionen auf niedriger Ebene</span><span class="sxs-lookup"><span data-stu-id="bc164-164">Low-Level Console Output Functions</span></span>](low-level-console-output-functions.md)
+[<span data-ttu-id="e946b-161">Konsolenausgabe Funktionen auf niedriger Ebene</span><span class="sxs-lookup"><span data-stu-id="e946b-161">Low-Level Console Output Functions</span></span>](low-level-console-output-functions.md)
 
-[<span data-ttu-id="bc164-165">**"Read consoleoutputattribute"**</span><span class="sxs-lookup"><span data-stu-id="bc164-165">**ReadConsoleOutputAttribute**</span></span>](readconsoleoutputattribute.md)
+[<span data-ttu-id="e946b-162">**ReadConsoleOutputAttribute**</span><span class="sxs-lookup"><span data-stu-id="e946b-162">**ReadConsoleOutputAttribute**</span></span>](readconsoleoutputattribute.md)
 
-[<span data-ttu-id="bc164-166">**"Read consoleoutputcharacter"**</span><span class="sxs-lookup"><span data-stu-id="bc164-166">**ReadConsoleOutputCharacter**</span></span>](readconsoleoutputcharacter.md)
+[<span data-ttu-id="e946b-163">**ReadConsoleOutputCharacter**</span><span class="sxs-lookup"><span data-stu-id="e946b-163">**ReadConsoleOutputCharacter**</span></span>](readconsoleoutputcharacter.md)
 
-[<span data-ttu-id="bc164-167">**Setconsolecp**</span><span class="sxs-lookup"><span data-stu-id="bc164-167">**SetConsoleCP**</span></span>](setconsolecp.md)
+[<span data-ttu-id="e946b-164">**SetConsoleCP**</span><span class="sxs-lookup"><span data-stu-id="e946b-164">**SetConsoleCP**</span></span>](setconsolecp.md)
 
-[<span data-ttu-id="bc164-168">**Setconsoleoutputcp**</span><span class="sxs-lookup"><span data-stu-id="bc164-168">**SetConsoleOutputCP**</span></span>](setconsoleoutputcp.md)
+[<span data-ttu-id="e946b-165">**SetConsoleOutputCP**</span><span class="sxs-lookup"><span data-stu-id="e946b-165">**SetConsoleOutputCP**</span></span>](setconsoleoutputcp.md)
 
-[<span data-ttu-id="bc164-169">**kleine \_ Rect**</span><span class="sxs-lookup"><span data-stu-id="bc164-169">**SMALL\_RECT**</span></span>](small-rect-str.md)
+[<span data-ttu-id="e946b-166">**kleine \_ Rect**</span><span class="sxs-lookup"><span data-stu-id="e946b-166">**SMALL\_RECT**</span></span>](small-rect-str.md)
 
-[<span data-ttu-id="bc164-170">**Schreibconsoleoutput**</span><span class="sxs-lookup"><span data-stu-id="bc164-170">**WriteConsoleOutput**</span></span>](writeconsoleoutput.md)
+[<span data-ttu-id="e946b-167">**WriteConsoleOutput**</span><span class="sxs-lookup"><span data-stu-id="e946b-167">**WriteConsoleOutput**</span></span>](writeconsoleoutput.md)
 
-[<span data-ttu-id="bc164-171">**Char- \_ Informationen**</span><span class="sxs-lookup"><span data-stu-id="bc164-171">**CHAR\_INFO**</span></span>](char-info-str.md)
+[<span data-ttu-id="e946b-168">**Char- \_ Informationen**</span><span class="sxs-lookup"><span data-stu-id="e946b-168">**CHAR\_INFO**</span></span>](char-info-str.md)
 
-[<span data-ttu-id="bc164-172">**Koord**</span><span class="sxs-lookup"><span data-stu-id="bc164-172">**COORD**</span></span>](coord-str.md)
-
- 
-
- 
-
-
-
-
+[<span data-ttu-id="e946b-169">**Koord**</span><span class="sxs-lookup"><span data-stu-id="e946b-169">**COORD**</span></span>](coord-str.md)

@@ -16,87 +16,54 @@ api_location:
 - KernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 0674fa9c02c54c9476e2844da69895905865d6f4
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 067fa732f5badfe46ee6391c892aa037613cb4dd
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060179"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93037288"
 ---
-# <a name="closepseudoconsole-function"></a><span data-ttu-id="96ac1-104">Closepseudoconsole-Funktion</span><span class="sxs-lookup"><span data-stu-id="96ac1-104">ClosePseudoConsole function</span></span>
+# <a name="closepseudoconsole-function"></a><span data-ttu-id="0955e-104">Closepseudoconsole-Funktion</span><span class="sxs-lookup"><span data-stu-id="0955e-104">ClosePseudoConsole function</span></span>
 
+<span data-ttu-id="0955e-105">Schließt eine pseudoconsole aus dem angegebenen Handle.</span><span class="sxs-lookup"><span data-stu-id="0955e-105">Closes a pseudoconsole from the given handle.</span></span>
 
-<span data-ttu-id="96ac1-105">Schließt eine pseudoconsole aus dem angegebenen Handle.</span><span class="sxs-lookup"><span data-stu-id="96ac1-105">Closes a pseudoconsole from the given handle.</span></span>
-
-<a name="syntax"></a><span data-ttu-id="96ac1-106">Syntax</span><span class="sxs-lookup"><span data-stu-id="96ac1-106">Syntax</span></span>
-------
+## <a name="syntax"></a><span data-ttu-id="0955e-106">Syntax</span><span class="sxs-lookup"><span data-stu-id="0955e-106">Syntax</span></span>
 
 ```C
 void WINAPI ClosePseudoConsole(
-    _In_ HPCON hPC 
+    _In_ HPCON hPC
 );
 ```
 
-<a name="parameters"></a><span data-ttu-id="96ac1-107">Parameter</span><span class="sxs-lookup"><span data-stu-id="96ac1-107">Parameters</span></span>
-----------
+## <a name="parameters"></a><span data-ttu-id="0955e-107">Parameter</span><span class="sxs-lookup"><span data-stu-id="0955e-107">Parameters</span></span>
 
-<span data-ttu-id="96ac1-108">*HPC* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="96ac1-108">*hPC* \[in\]</span></span>  
-<span data-ttu-id="96ac1-109">Ein Handle für eine aktive psuedoconsole, wie von " [deepseudoconsole](createpseudoconsole.md)" geöffnet.</span><span class="sxs-lookup"><span data-stu-id="96ac1-109">A handle to an active psuedoconsole as opened by [CreatePseudoConsole](createpseudoconsole.md).</span></span>
+<span data-ttu-id="0955e-108">*HPC* \[ in\]</span><span class="sxs-lookup"><span data-stu-id="0955e-108">*hPC* \[in\]</span></span>  
+<span data-ttu-id="0955e-109">Ein Handle für eine aktive pseudoconsole, wie von " [kreatepseudoconsole](createpseudoconsole.md)" geöffnet.</span><span class="sxs-lookup"><span data-stu-id="0955e-109">A handle to an active pseudoconsole as opened by [CreatePseudoConsole](createpseudoconsole.md).</span></span>
 
-<a name="return-value"></a><span data-ttu-id="96ac1-110">Rückgabewert</span><span class="sxs-lookup"><span data-stu-id="96ac1-110">Return value</span></span>
-------------
+## <a name="return-value"></a><span data-ttu-id="0955e-110">Rückgabewert</span><span class="sxs-lookup"><span data-stu-id="0955e-110">Return value</span></span>
 
-<span data-ttu-id="96ac1-111">*keine*</span><span class="sxs-lookup"><span data-stu-id="96ac1-111">*none*</span></span>
+<span data-ttu-id="0955e-111">*keine*</span><span class="sxs-lookup"><span data-stu-id="0955e-111">*none*</span></span>
 
-<a name="remarks"></a><span data-ttu-id="96ac1-112">Hinweise</span><span class="sxs-lookup"><span data-stu-id="96ac1-112">Remarks</span></span>
--------
+## <a name="remarks"></a><span data-ttu-id="0955e-112">Bemerkungen</span><span class="sxs-lookup"><span data-stu-id="0955e-112">Remarks</span></span>
 
-<span data-ttu-id="96ac1-113">Wenn Sie eine Pseudo Konsole schließen, werden auch Client Anwendungen beendet, die an die Sitzung angefügt sind.</span><span class="sxs-lookup"><span data-stu-id="96ac1-113">Upon closing a pseudoconsole, client applications attached to the session will be terminated as well.</span></span>
+<span data-ttu-id="0955e-113">Wenn Sie eine Pseudo Konsole schließen, werden auch Client Anwendungen beendet, die an die Sitzung angefügt sind.</span><span class="sxs-lookup"><span data-stu-id="0955e-113">Upon closing a pseudoconsole, client applications attached to the session will be terminated as well.</span></span>
 
-<span data-ttu-id="96ac1-114">`hOutput`Wenn diese API aufgerufen wird, kann von der pseudoconsole ein abschließender gezeichnet werden.</span><span class="sxs-lookup"><span data-stu-id="96ac1-114">A final painted frame may arrive on `hOutput` from the pseudoconsole when this API is called.</span></span> <span data-ttu-id="96ac1-115">Es wird erwartet, dass der Aufrufer diese Informationen aus dem Kommunikationskanal Puffer abfließt und ihn entweder vornimmt oder verwerfen kann.</span><span class="sxs-lookup"><span data-stu-id="96ac1-115">It is expected that the caller will drain this information from the communication channel buffer and either present it or discard it.</span></span> <span data-ttu-id="96ac1-116">Wenn der Puffer nicht entladen wird, kann es passieren, dass der Close-Befehl unbegrenzt wartet, bis er entladen wird oder die Kommunikationskanäle anders voneinander getrennt sind.</span><span class="sxs-lookup"><span data-stu-id="96ac1-116">Failure to drain the buffer may cause the Close call to wait indefinitely until it is drained or the communication channels are broken another way.</span></span>
+<span data-ttu-id="0955e-114">Wenn diese API aufgerufen wird, wird möglicherweise ein abschließender Rahmen auf dem `hOutput` Handle angezeigt, das ursprünglich für " [kreatepsuedoconsole](createpseudoconsole.md) " bereitgestellt wurde.</span><span class="sxs-lookup"><span data-stu-id="0955e-114">A final painted frame may arrive on the `hOutput` handle originally provided to [CreatePsuedoConsole](createpseudoconsole.md) when this API is called.</span></span> <span data-ttu-id="0955e-115">Es wird erwartet, dass der Aufrufer diese Informationen aus dem Kommunikationskanal Puffer abfließt und ihn entweder vornimmt oder verwerfen kann.</span><span class="sxs-lookup"><span data-stu-id="0955e-115">It is expected that the caller will drain this information from the communication channel buffer and either present it or discard it.</span></span> <span data-ttu-id="0955e-116">Wenn der Puffer nicht entladen wird, kann es passieren, dass der Close-Befehl unbegrenzt wartet, bis er entladen wird oder die Kommunikationskanäle anders voneinander getrennt sind.</span><span class="sxs-lookup"><span data-stu-id="0955e-116">Failure to drain the buffer may cause the Close call to wait indefinitely until it is drained or the communication channels are broken another way.</span></span>
 
-<a name="requirements"></a><span data-ttu-id="96ac1-117">Anforderungen</span><span class="sxs-lookup"><span data-stu-id="96ac1-117">Requirements</span></span>
-------------
+## <a name="requirements"></a><span data-ttu-id="0955e-117">Requirements (Anforderungen)</span><span class="sxs-lookup"><span data-stu-id="0955e-117">Requirements</span></span>
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><span data-ttu-id="96ac1-118">Unterstützte Mindestversion (Client)</span><span class="sxs-lookup"><span data-stu-id="96ac1-118">Minimum supported client</span></span></p></td>
-<td><p><span data-ttu-id="96ac1-119">Windows 10 1809 [nur Desktop-Apps]</span><span class="sxs-lookup"><span data-stu-id="96ac1-119">Windows 10 1809 [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="96ac1-120">Unterstützte Mindestversion (Server)</span><span class="sxs-lookup"><span data-stu-id="96ac1-120">Minimum supported server</span></span></p></td>
-<td><p><span data-ttu-id="96ac1-121">Windows Server 2019 [nur Desktop-Apps]</span><span class="sxs-lookup"><span data-stu-id="96ac1-121">Windows Server 2019 [desktop apps only]</span></span></p></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="96ac1-122">Header</span><span class="sxs-lookup"><span data-stu-id="96ac1-122">Header</span></span></p></td>
-<td><span data-ttu-id="96ac1-123">Consoleapi. h (über WinCon. h, Include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="96ac1-123">ConsoleApi.h (via Wincon.h, include Windows.h)</span></span></td>
-</tr>
-<tr class="even">
-<td><p><span data-ttu-id="96ac1-124">Bibliothek</span><span class="sxs-lookup"><span data-stu-id="96ac1-124">Library</span></span></p></td>
-<td><span data-ttu-id="96ac1-125">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="96ac1-125">Kernel32.lib</span></span></td>
-</tr>
-<tr class="odd">
-<td><p><span data-ttu-id="96ac1-126">DLL</span><span class="sxs-lookup"><span data-stu-id="96ac1-126">DLL</span></span></p></td>
-<td><span data-ttu-id="96ac1-127">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="96ac1-127">Kernel32.dll</span></span></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| <span data-ttu-id="0955e-118">Unterstützte Mindestversion (Client)</span><span class="sxs-lookup"><span data-stu-id="0955e-118">Minimum supported client</span></span> | <span data-ttu-id="0955e-119">Windows 10-Update vom Oktober 2018 (Version 1809) \[ nur Desktop-Apps\]</span><span class="sxs-lookup"><span data-stu-id="0955e-119">Windows 10 October 2018 Update (version 1809) \[desktop apps only\]</span></span> |
+| <span data-ttu-id="0955e-120">Unterstützte Mindestversion (Server)</span><span class="sxs-lookup"><span data-stu-id="0955e-120">Minimum supported server</span></span> | <span data-ttu-id="0955e-121">Nur Windows Server 2019 \[ -Desktop-Apps\]</span><span class="sxs-lookup"><span data-stu-id="0955e-121">Windows Server 2019 \[desktop apps only\]</span></span> |
+| <span data-ttu-id="0955e-122">Header</span><span class="sxs-lookup"><span data-stu-id="0955e-122">Header</span></span> | <span data-ttu-id="0955e-123">Consoleapi. h (über WinCon. h, Include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="0955e-123">ConsoleApi.h (via WinCon.h, include Windows.h)</span></span> |
+| <span data-ttu-id="0955e-124">Bibliothek</span><span class="sxs-lookup"><span data-stu-id="0955e-124">Library</span></span> | <span data-ttu-id="0955e-125">Kernel32. lib</span><span class="sxs-lookup"><span data-stu-id="0955e-125">Kernel32.lib</span></span> |
+| <span data-ttu-id="0955e-126">DLL</span><span class="sxs-lookup"><span data-stu-id="0955e-126">DLL</span></span> | <span data-ttu-id="0955e-127">Kernel32.dll</span><span class="sxs-lookup"><span data-stu-id="0955e-127">Kernel32.dll</span></span> |
 
-## <a name="span-idsee_alsospansee-also"></a><span data-ttu-id="96ac1-128"><span id="see_also"></span>Siehe auch</span><span class="sxs-lookup"><span data-stu-id="96ac1-128"><span id="see_also"></span>See also</span></span>
+## <a name="see-also"></a><span data-ttu-id="0955e-128">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="0955e-128">See also</span></span>
 
-[<span data-ttu-id="96ac1-129">Pseudo Konsolen</span><span class="sxs-lookup"><span data-stu-id="96ac1-129">Pseudoconsoles</span></span>](pseudoconsoles.md)
+[<span data-ttu-id="0955e-129">Pseudo Konsolen</span><span class="sxs-lookup"><span data-stu-id="0955e-129">Pseudoconsoles</span></span>](pseudoconsoles.md)
 
-[<span data-ttu-id="96ac1-130">**"Kreatepseudoconsole"**</span><span class="sxs-lookup"><span data-stu-id="96ac1-130">**CreatePseudoConsole**</span></span>](createpseudoconsole.md)
+[<span data-ttu-id="0955e-130">**CreatePseudoConsole**</span><span class="sxs-lookup"><span data-stu-id="0955e-130">**CreatePseudoConsole**</span></span>](createpseudoconsole.md)
 
-[<span data-ttu-id="96ac1-131">**Resizepseudoconsole**</span><span class="sxs-lookup"><span data-stu-id="96ac1-131">**ResizePseudoConsole**</span></span>](resizepseudoconsole.md)
+[<span data-ttu-id="0955e-131">**ResizePseudoConsole**</span><span class="sxs-lookup"><span data-stu-id="0955e-131">**ResizePseudoConsole**</span></span>](resizepseudoconsole.md)
