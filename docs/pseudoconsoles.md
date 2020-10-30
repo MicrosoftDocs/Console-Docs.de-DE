@@ -3,19 +3,19 @@ title: Pseudo Konsolen – Windows-Desktop
 description: Eine Pseudo Konsole ist ein Konzept, das verwendet wird, um den hostingaspekt oder den Wartungs Aspekt einer zeichenmodusanwendung bereitzustellen.
 author: miniksa
 ms.author: miniksa
-ms.topic: article
+ms.topic: conceptual
 ms.prod: console
 keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API, Configuration Manager, pseudoconsole
-ms.openlocfilehash: ce2dfb14371e35a738e9c42ba2be8d2bb2758946
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 2b2d28065ec4f0e4121decb906e76b34ac1871fc
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059570"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039478"
 ---
 # <a name="pseudoconsoles"></a>Pseudo Konsolen
 
-Eine *pseudoconsole* ist ein Gerätetyp, mit dem Anwendungen zum Host für Zeichenmodus-Anwendungen werden können. 
+Eine *pseudoconsole* ist ein Gerätetyp, mit dem Anwendungen zum Host für Zeichenmodus-Anwendungen werden können.
 
 Dies steht im Gegensatz zu einer typischen Konsolen Sitzung, bei der das Betriebssystem ein Hostingfenster im Namen der zeichenmodusanwendung erstellt, um die grafische Ausgabe und die Benutzereingabe zu verarbeiten.
 

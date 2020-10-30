@@ -1,10 +1,10 @@
 ---
-title: CONSOLE_HISTORY_INFO Struktur
+title: CONSOLE_HISTORY_INFO-Struktur
 description: Siehe Referenzinformationen zur CONSOLE_HISTORY_INFO Struktur, die Informationen über den Konsolen Verlauf enthält.
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi3/CONSOLE_HISTORY_INFO
 - wincon/CONSOLE_HISTORY_INFO
@@ -24,35 +24,34 @@ topic_type:
 api_name:
 - CONSOLE_HISTORY_INFO
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: ee0161f0c4aac5a280fd18260ebbb1f7ca57d54a
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 24d41dca61146cc3e835f405889400ae0d168e7f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060459"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039218"
 ---
 # <a name="console_history_info-structure"></a>Struktur der Konsolen \_ Verlauf- \_ Informationen
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Enthält Informationen über den Konsolen Verlauf.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 typedef struct {
-  UINT  cbSize;
-  UINT  HistoryBufferSize;
-  UINT  NumberOfHistoryBuffers;
+  UINT  cbSize;
+  UINT  HistoryBufferSize;
+  UINT  NumberOfHistoryBuffers;
   DWORD dwFlags;
 } CONSOLE_HISTORY_INFO, *PCONSOLE_HISTORY_INFO;
 ```
 
-<a name="members"></a>Member
--------
+## <a name="members"></a>Member
 
 **CBSIZE**  
 Die Größe der-Struktur in Bytes. Legen Sie diesen Member auf fest `sizeof(CONSOLE_HISTORY_INFO)` .
@@ -66,63 +65,20 @@ Die Anzahl der Verlaufs Puffer, die für diesen Konsolen Prozess aufbewahrt werd
 **dwFlags**  
 Dieser Parameter kann NULL oder der folgende Wert sein.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Wert</th>
-<th>Bedeutung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="HISTORY_NO_DUP_FLAG"></span><span id="history_no_dup_flag"></span>
-<strong>HISTORY_NO_DUP_FLAG</strong> 0x1</td>
-<td><p>Doppelte Einträge werden nicht im Verlaufs Puffer gespeichert.</p></td>
-</tr>
-</tbody>
-</table>
+| Wert | Bedeutung |
+|-|-|
+| **HISTORY_NO_DUP_FLAG** 0x1 | Doppelte Einträge werden nicht im Verlaufs Puffer gespeichert.
 
- 
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<a name="requirements"></a>Anforderungen
-------------
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows Vista \[ -Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows Server 2008 \[ -Desktop-Apps\] |
+| Header | ConsoleApi3. h (über WinCon. h, Include Windows. h) |
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows Vista [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows Server 2008 [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi3. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+## <a name="see-also"></a>Weitere Informationen
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+[**GetConsoleHistoryInfo**](getconsolehistoryinfo.md)
 
-
-[**Getconsolehistoryinfo**](getconsolehistoryinfo.md)
-
-[**Setconsolehistoryinfo**](setconsolehistoryinfo.md)
-
- 
-
- 
-
-
-
-
+[**SetConsoleHistoryInfo**](setconsolehistoryinfo.md)

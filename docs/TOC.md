@@ -1,4 +1,9 @@
 # [Home](index.md) 
+
+## [Roadmap für das Ökosystem](ecosystem-roadmap.md)
+## [Definitionen](definitions.md)
+## [Konsolen-APIs im Vergleich zu Virtuellen Terminals](classic-vs-vt.md)
+
 # [Informationen zu Zeichenmodusanwendungen](about-character-mode-applications.md) 
 ## [Ein- und Ausgabemethoden](input-and-output-methods.md) 
 ## [Konsolen-Codepages](console-code-pages.md)
@@ -14,6 +19,7 @@
 ## [Konsolenhandles](console-handles.md) 
 ## [Konsoleneingabepuffer](console-input-buffer.md)
 ## [Konsolenbildschirmpuffer](console-screen-buffers.md) 
+## [Konsolenmodi](console-modes.md)
 ## [Puffergröße von Fenster und Bildschirm](window-and-screen-buffer-size.md) 
 ## [Konsolenauswahl](console-selection.md)
 ## [Informationen zum Legacy-Konsolenmodus](legacymode.md)
@@ -56,7 +62,7 @@
 ### [GenerateConsoleCtrlEvent](generateconsolectrlevent.md) 
 ### [GetConsoleAlias](getconsolealias.md) 
 ### [GetConsoleAliases](getconsolealiases.md) 
-### [GetConsoleAliaseslength](getconsolealiaseslength.md) 
+### [GetConsoleAliasesLength](getconsolealiaseslength.md) 
 ### [GetConsoleAliasExes](getconsolealiasexes.md) 
 ### [GetConsoleAliasExesLength](getconsolealiasexeslength.md) 
 ### [GetConsoleCP](getconsolecp.md) 

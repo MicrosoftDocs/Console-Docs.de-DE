@@ -4,7 +4,7 @@ description: Weitere Informationen finden Sie unter Referenzinformationen zur Fu
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/WriteConsoleInput
 - wincon/WriteConsoleInput
@@ -36,32 +36,31 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 784bed6c1a7b7f7ed9ed204b8483d30371e510a3
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: dc2c7930ab76587edc9ae1991d4493c858b0ec30
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060563"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039288"
 ---
 # <a name="writeconsoleinput-function"></a>Funktion "Beschreib teconsoleinput"
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Schreibt Daten direkt in den Konsolen Eingabepuffer.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 BOOL WINAPI WriteConsoleInput(
-  _In_        HANDLE       hConsoleInput,
-  _In_  const INPUT_RECORD *lpBuffer,
-  _In_        DWORD        nLength,
-  _Out_       LPDWORD      lpNumberOfEventsWritten
+  _In_        HANDLE       hConsoleInput,
+  _In_  const INPUT_RECORD *lpBuffer,
+  _In_        DWORD        nLength,
+  _Out_       LPDWORD      lpNumberOfEventsWritten
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *hconsoleinput* \[ in\]  
 Ein Handle für den Konsolen Eingabepuffer. Das Handle muss über das **allgemeine \_ Schreib** Zugriffsrecht verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
@@ -75,66 +74,33 @@ Die Anzahl der Eingabedaten Sätze, die geschrieben werden sollen.
 *lpnumofeventswritten* \[ vorgenommen\]  
 Ein Zeiger auf eine Variable, die die Anzahl der tatsächlich geschriebenen Eingabedaten Sätze empfängt.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
 
 Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 " **Write-ConsoleInput** " fügt Eingabedaten Sätze in den Eingabepuffer hinter allen ausstehenden Ereignissen im Puffer ein. Der Eingabepuffer wächst bei Bedarf dynamisch, um so viele Ereignisse zu speichern, wie Sie geschrieben werden.
 
-Diese Funktion verwendet entweder Unicode-Zeichen oder 8-Bit-Zeichen aus der aktuellen Codepage der Konsole. Die Standard Codepage der Konsole wird zunächst auf die OEM-Codepage des Systems eingestellt. Um die Codepage der Konsole zu ändern, verwenden Sie die Funktionen [**setconsolecp**](setconsolecp.md) oder [**setconsoleoutputcp**](setconsoleoutputcp.md) , oder verwenden Sie die Befehle **chcp** oder **Mode con CP Select =** .
+[!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-<a name="requirements"></a>Anforderungen
-------------
+> [!TIP]
+> Diese API wird nicht empfohlen und verfügt nicht über ein entsprechendes **[virtuelles Terminal](console-virtual-terminal-sequences.md)** . Diese Entscheidung richtet die Windows-Plattform absichtlich mit anderen Betriebssystemen aus. Dieser Vorgang wird als **[falsch-Wege-Verb](console-buffer-security-and-access-rights.md#wrong-way-verbs)** für diesen Puffer betrachtet. Anwendungen, die Remoting über plattformübergreifende Hilfsprogramme und Transporte wie ssh verwenden, funktionieren möglicherweise nicht wie erwartet, wenn Sie diese API verwenden.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi2. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-<td><p>Unicode- und ANSI-Name</p></td>
-<td><p>Schreiben von " <strong>Write-consolinput w</strong> (Unicode)" und " <strong>Write-consolinput a</strong> " (ANSI)</p></td>
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
+| Unicode- und ANSI-Name | Schreiben von " **Write-consolinput w** (Unicode)" und " **Write-consolinput a** " (ANSI) |
 
+## <a name="see-also"></a>Weitere Informationen
 
 [Konsolenfunktionen](console-functions.md)
 
@@ -144,20 +110,12 @@ Diese Funktion verwendet entweder Unicode-Zeichen oder 8-Bit-Zeichen aus der akt
 
 [**Mapvirtualkey**](https://msdn.microsoft.com/library/windows/desktop/ms646306)
 
-[**"Etekconsoleinput"**](peekconsoleinput.md)
+[**PeekConsoleInput**](peekconsoleinput.md)
 
-[**Read ConsoleInput**](readconsoleinput.md)
+[**ReadConsoleInput**](readconsoleinput.md)
 
-[**Setconsolecp**](setconsolecp.md)
+[**SetConsoleCP**](setconsolecp.md)
 
-[**Setconsoleoutputcp**](setconsoleoutputcp.md)
+[**SetConsoleOutputCP**](setconsoleoutputcp.md)
 
 [**Vkkeyscan**](https://msdn.microsoft.com/library/windows/desktop/ms646329)
-
- 
-
- 
-
-
-
-

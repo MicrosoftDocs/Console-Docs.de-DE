@@ -1,10 +1,10 @@
 ---
-title: KEY_EVENT_RECORD Struktur
+title: KEY_EVENT_RECORD-Struktur
 description: Beschreibt ein Tastatureingabe Ereignis in einer Konsolen Eingabe \_ Daten Satzstruktur.
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - wincontypes/KEY_EVENT_RECORD
 - wincon/KEY_EVENT_RECORD
@@ -25,43 +25,40 @@ topic_type:
 api_name:
 - KEY_EVENT_RECORD
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: fd7386d5796442d34cdaa29fcf52831bc6aa1d78
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 0a2ba8ecf8b07a83db54642c2399bb93d99b7aa2
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060419"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039528"
 ---
 # <a name="key_event_record-structure"></a>Struktur des Schlüssel \_ Ereignis \_ Datensatzes
 
-
 Beschreibt ein Tastatureingabe Ereignis in einer Konsolen [**Eingabe \_ Daten Satz**](input-record-str.md) Struktur.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 typedef struct _KEY_EVENT_RECORD {
-  BOOL  bKeyDown;
-  WORD  wRepeatCount;
-  WORD  wVirtualKeyCode;
-  WORD  wVirtualScanCode;
+  BOOL  bKeyDown;
+  WORD  wRepeatCount;
+  WORD  wVirtualKeyCode;
+  WORD  wVirtualScanCode;
   union {
     WCHAR UnicodeChar;
-    CHAR  AsciiChar;
-  } uChar;
+    CHAR  AsciiChar;
+  } uChar;
   DWORD dwControlKeyState;
 } KEY_EVENT_RECORD;
 ```
 
-<a name="members"></a>Member
--------
+## <a name="members"></a>Member
 
 **bkeydown**  
-Wenn die Taste gedrückt wird, ist dieser Member " **true**". Andernfalls ist dieser Member **false** (der Schlüssel wird freigegeben).
+Wenn die Taste gedrückt wird, ist dieser Member " **true** ". Andernfalls ist dieser Member **false** (der Schlüssel wird freigegeben).
 
 **wrepeatcount**  
 Der Wiederholungs Zähler, der angibt, dass ein Schlüssel angehalten wird. Wenn eine Taste z. b. angehalten wird, können fünf Ereignisse mit diesem Element gleich 1, ein Ereignis mit diesem Element gleich 5 oder mehrere Ereignisse mit diesem Member größer oder gleich 1 sein.
@@ -84,133 +81,42 @@ Eine Union der folgenden Member.
 **dwcontrolkeystate**  
 Der Zustand der Steuerelement Schlüssel. Dieser Member kann einen oder mehrere der folgenden Werte aufweisen.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Wert</th>
-<th>Bedeutung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="CAPSLOCK_ON"></span><span id="capslock_on"></span>
-<strong>CAPSLOCK_ON</strong> 0x0080</td>
-<td><p>Die Feststell Sperre ist auf on.</p></td>
-</tr>
-<tr class="even">
-<td><span id="ENHANCED_KEY"></span><span id="enhanced_key"></span>
-<strong>ENHANCED_KEY</strong> 0x0100</td>
-<td><p>Der Schlüssel ist erweitert.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="LEFT_ALT_PRESSED"></span><span id="left_alt_pressed"></span>
-<strong>LEFT_ALT_PRESSED</strong> 0x0002</td>
-<td><p>Die linke ALT-Taste wird gedrückt.</p></td>
-</tr>
-<tr class="even">
-<td><span id="LEFT_CTRL_PRESSED"></span><span id="left_ctrl_pressed"></span>
-<strong>LEFT_CTRL_PRESSED</strong> 0x0008</td>
-<td><p>Die linke STRG-Taste wird gedrückt.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="NUMLOCK_ON"></span><span id="numlock_on"></span>
-<strong>NUMLOCK_ON</strong> 0x0020</td>
-<td><p>Der NUM-Sperr Licht ist on.</p></td>
-</tr>
-<tr class="even">
-<td><span id="RIGHT_ALT_PRESSED"></span><span id="right_alt_pressed"></span>
-<strong>RIGHT_ALT_PRESSED</strong> 0x0001</td>
-<td><p>Die Rechte ALT-Taste wird gedrückt.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="RIGHT_CTRL_PRESSED"></span><span id="right_ctrl_pressed"></span>
-<strong>RIGHT_CTRL_PRESSED</strong> 0x0004</td>
-<td><p>Die Rechte STRG-Taste wird gedrückt.</p></td>
-</tr>
-<tr class="even">
-<td><span id="SCROLLLOCK_ON"></span><span id="scrolllock_on"></span>
-<strong>SCROLLLOCK_ON</strong> 0x0040</td>
-<td><p>Das Licht der Scrollsperre ist on.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="SHIFT_PRESSED"></span><span id="shift_pressed"></span>
-<strong>SHIFT_PRESSED</strong> 0x0010</td>
-<td><p>Die UMSCHALTTASTE wird gedrückt.</p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| Wert | Bedeutung |
+|-|-|
+| **CAPSLOCK_ON** 0x0080 | Die Feststell Sperre ist auf on. |
+| **ENHANCED_KEY** 0x0100 | Der Schlüssel ist erweitert. Siehe [Hinweise](key-event-record-str.md#remarks). |
+| **LEFT_ALT_PRESSED** 0x0002 | Die linke ALT-Taste wird gedrückt. |
+| **LEFT_CTRL_PRESSED** 0x0008 | Die linke STRG-Taste wird gedrückt. |
+| **NUMLOCK_ON** 0x0020 | Der NUM-Sperr Licht ist on. |
+| **RIGHT_ALT_PRESSED** 0x0001 | Die Rechte ALT-Taste wird gedrückt. |
+| **RIGHT_CTRL_PRESSED** 0x0004 | Die Rechte STRG-Taste wird gedrückt. |
+| **SCROLLLOCK_ON** 0x0040 | Das Licht der Scrollsperre ist on. |
+| **SHIFT_PRESSED** 0x0010 | Die UMSCHALTTASTE wird gedrückt. |
 
- 
-
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Erweiterte Schlüssel für die Tastaturen IBM® 101-und 102-Key sind die Tasten in, del, Home, End, page up, Page Down und Direction in den Clustern links neben der Tastatur. und die Unterteilung (/) und EINGABETASTE in der Tastatur.
 
-Tastatureingabe Ereignisse werden generiert, wenn ein beliebiger Schlüssel, einschließlich der Steuerelement Schlüssel, gedrückt oder freigegeben wird. Die Alt-Taste, wenn Sie gedrückt und freigegeben wird, ohne mit einem anderen Zeichen zu kombinieren, hat jedoch eine besondere Bedeutung für das System und wird nicht an die Anwendung übermittelt. Außerdem wird die Tastenkombination STRG + C nicht durchlaufen, wenn sich das Eingabe Handle im verarbeiteten Modus befindet **( \_ verarbeitete \_ Eingaben aktivieren**).
+Tastatureingabe Ereignisse werden generiert, wenn ein beliebiger Schlüssel, einschließlich der Steuerelement Schlüssel, gedrückt oder freigegeben wird. Die Alt-Taste, wenn Sie gedrückt und freigegeben wird, ohne mit einem anderen Zeichen zu kombinieren, hat jedoch eine besondere Bedeutung für das System und wird nicht an die Anwendung übermittelt. Außerdem wird die Tastenkombination STRG + C nicht durchlaufen, wenn sich das Eingabe Handle im verarbeiteten Modus befindet **( \_ verarbeitete \_ Eingaben aktivieren** ).
 
-<a name="examples"></a>Beispiele
---------
+## <a name="examples"></a>Beispiele
 
 Ein Beispiel finden Sie unter [Lesen von Eingabepuffer Ereignissen](reading-input-buffer-events.md).
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>Wincontypes. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | Wincontypes. h (über WinCon. h, Include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
+[**PeekConsoleInput**](peekconsoleinput.md)
 
-[**"Etekconsoleinput"**](peekconsoleinput.md)
+[**ReadConsoleInput**](readconsoleinput.md)
 
-[**Read ConsoleInput**](readconsoleinput.md)
-
-[**Schreibconsoleinput**](writeconsoleinput.md)
+[**WriteConsoleInput**](writeconsoleinput.md)
 
 [**Eingabe \_ Daten Satz**](input-record-str.md)
-
- 
-
- 
-
-
-
-

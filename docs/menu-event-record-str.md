@@ -1,10 +1,10 @@
 ---
-title: MENU_EVENT_RECORD Struktur
+title: MENU_EVENT_RECORD-Struktur
 description: Beschreibt ein Menü Ereignis in einer Konsolen Eingabe \_ Daten Satzstruktur. Diese Ereignisse werden intern verwendet und sollten ignoriert werden.
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - wincontypes/MENU_EVENT_RECORD
 - wincon/MENU_EVENT_RECORD
@@ -25,23 +25,23 @@ topic_type:
 api_name:
 - MENU_EVENT_RECORD
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 8bbfbf6ad8bd885d69ce08e94dfced93b0bd3257
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: dfca825c03dbf0e63041e68adc5e43f2ca0ef669
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059618"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039518"
 ---
 # <a name="menu_event_record-structure"></a>Struktur des Menü \_ Ereignis \_ Datensatzes
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Beschreibt ein Menü Ereignis in einer Konsolen [**Eingabe \_ Daten Satz**](input-record-str.md) Struktur. Diese Ereignisse werden intern verwendet und sollten ignoriert werden.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 typedef struct _MENU_EVENT_RECORD {
@@ -49,45 +49,19 @@ typedef struct _MENU_EVENT_RECORD {
 } MENU_EVENT_RECORD, *PMENU_EVENT_RECORD;
 ```
 
-<a name="members"></a>Member
--------
+## <a name="members"></a>Member
 
 **dwcommandid**  
 Reserviert.
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>Wincontypes. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | Wincontypes. h (über WinCon. h, Include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
-
+## <a name="see-also"></a>Weitere Informationen
 
 [**Eingabe \_ Daten Satz**](input-record-str.md)
-
- 
-
- 
-
-
-
-

@@ -4,7 +4,7 @@ description: Legt die Eingabe Codepage fest, die von der Konsole verwendet wird,
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/SetConsoleCP
 - wincon/SetConsoleCP
@@ -28,48 +28,43 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: cf7048f9042b6c516c6d8e7a6e0544fdc2ac7533
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 644f4d925b31da94f42a465d4bce21bb2dc2ecf9
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060298"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039408"
 ---
 # <a name="setconsolecp-function"></a>Setconsolecp-Funktion
 
-
 Legt die Eingabe Codepage fest, die von der Konsole verwendet wird, die dem aufrufenden Prozess zugeordnet ist. Eine-Konsole verwendet die Eingabe Codepage, um Tastatureingaben in den entsprechenden Zeichen Wert zu übersetzen.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 BOOL WINAPI SetConsoleCP(
-  _In_ UINT wCodePageID
+  _In_ UINT wCodePageID
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *wcodepageid* \[ in\]  
 Der Bezeichner der festzulegenden Codepage. Weitere Informationen finden Sie in den Hinweisen.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
 
 Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Eine Codepage ordnet 256 Zeichen Codes einzelnen Zeichen zu. Zu verschiedenen Codepages gehören verschiedene spezielle Zeichen, die normalerweise für eine Sprache oder eine Gruppe von Sprachen angepasst sind.
 
 Verwenden Sie die Funktion " [**enumsystemcodepages**](https://msdn.microsoft.com/library/windows/desktop/dd317825) ", um die Codepages zu suchen, die vom Betriebssystem installiert oder unterstützt werden. Die Bezeichner der auf dem lokalen Computer verfügbaren Codepages werden auch in der Registrierung unter folgendem Schlüssel gespeichert:
 
-**HKEY \_ local \_ Machine \\ System \\ CurrentControlSet \\ Control \\ nls \\ Codepage**
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage`
 
 Es ist jedoch besser, mit [**enumsystemcodepages Codepages**](https://msdn.microsoft.com/library/windows/desktop/dd317825) aufzuzählen, da sich die Registrierung in verschiedenen Versionen von Windows unterscheiden kann.
 
@@ -77,61 +72,24 @@ Verwenden Sie die [**IsValidCodePage**](https://msdn.microsoft.com/library/windo
 
 Verwenden Sie die [**getconsolecp**](getconsolecp.md) -Funktion, um die aktuelle Eingabe Codepage einer Konsole zu ermitteln. Zum Festlegen und Abrufen der Ausgabe Codepage einer Konsole verwenden Sie die Funktionen [**setconsoleoutputcp**](setconsoleoutputcp.md) und [**getconsoleoutputcp**](getconsoleoutputcp.md) .
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi2. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
-
-[Konsolen Codepages](console-code-pages.md)
+[Konsolen-Codepages](console-code-pages.md)
 
 [Konsolenfunktionen](console-functions.md)
 
-[**Getconsolecp**](getconsolecp.md)
+[**GetConsoleCP**](getconsolecp.md)
 
-[**Getconsoleoutputcp**](getconsoleoutputcp.md)
+[**GetConsoleOutputCP**](getconsoleoutputcp.md)
 
-[**Setconsoleoutputcp**](setconsoleoutputcp.md)
-
- 
-
- 
-
-
-
-
+[**SetConsoleOutputCP**](setconsoleoutputcp.md)

@@ -4,7 +4,7 @@ description: Kopiert eine Reihe von Zeichen Attributen in aufeinander folgende Z
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/WriteConsoleOutputAttribute
 - wincon/WriteConsoleOutputAttribute
@@ -28,39 +28,38 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: e7c684b2f450713eaa78730676a0148e9b090c79
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 04c7799cd98479d3b776b1933994b60f5ed9fc9f
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060478"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039278"
 ---
 # <a name="writeconsoleoutputattribute-function"></a>Funktion "schreiteconsoleoutputattribute"
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Kopiert eine Reihe von Zeichen Attributen in aufeinander folgende Zellen eines Konsolenbildschirm Puffers, beginnend an einem angegebenen Speicherort.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 BOOL WINAPI WriteConsoleOutputAttribute(
-  _In_        HANDLE  hConsoleOutput,
-  _In_  const WORD    *lpAttribute,
-  _In_        DWORD   nLength,
-  _In_        COORD   dwWriteCoord,
-  _Out_       LPDWORD lpNumberOfAttrsWritten
+  _In_        HANDLE  hConsoleOutput,
+  _In_  const WORD    *lpAttribute,
+  _In_        DWORD   nLength,
+  _In_        COORD   dwWriteCoord,
+  _Out_       LPDWORD lpNumberOfAttrsWritten
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *hconsoleoutput* \[ in\]  
 Ein Handle für den Bildschirm Puffer der Konsole. Das Handle muss über das **allgemeine \_ Schreib** Zugriffsrecht verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
 
 *lpattribute* \[ in\]  
-Die Attribute, die beim Schreiben in den Konsolenbildschirm Puffer verwendet werden sollen. Weitere Informationen finden Sie unter [Zeichen Attribute](console-screen-buffers.md#_win32_font_attributes).
+Die Attribute, die beim Schreiben in den Konsolenbildschirm Puffer verwendet werden sollen. Weitere Informationen finden Sie unter [Zeichen Attribute](console-screen-buffers.md#character-attributes).
 
 *nlength* \[ in\]  
 Die Anzahl der Zellen des Bildschirm Puffers, in die die Attribute kopiert werden.
@@ -71,60 +70,32 @@ Eine [**Koord**](coord-str.md) -Struktur, die die Zeichen Koordinaten der ersten
 *lpnumofattrswritten* \[ vorgenommen\]  
 Ein Zeiger auf eine Variable, die die Anzahl der Attribute empfängt, die tatsächlich in den Konsolenbildschirm Puffer geschrieben wurden.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
 
 Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Wenn die Anzahl der Attribute, in die geschrieben werden soll, über das Ende der angegebenen Zeile im Konsolenbildschirm Puffer hinausgeht, werden Attribute in die nächste Zeile geschrieben. Wenn die Anzahl der Attribute, in die geschrieben werden soll, über das Ende des Konsolenbildschirm Puffers hinausgeht, werden die Attribute bis zum Ende des Bildschirm Puffers der Konsole geschrieben.
 
 Die Zeichen Werte an den Positionen, die in geschrieben werden, werden nicht geändert.
 
-<a name="requirements"></a>Anforderungen
-------------
+> [!TIP]
+> Diese API verfügt über ein **[virtuelles Terminal](console-virtual-terminal-sequences.md)** Äquivalent in den Positions Sequenzen für **[Textformatierung](console-virtual-terminal-sequences.md#text-formatting)** und **[Cursor](console-virtual-terminal-sequences.md#cursor-positioning)** . Bewegen Sie den Cursor an den einzufügenden Speicherort, wenden Sie die gewünschte Formatierung an, und schreiben Sie Text, um ihn auszufüllen. Es gibt keine Entsprechung für das Anwenden von Farben auf einen Bereich, ohne dass auch Text ausgegeben wird. Diese Entscheidung richtet die Windows-Plattform absichtlich mit anderen Betriebssystemen aus, bei denen die jeweilige Client Anwendung ihren eigenen gezeichneten Zustand zur weiteren Bearbeitung merken soll.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi2. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
 
+## <a name="see-also"></a>Weitere Informationen
 
 [Konsolenfunktionen](console-functions.md)
 
@@ -132,20 +103,12 @@ Die Zeichen Werte an den Positionen, die in geschrieben werden, werden nicht ge�
 
 [Konsolenausgabe Funktionen auf niedriger Ebene](low-level-console-output-functions.md)
 
-[**"Read consoleoutput"**](readconsoleoutput.md)
+[**ReadConsoleOutput**](readconsoleoutput.md)
 
-[**"Read consoleoutputattribute"**](readconsoleoutputattribute.md)
+[**ReadConsoleOutputAttribute**](readconsoleoutputattribute.md)
 
-[**"Read consoleoutputcharacter"**](readconsoleoutputcharacter.md)
+[**ReadConsoleOutputCharacter**](readconsoleoutputcharacter.md)
 
-[**Schreibconsoleoutput**](writeconsoleoutput.md)
+[**WriteConsoleOutput**](writeconsoleoutput.md)
 
-[**Schreibconsoleoutputcharacter**](writeconsoleoutputcharacter.md)
-
- 
-
- 
-
-
-
-
+[**WriteConsoleOutputCharacter**](writeconsoleoutputcharacter.md)

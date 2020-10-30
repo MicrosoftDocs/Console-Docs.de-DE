@@ -4,7 +4,7 @@ description: Die Funktion "kreateconsoleskreenbuffer" erstellt einen Bildschirm 
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/CreateConsoleScreenBuffer
 - wincon/CreateConsoleScreenBuffer
@@ -28,33 +28,32 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 289908708fb1c89c3ec3d990c9e8bf2649914a1b
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 0b8f5b33233f49167c67a47f33e5a95b8864f7bd
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89059938"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039132"
 ---
 # <a name="createconsolescreenbuffer-function"></a>Funktion "kreateconsoleskreenbuffer"
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Erstellt einen Konsolenbildschirm Puffer.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 HANDLE WINAPI CreateConsoleScreenBuffer(
-  _In_             DWORD               dwDesiredAccess,
-  _In_             DWORD               dwShareMode,
-  _In_opt_   const SECURITY_ATTRIBUTES *lpSecurityAttributes,
-  _In_             DWORD               dwFlags,
-  _Reserved_       LPVOID              lpScreenBufferData
+  _In_             DWORD               dwDesiredAccess,
+  _In_             DWORD               dwShareMode,
+  _In_opt_   const SECURITY_ATTRIBUTES *lpSecurityAttributes,
+  _In_             DWORD               dwFlags,
+  _Reserved_       LPVOID              lpScreenBufferData
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *dwDesiredAccess* \[ in\]  
 Der Zugriff auf den Konsolenbildschirm Puffer. Eine Liste der Zugriffsrechte finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
@@ -62,58 +61,35 @@ Der Zugriff auf den Konsolenbildschirm Puffer. Eine Liste der Zugriffsrechte fin
 *dwsharemode* \[ in\]  
 Dieser Parameter kann NULL sein, um anzugeben, dass der Puffer nicht freigegeben werden kann, oder es kann sich um einen oder mehrere der folgenden Werte handeln.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Wert</th>
-<th>Bedeutung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="FILE_SHARE_READ"></span><span id="file_share_read"></span>
-<strong>FILE_SHARE_READ</strong> 0x00000001</td>
-<td><p>Andere geöffnete Vorgänge können auf dem Konsolenbildschirm Puffer für den Lesezugriff ausgeführt werden.</p></td>
-</tr>
-<tr class="even">
-<td><span id="FILE_SHARE_WRITE"></span><span id="file_share_write"></span>
-<strong>FILE_SHARE_WRITE</strong> 0x00000002</td>
-<td><p>Andere geöffnete Vorgänge können auf dem Konsolenbildschirm Puffer für Schreibzugriffe ausgeführt werden.</p></td>
-</tr>
-</tbody>
-</table>
-
- 
+| Wert | Bedeutung |
+|-|-|
+| **FILE_SHARE_READ** 0x00000001 | Andere geöffnete Vorgänge können auf dem Konsolenbildschirm Puffer für den Lesezugriff ausgeführt werden. |
+| **FILE_SHARE_WRITE** 0x00000002 | Andere geöffnete Vorgänge können auf dem Konsolenbildschirm Puffer für Schreibzugriffe ausgeführt werden. |
 
 *lpsecurityattribute* \[ in, optional\]  
-Ein Zeiger auf eine Struktur von [**Sicherheits \_ Attributen**](https://msdn.microsoft.com/library/windows/desktop/aa379560) , die bestimmt, ob das zurückgegebene Handle von untergeordneten Prozessen geerbt werden kann. Wenn *lpsecurityattribute* **null**ist, kann das Handle nicht geerbt werden. Der **lpsecuritydescriptor** -Member der-Struktur gibt eine Sicherheits Beschreibung für den neuen Konsolenbildschirm Puffer an. Wenn *lpsecurityattribute* **null**ist, erhält der Konsolenbildschirm Puffer eine Standard Sicherheits Beschreibung. Die ACLs in der Standard Sicherheits Beschreibung eines Konsolenbildschirm Puffers stammen aus dem primären Token oder dem Identitätswechsel Token des Erstellers.
+Ein Zeiger auf eine Struktur von [**Sicherheits \_ Attributen**](https://msdn.microsoft.com/library/windows/desktop/aa379560) , die bestimmt, ob das zurückgegebene Handle von untergeordneten Prozessen geerbt werden kann. Wenn *lpsecurityattribute* **null** ist, kann das Handle nicht geerbt werden. Der **lpsecuritydescriptor** -Member der-Struktur gibt eine Sicherheits Beschreibung für den neuen Konsolenbildschirm Puffer an. Wenn *lpsecurityattribute* **null** ist, erhält der Konsolenbildschirm Puffer eine Standard Sicherheits Beschreibung. Die ACLs in der Standard Sicherheits Beschreibung eines Konsolenbildschirm Puffers stammen aus dem primären Token oder dem Identitätswechsel Token des Erstellers.
 
 *dwFlags* \[ in\]  
-Der Typ des zu erstellenden Konsolenbildschirm Puffers. Der einzige unterstützte Bildschirm Puffertyp ist der **Konsolen \_ TextMode- \_ Puffer**.
+Der Typ des zu erstellenden Konsolenbildschirm Puffers. Der einzige unterstützte Bildschirm Puffertyp ist der **Konsolen \_ TextMode- \_ Puffer** .
 
-*lpscreenbufferdata*   
-Bleiben muss **null**sein.
+*lpscreenbufferdata*  
+Bleiben muss **null** sein.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ein Handle für den neuen Konsolenbildschirm Puffer.
 
-Wenn die Funktion fehlschlägt, ist der Rückgabewert ein **ungültiger \_ handle- \_ Wert**. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlschlägt, ist der Rückgabewert ein **ungültiger \_ handle- \_ Wert** . Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Eine Konsole kann über mehrere Bildschirm Puffer verfügen, aber nur einen aktiven Bildschirm Puffer. Der Zugriff auf inaktive Bildschirm Puffer ist für Lese-und Schreibvorgänge möglich, es wird jedoch nur der aktive Bildschirm Puffer angezeigt. Verwenden Sie die Funktion [**setconsoleactiveskreenbuffer**](setconsoleactivescreenbuffer.md) , damit der neue Bildschirm den Puffer für den aktiven Bildschirm puffert.
 
 Der neu erstellte Bildschirm Puffer kopiert einige Eigenschaften aus dem Puffer des aktiven Bildschirms, wenn diese Funktion aufgerufen wird. Das Verhalten sieht wie folgt aus:
+
 - `Font` -kopiert aus dem aktiven Bildschirm Puffer
 - `Display Window Size` -kopiert aus dem aktiven Bildschirm Puffer
-- `Buffer Size` -Übereinstimmung mit `Display Window Size` (**nicht** kopiert)
+- `Buffer Size` -Übereinstimmung mit `Display Window Size` ( **nicht** kopiert)
 - `Default Attributes` (Farben)-aus aktivem Bildschirm Puffer kopiert
 - `Default Popup Attributes` (Farben)-aus aktivem Bildschirm Puffer kopiert
 
@@ -123,72 +99,36 @@ Der aufrufenden Prozess kann die [**duplikatandle**](https://msdn.microsoft.com/
 
 Verwenden Sie die [**CloseHandle**](https://msdn.microsoft.com/library/windows/desktop/ms724211) -Funktion, um das Bildschirm Puffer Handle der Konsole zu schließen.
 
-<a name="examples"></a>Beispiele
---------
+[!INCLUDE [no-vt-equiv-alt-buf](./includes/no-vt-equiv-alt-buf.md)]
+
+## <a name="examples"></a>Beispiele
 
 Ein Beispiel finden Sie unter [Lesen und Schreiben von Zeichen-und Attribut Blöcken](reading-and-writing-blocks-of-characters-and-attributes.md).
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi2. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
-
+## <a name="see-also"></a>Weitere Informationen
 
 [Konsolenfunktionen](console-functions.md)
 
-[Konsolenbildschirm Puffer](console-screen-buffers.md)
+[Konsolenbildschirmpuffer](console-screen-buffers.md)
 
 [**CloseHandle**](https://msdn.microsoft.com/library/windows/desktop/ms724211)
 
 [**Duplialisiehandle**](https://msdn.microsoft.com/library/windows/desktop/ms724251)
 
-[**Getconsoleskreenbufferinfo**](getconsolescreenbufferinfo.md)
+[**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)
 
 [**Sicherheits \_ Attribute**](https://msdn.microsoft.com/library/windows/desktop/aa379560)
 
-[**Setconsoleactiveskreenbuffer**](setconsoleactivescreenbuffer.md)
+[**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md)
 
-[**Setconsoleskreenbuffersize**](setconsolescreenbuffersize.md)
-
- 
-
- 
-
-
-
-
+[**SetConsoleScreenBufferSize**](setconsolescreenbuffersize.md)

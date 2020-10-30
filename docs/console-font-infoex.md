@@ -4,7 +4,7 @@ description: Siehe Referenzinformationen zur CONSOLE_FONT_INFOEX Struktur, die e
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi3/CONSOLE_FONT_INFOEX
 - wincon/CONSOLE_FONT_INFOEX
@@ -24,37 +24,36 @@ topic_type:
 api_name:
 - CONSOLE_FONT_INFOEX
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 12977e288a63397c581143683047239e4d410eec
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: ef89d1bf47a4153d44140d3f9f4845bb7496680e
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060099"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039258"
 ---
 # <a name="console_font_infoex-structure"></a>Konsolen \_ Schriftart \_ INFOEX-Struktur
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Enthält erweiterte Informationen für eine Konsolen Schriftart.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 typedef struct _CONSOLE_FONT_INFOEX {
   ULONG cbSize;
   DWORD nFont;
   COORD dwFontSize;
-  UINT  FontFamily;
-  UINT  FontWeight;
+  UINT  FontFamily;
+  UINT  FontWeight;
   WCHAR FaceName[LF_FACESIZE];
 } CONSOLE_FONT_INFOEX, *PCONSOLE_FONT_INFOEX;
 ```
 
-<a name="members"></a>Member
--------
+## <a name="members"></a>Member
 
 **CBSIZE**  
 Die Größe der-Struktur in Bytes. Dieser Member muss auf festgelegt werden, `sizeof(CONSOLE_FONT_INFOEX)` bevor [**getcurrentconsolefontex**](getcurrentconsolefontex.md) aufgerufen wird. andernfalls tritt ein Fehler auf.
@@ -74,44 +73,18 @@ Die Schrift Breite. Die Gewichtung kann zwischen 100 und 1000 liegen, in Vielfac
 **Fakename**  
 Der Name der Schriftart (z. b. Courier oder Arial).
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Um die Größe der Schriftart zu erhalten, übergeben Sie den Schriftart Index an die [**getconsolefontsize**](getconsolefontsize.md) -Funktion.
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows Vista [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows Server 2008 [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>WinCon. h (Include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows Vista \[ -Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows Server 2008 \[ -Desktop-Apps\] |
+| Header | WinCon. h (Include Windows. h) |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+## <a name="see-also"></a>Weitere Informationen
 
-
-[**Getcurrentconsolefontex**](getcurrentconsolefontex.md)
-
- 
-
- 
-
-
-
-
+[**GetCurrentConsoleFontEx**](getcurrentconsolefontex.md)

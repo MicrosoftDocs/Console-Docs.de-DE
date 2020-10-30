@@ -1,10 +1,10 @@
 ---
-title: CONSOLE_READCONSOLE_CONTROL Struktur
+title: CONSOLE_READCONSOLE_CONTROL-Struktur
 description: Siehe Referenzinformationen zur CONSOLE_READCONSOLE_CONTROL Struktur, die Informationen zu einem Konsolen Lesevorgang enthält.
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi/CONSOLE_READCONSOLE_CONTROL
 - wincon/CONSOLE_READCONSOLE_CONTROL
@@ -24,23 +24,21 @@ topic_type:
 api_name:
 - CONSOLE_READCONSOLE_CONTROL
 api_location:
-- Wincon.h
+- WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 4fc6af26cd540a7af207af252963c21ba216cdee
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 8a703a1eaa370e16095e1b10eb146a0718f332e9
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060075"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039188"
 ---
 # <a name="console_readconsole_control-structure"></a>\_ \_ Steuerelement Struktur der Konsole
 
-
 Enthält Informationen zu einem Konsolen Lesevorgang.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 typedef struct _CONSOLE_READCONSOLE_CONTROL {
@@ -51,8 +49,7 @@ typedef struct _CONSOLE_READCONSOLE_CONTROL {
 } CONSOLE_READCONSOLE_CONTROL, *PCONSOLE_READCONSOLE_CONTROL;
 ```
 
-<a name="members"></a>Member
--------
+## <a name="members"></a>Member
 
 **nlength**  
 Die Größe der-Struktur. Legen Sie diesen Member auf fest `sizeof(CONSOLE_READCONSOLE_CONTROL)` .
@@ -61,120 +58,31 @@ Die Größe der-Struktur. Legen Sie diesen Member auf fest `sizeof(CONSOLE_READC
 Die Anzahl der zu über springenden Zeichen (und somit beibehalten), bevor neue Lese Eingaben in den Puffer geschrieben werden, der an die Funktion der Schreib [**Konsole**](readconsole.md) weitergegeben wurde. Dieser Wert muss kleiner als der *nnumofcharstoread* -Parameter der Read **Console** -Funktion sein.
 
 **dwctrlwakeupmask**  
-Ein benutzerdefiniertes Steuerzeichen, das verwendet wird, um zu signalisieren, dass der Lesevorgang beendet ist.
+Eine Maske, die angibt, welche Steuerzeichen zwischen `0x00` und `0x1F` verwendet werden sollen, um zu signalisieren, dass der Lesevorgang beendet ist. Jedes Bit entspricht einem Zeichen mit dem am wenigsten signifikanten Bit, das `0x00` oder entspricht, `NUL` und dem signifikantesten Bit, das `0x1F` oder entspricht `US` . Es können mehrere Bits (Steuerzeichen) angegeben werden.
 
 **dwcontrolkeystate**  
 Der Zustand der Steuerelement Schlüssel. Dieser Member kann einen oder mehrere der folgenden Werte aufweisen.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Wert</th>
-<th>Bedeutung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="CAPSLOCK_ON"></span><span id="capslock_on"></span>
-<strong>CAPSLOCK_ON</strong> 0x0080</td>
-<td><p>Die Feststell Sperre ist auf on.</p></td>
-</tr>
-<tr class="even">
-<td><span id="ENHANCED_KEY"></span><span id="enhanced_key"></span>
-<strong>ENHANCED_KEY</strong> 0x0100</td>
-<td><p>Der Schlüssel ist erweitert.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="LEFT_ALT_PRESSED"></span><span id="left_alt_pressed"></span>
-<strong>LEFT_ALT_PRESSED</strong> 0x0002</td>
-<td><p>Die linke ALT-Taste wird gedrückt.</p></td>
-</tr>
-<tr class="even">
-<td><span id="LEFT_CTRL_PRESSED"></span><span id="left_ctrl_pressed"></span>
-<strong>LEFT_CTRL_PRESSED</strong> 0x0008</td>
-<td><p>Die linke STRG-Taste wird gedrückt.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="NUMLOCK_ON"></span><span id="numlock_on"></span>
-<strong>NUMLOCK_ON</strong> 0x0020</td>
-<td><p>Der NUM-Sperr Licht ist on.</p></td>
-</tr>
-<tr class="even">
-<td><span id="RIGHT_ALT_PRESSED"></span><span id="right_alt_pressed"></span>
-<strong>RIGHT_ALT_PRESSED</strong> 0x0001</td>
-<td><p>Die Rechte ALT-Taste wird gedrückt.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="RIGHT_CTRL_PRESSED"></span><span id="right_ctrl_pressed"></span>
-<strong>RIGHT_CTRL_PRESSED</strong> 0x0004</td>
-<td><p>Die Rechte STRG-Taste wird gedrückt.</p></td>
-</tr>
-<tr class="even">
-<td><span id="SCROLLLOCK_ON"></span><span id="scrolllock_on"></span>
-<strong>SCROLLLOCK_ON</strong> 0x0040</td>
-<td><p>Das Licht der Scrollsperre ist on.</p></td>
-</tr>
-<tr class="odd">
-<td><span id="SHIFT_PRESSED"></span><span id="shift_pressed"></span>
-<strong>SHIFT_PRESSED</strong> 0x0010</td>
-<td><p>Die UMSCHALTTASTE wird gedrückt.</p></td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| Wert | Bedeutung |
+|-|-|
+| **CAPSLOCK_ON** 0x0080 | Die Feststell Sperre ist auf on. |
+| **ENHANCED_KEY** 0x0100 | Der Schlüssel ist erweitert. Siehe [Hinweise](key-event-record-str.md#remarks). |
+| **LEFT_ALT_PRESSED** 0x0002 | Die linke ALT-Taste wird gedrückt. |
+| **LEFT_CTRL_PRESSED** 0x0008 | Die linke STRG-Taste wird gedrückt. |
+| **NUMLOCK_ON** 0x0020 | Der NUM-Sperr Licht ist on. |
+| **RIGHT_ALT_PRESSED** 0x0001 | Die Rechte ALT-Taste wird gedrückt. |
+| **RIGHT_CTRL_PRESSED** 0x0004 | Die Rechte STRG-Taste wird gedrückt. |
+| **SCROLLLOCK_ON** 0x0040 | Das Licht der Scrollsperre ist on. |
+| **SHIFT_PRESSED** 0x0010 | Die UMSCHALTTASTE wird gedrückt. |
 
- 
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<a name="requirements"></a>Anforderungen
-------------
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows Vista \[ -Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows Server 2008 \[ -Desktop-Apps\] |
+| Header | Consoleapi. h (über WinCon. h, Include Windows. h) |
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows Vista [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows Server 2008 [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>Consoleapi. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-</tbody>
-</table>
+## <a name="see-also"></a>Weitere Informationen
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
-
-
-[**"Read Console"**](readconsole.md)
-
- 
-
- 
-
-
-
-
+[**ReadConsole**](readconsole.md)

@@ -4,7 +4,7 @@ description: Legt die aktuelle Größe und Position des Fensters eines Konsolenb
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi2/SetConsoleWindowInfo
 - wincon/SetConsoleWindowInfo
@@ -28,50 +28,47 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: ae09434a1fc67902d2160f4e66890f4392eac3f8
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: dc1190aee7cb1a29c60579f5e00daf1f7280d292
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060019"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039308"
 ---
 # <a name="setconsolewindowinfo-function"></a>Setconsolewindowinfo-Funktion
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Legt die aktuelle Größe und Position des Fensters eines Konsolenbildschirm Puffers fest.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 BOOL WINAPI SetConsoleWindowInfo(
-  _In_       HANDLE     hConsoleOutput,
-  _In_       BOOL       bAbsolute,
-  _In_ const SMALL_RECT *lpConsoleWindow
+  _In_       HANDLE     hConsoleOutput,
+  _In_       BOOL       bAbsolute,
+  _In_ const SMALL_RECT *lpConsoleWindow
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *hconsoleoutput* \[ in\]  
 Ein Handle für den Bildschirm Puffer der Konsole. Das Handle muss über das **allgemeine \_ Lese** Zugriffsrecht verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
 
 *babsolute* \[ in\]  
-Wenn dieser Parameter auf **true**festgelegt ist, geben die Koordinaten die neuen oberen linken und unteren rechten Ecke des Fensters an. Wenn der Wert **false**ist, sind die Koordinaten relativ zu den aktuellen Fenstern der Fenster Ecke.
+Wenn dieser Parameter auf **true** festgelegt ist, geben die Koordinaten die neuen oberen linken und unteren rechten Ecke des Fensters an. Wenn der Wert **false** ist, sind die Koordinaten relativ zu den aktuellen Fenstern der Fenster Ecke.
 
 *lpconsolewindow* \[ in\]  
 Ein Zeiger auf eine [**kleine \_ Rect**](small-rect-str.md) -Struktur, die die neuen oberen linken und unteren rechten Ecke des Fensters angibt.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
 
 Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="remarks"></a>Hinweise
--------
+## <a name="remarks"></a>Bemerkungen
 
 Die Funktion schlägt fehl, wenn das angegebene Fenster Rechteck die Grenzen des Konsolenbildschirm Puffers überschreitet. Dies bedeutet, dass die **oberen** und **linken** Member des *lpconsolewindow* -Rechtecks (oder die berechneten oberen und linken Koordinaten, wenn *babsolute* false ist) nicht kleiner als 0 (null) sein dürfen. Entsprechend dürfen die **unteren** und **rechten** Elemente (oder die berechneten unteren und rechten Koordinaten) nicht größer sein als (Bildschirm Puffer Höhe – 1) und (Bildschirm Puffer Breite – 1). Die-Funktion schlägt auch fehl, wenn das **Rechte** Element (oder die berechnete rechte Koordinate) kleiner als oder gleich dem **linken** Member (oder der berechneten linken Koordinate) ist oder wenn der **untere** Member (oder die berechnete untere Koordinate) kleiner oder gleich dem **oberen** Element (oder der berechneten oberen Koordinate) ist.
 
@@ -81,68 +78,32 @@ Verwenden Sie die [**getconsoleskreenbufferinfo**](getconsolescreenbufferinfo.md
 
 **Setconsolewindowinfo** kann verwendet werden, um den Inhalt des Konsolenbildschirm Puffers durch Verschieben der Position des Fenster Rechtecks zu scrollen, ohne seine Größe zu ändern.
 
-<a name="examples"></a>Beispiele
---------
+[!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
+
+## <a name="examples"></a>Beispiele
 
 Ein Beispiel finden Sie unter [Scrollen des Fensters eines Bildschirm Puffers](scrolling-a-screen-buffer-s-window.md).
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="requirements"></a>Requirements (Anforderungen)
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows 2000 Professional [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows 2000 Server [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi2. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
-
+## <a name="see-also"></a>Weitere Informationen
 
 [Konsolenfunktionen](console-functions.md)
 
-[**Getconsoleskreenbufferinfo**](getconsolescreenbufferinfo.md)
+[**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)
 
-[**Getlargestconsolewindowsize**](getlargestconsolewindowsize.md)
+[**GetLargestConsoleWindowSize**](getlargestconsolewindowsize.md)
 
-[**Scrollconsoleskreenbuffer**](scrollconsolescreenbuffer.md)
+[**ScrollConsoleScreenBuffer**](scrollconsolescreenbuffer.md)
 
 [Scrollen des Bildschirm Puffers](scrolling-the-screen-buffer.md)
 
 [**kleine \_ Rect**](small-rect-str.md)
-
- 
-
- 
-
-
-
-

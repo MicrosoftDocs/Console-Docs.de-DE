@@ -4,7 +4,7 @@ description: Weitere Informationen finden Sie in den Referenzinformationen zur s
 author: miniksa
 ms.author: miniksa
 ms.topic: article
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API
 f1_keywords:
 - consoleapi3/SetConsoleDisplayMode
 - wincon/SetConsoleDisplayMode
@@ -24,31 +24,30 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 0d4564b9a7562fb495c9834df98708d5faff5334
-ms.sourcegitcommit: b75f4688e080d300b80c552d0711fdd86b9974bf
+ms.openlocfilehash: 52d7e50d7ced5615cb296c0590876e4604057e42
+ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "89060106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93039388"
 ---
 # <a name="setconsoledisplaymode-function"></a>Setconsoledisplaymode-Funktion
 
+[!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
 Legt den Anzeigemodus des angegebenen Konsolenbildschirm Puffers fest.
 
-<a name="syntax"></a>Syntax
-------
+## <a name="syntax"></a>Syntax
 
 ```C
 BOOL WINAPI SetConsoleDisplayMode(
-  _In_      HANDLE hConsoleOutput,
-  _In_      DWORD  dwFlags,
-  _Out_opt_ PCOORD lpNewScreenBufferDimensions
+  _In_      HANDLE hConsoleOutput,
+  _In_      DWORD  dwFlags,
+  _Out_opt_ PCOORD lpNewScreenBufferDimensions
 );
 ```
 
-<a name="parameters"></a>Parameter
-----------
+## <a name="parameters"></a>Parameter
 
 *hconsoleoutput* \[ in\]  
 Ein Handle für den Bildschirm Puffer der Konsole.
@@ -56,94 +55,38 @@ Ein Handle für den Bildschirm Puffer der Konsole.
 *dwFlags* \[ in\]  
 Der Anzeigemodus der Konsole. Dieser Parameter kann einen oder mehrere der folgenden Werte aufweisen.
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Wert</th>
-<th>Bedeutung</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span id="CONSOLE_FULLSCREEN_MODE"></span><span id="console_fullscreen_mode"></span>
-<strong>CONSOLE_FULLSCREEN_MODE</strong> 1</td>
-<td><p>Der Text wird im Vollbildmodus angezeigt.</p></td>
-</tr>
-<tr class="even">
-<td><span id="CONSOLE_WINDOWED_MODE"></span><span id="console_windowed_mode"></span>
-<strong>CONSOLE_WINDOWED_MODE</strong> 2</td>
-<td><p>Der Text wird in einem Konsolenfenster angezeigt.</p></td>
-</tr>
-</tbody>
-</table>
-
- 
+| Wert | Bedeutung |
+|-|-|
+| **CONSOLE_FULLSCREEN_MODE** 1 | Der Text wird im Vollbildmodus angezeigt. |
+| **CONSOLE_WINDOWED_MODE** 2 | Der Text wird in einem Konsolenfenster angezeigt. |
 
 *lpnewscreenbufferdimensions* \[ Out, optional\]  
 Ein Zeiger auf eine [**Koord**](coord-str.md) -Struktur, die die neuen Abmessungen des Bildschirm Puffers empfängt, in Zeichen.
 
-<a name="return-value"></a>Rückgabewert
-------------
+## <a name="return-value"></a>Rückgabewert
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
 
 Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-<a name="requirements"></a>Anforderungen
-------------
+## <a name="remarks"></a>Bemerkungen
 
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>Unterstützte Mindestversion (Client)</p></td>
-<td><p>Windows XP [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="even">
-<td><p>Unterstützte Mindestversion (Server)</p></td>
-<td><p>Windows Server 2003 [nur Desktop-Apps]</p></td>
-</tr>
-<tr class="odd">
-<td><p>Header</p></td>
-<td>ConsoleApi3. h (über WinCon. h, Include Windows. h)</td>
-</tr>
-<tr class="even">
-<td><p>Bibliothek</p></td>
-<td>Kernel32. lib</td>
-</tr>
-<tr class="odd">
-<td><p>DLL</p></td>
-<td>Kernel32.dll</td>
-</tr>
-<tr class="even">
-</tr>
-<tr class="odd">
-</tr>
-<tr class="even">
-</tr>
-</tbody>
-</table>
+[!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
-## <a name="span-idsee_alsospansee-also"></a><span id="see_also"></span>Siehe auch
+## <a name="requirements"></a>Requirements (Anforderungen)
 
+| &nbsp; | &nbsp; |
+|-|-|
+| Unterstützte Mindestversion (Client) | Nur Windows XP \[ -Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Nur Windows Server 2003 \[ -Desktop-Apps\] |
+| Header | ConsoleApi3. h (über WinCon. h, Include Windows. h) |
+| Bibliothek | Kernel32. lib |
+| DLL | Kernel32.dll |
+
+## <a name="see-also"></a>Weitere Informationen
 
 [Konsolenfunktionen](console-functions.md)
 
 [Konsolen Modi](console-modes.md)
 
-[**Getconsoledisplaymode**](getconsoledisplaymode.md)
-
- 
-
- 
-
-
-
-
+[**GetConsoleDisplayMode**](getconsoledisplaymode.md)
