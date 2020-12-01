@@ -29,12 +29,13 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: b382e6567d2099e2d6eacf33c8e19233f20c6400
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 2af598f465be6e1a33f5a8f9a2c9abe98d6ed0d2
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039358"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420299"
 ---
 # <a name="setconsolemode-function"></a>Setconsolemode-Funktion
 
@@ -65,7 +66,7 @@ Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0
 
 Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 [!INCLUDE [console-mode-remarks](./includes/console-mode-remarks.md)]
 
@@ -75,7 +76,7 @@ Verwenden Sie die [**getconsolemode**](getconsolemode.md) -Funktion, um den aktu
 
 Ein Beispiel finden Sie unter [Lesen von Eingabepuffer Ereignissen](reading-input-buffer-events.md).
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
@@ -85,11 +86,11 @@ Ein Beispiel finden Sie unter [Lesen von Eingabepuffer Ereignissen](reading-inpu
 | Bibliothek | Kernel32. lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolenfunktionen](console-functions.md)
 
-[Konsolen Modi](console-modes.md)
+[Konsolenmodi](console-modes.md)
 
 [**GetConsoleMode**](getconsolemode.md)
 

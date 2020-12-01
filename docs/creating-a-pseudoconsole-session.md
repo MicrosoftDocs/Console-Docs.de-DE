@@ -6,12 +6,13 @@ ms.author: miniksa
 ms.topic: conceptual
 ms.prod: console
 keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API, konpty, pseudoconsole, Windows Pty, Pseudo Konsole
-ms.openlocfilehash: 17b53bc2f0afb60be1a8311de9ab54b00fbf71d6
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 8cd057d3e74659fdeff6c569ddb053c881af1de8
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039108"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420229"
 ---
 # <a name="creating-a-pseudoconsole-session"></a>Erstellen einer pseudoconsole-Sitzung
 
@@ -93,7 +94,7 @@ Diese Struktur enthält die Möglichkeit, komplexe Startinformationen bereitzust
 
 Verwenden Sie [**initializeprocthreadattributelist**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-initializeprocthreadattributelist) in einem doppelten Callcenter, um zunächst die Anzahl der Bytes zu berechnen, die zum Speichern der Liste erforderlich sind, den angeforderten Arbeitsspeicher zuzuordnen und dann erneut den nicht transparenten Speicher Zeiger bereitzustellen, um ihn als Attribut Liste einzurichten.
 
-Führen Sie als nächstes [**updateprocthreadattribute**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute) aus, indem Sie die initialisierte Attribut Liste mit dem-Flag **PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE** , dem pseudoconsole-Handle und der Größe des pseudoconsole-Handles übergeben.
+Führen Sie als nächstes [**updateprocthreadattribute**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute) aus, indem Sie die initialisierte Attribut Liste mit dem-Flag **PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE**, dem pseudoconsole-Handle und der Größe des pseudoconsole-Handles übergeben.
 
 ```C
 

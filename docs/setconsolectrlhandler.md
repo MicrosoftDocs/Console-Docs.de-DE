@@ -29,12 +29,13 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 1c5c67bc5900a36bb50c0da90516fab0cec2e366
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 208eebc92b718fed9856a48dfaf5cbebdaddc1e1
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039418"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420269"
 ---
 # <a name="setconsolectrlhandler-function"></a>SetConsoleCtrlHandler-Funktion
 
@@ -67,13 +68,13 @@ Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0
 
 Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Diese Funktion bietet eine ähnliche Benachrichtigung für Konsolen Anwendungen und-Dienste, die [**WM \_ queryendsession**](https://msdn.microsoft.com/library/windows/desktop/aa376890) für grafische Anwendungen mit einem nachrichtenpump bereitstellt. Sie können diese Funktion auch aus einer grafischen Anwendung verwenden, aber es gibt keine Garantie, dass Sie vor der Benachrichtigung von **WM \_ queryendsession** eintreffen würde.
 
 Jeder Konsolen Prozess verfügt über eine eigene Liste von Anwendungs definierten [**Handlerroutine**](handlerroutine.md) -Funktionen, die die Tastenkombination <kbd>STRG</kbd> + <kbd>C</kbd> und <kbd>STRG</kbd>drücken + <kbd>BREAK</kbd> . Die Handlerfunktionen behandeln auch Signale, die vom System generiert werden, wenn der Benutzer die Konsole schließt, sich abmeldet oder das System herunterfährt. Anfänglich enthält die Handlerliste für jeden Prozess nur eine Standardhandlerfunktion, die die [**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658) -Funktion aufruft. Bei einem Konsolen Prozess werden zusätzliche Handlerfunktionen durch Aufrufen der **SetConsoleCtrlHandler** -Funktion hinzugefügt oder entfernt, die sich nicht auf die Liste der Handlerfunktionen für andere Prozesse auswirkt. Wenn ein Konsolen Prozess eines der Steuersignale empfängt, werden seine Handlerfunktionen für eine zuletzt registrierte, erste Methode aufgerufen, bis einer der Handler zurückgibt `TRUE` . Wenn keiner der Handler zurückgibt `TRUE` , wird der Standard Handler aufgerufen.
 
-Bei Konsolen Prozessen werden die <kbd>CTRL</kbd> + Tastenkombinationen STRG <kbd>c</kbd> und <kbd>STRG</kbd>- + <kbd>BREAK</kbd> Taste normalerweise als Signale behandelt ( **Strg c- \_ \_ Ereignis** und **STRG-Break- \_ \_ Ereignis** ). Wenn ein Konsolenfenster mit dem Tastaturfokus <kbd>STRG</kbd> + <kbd>C</kbd> oder <kbd>STRG</kbd>-Taste erhält + <kbd>BREAK</kbd>, wird das Signal in der Regel an alle Prozesse weitergegeben, die die Konsole freigeben.
+Bei Konsolen Prozessen werden die <kbd>CTRL</kbd> + Tastenkombinationen STRG <kbd>c</kbd> und <kbd>STRG</kbd>- + <kbd>BREAK</kbd> Taste normalerweise als Signale behandelt (**Strg c- \_ \_ Ereignis** und **STRG-Break- \_ \_ Ereignis**). Wenn ein Konsolenfenster mit dem Tastaturfokus <kbd>STRG</kbd> + <kbd>C</kbd> oder <kbd>STRG</kbd>-Taste erhält + <kbd>BREAK</kbd>, wird das Signal in der Regel an alle Prozesse weitergegeben, die die Konsole freigeben.
 
 <kbd>STRG</kbd> + " <kbd>Break</kbd> " wird immer als Signal behandelt, aber das typische <kbd>STRG</kbd>- + <kbd>C</kbd> -Verhalten kann auf drei Arten geändert werden, die verhindern, dass die Handlerfunktionen aufgerufen werden:
 
@@ -83,7 +84,7 @@ Bei Konsolen Prozessen werden die <kbd>CTRL</kbd> + Tastenkombinationen STRG <kb
 
 Ein Konsolen Prozess kann die [**generateconsolectrlevent**](generateconsolectrlevent.md) -Funktion verwenden, um ein <kbd>STRG</kbd> + <kbd>C</kbd> -oder <kbd>STRG</kbd>-halte + <kbd>BREAK</kbd> Signal an eine Konsolen Prozessgruppe zu senden.
 
-Das System generiert das STRG-Schließ **\_ \_ Ereignis** , das STRG-Abmelde **\_ \_ Ereignis** und das **STRG-Shutdown- \_ \_ Ereignis** Signal, wenn der Benutzer die Konsole schließt, sich abmeldet oder das System herunterfährt, sodass der Prozess vor dem beenden eine Bereinigung durchführt. Konsolenfunktionen oder alle C-Lauf Zeitfunktionen, die Konsolenfunktionen aufzurufen, funktionieren möglicherweise nicht zuverlässig während der Verarbeitung der drei Signale, die zuvor erwähnt wurden. Der Grund hierfür ist, dass möglicherweise einige oder alle der internen Konsolen Bereinigungs Routinen aufgerufen wurden, bevor der Prozess Signalhandler ausgeführt wurde.
+Das System generiert das STRG-Schließ **\_ \_ Ereignis**, das STRG-Abmelde **\_ \_ Ereignis** und das **STRG-Shutdown- \_ \_ Ereignis** Signal, wenn der Benutzer die Konsole schließt, sich abmeldet oder das System herunterfährt, sodass der Prozess vor dem beenden eine Bereinigung durchführt. Konsolenfunktionen oder alle C-Lauf Zeitfunktionen, die Konsolenfunktionen aufzurufen, funktionieren möglicherweise nicht zuverlässig während der Verarbeitung der drei Signale, die zuvor erwähnt wurden. Der Grund hierfür ist, dass möglicherweise einige oder alle der internen Konsolen Bereinigungs Routinen aufgerufen wurden, bevor der Prozess Signalhandler ausgeführt wurde.
 
 **Windows 7, Windows 8, Windows 8.1 und Windows 10:**
 
@@ -95,7 +96,7 @@ Um Ereignisse zu empfangen, wenn ein Benutzer sich abmeldet oder das Gerät unte
 
 Ein Beispiel finden Sie unter [Registrieren einer Steuerelement Handler-Funktion](registering-a-control-handler-function.md).
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
@@ -106,7 +107,7 @@ Ein Beispiel finden Sie unter [Registrieren einer Steuerelement Handler-Funktion
 | DLL | Kernel32.dll |
 | Unicode- und ANSI-Name | |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolen-Bearbeitungssteuerelemente](console-control-handlers.md)
 

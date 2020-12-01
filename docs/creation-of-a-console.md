@@ -13,12 +13,13 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 84ec2559-cade-447e-8594-5b824d3d3e81
-ms.openlocfilehash: 78a77044452fe2287a7cea0bfe5a6542eceef337
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 09de42ced585e4a644fbbcc04211d5cb6037c2af
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038238"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420279"
 ---
 # <a name="creation-of-a-console"></a>Erstellung einer Konsole
 

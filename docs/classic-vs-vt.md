@@ -1,19 +1,20 @@
 ---
-title: Klassische Konsolen-APIs im Vergleich zu virtuellen Terminal Sequenzen
+title: Klassische Konsolen-APIs im Vergleich zu virtuellen Terminalsequenzen
 description: Beschreibt den Unterschied zwischen der API-Oberfläche der klassischen Win32-Konsole und dem Konzept der virtuellen Terminal Sequenzen, die manchmal auch als Escapesequenzen bezeichnet werden, zum Schreiben von Befehlszeilen Anwendungen.
 author: miniksa
 ms.author: miniksa
 ms.topic: conceptual
 keywords: Konsole, Terminal, virtuelles Terminal, Escape-Sequenzen, VT, VT100, Konsolen-API
 ms.prod: console
-ms.openlocfilehash: 0fdd39cab5b8f6ca5cc1602c8e68ec7f2a2303ad
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 541300b50521909b22ceaccb595f1945fbfc7e6d
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039580"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420179"
 ---
-# <a name="classic-console-apis-versus-virtual-terminal-sequences"></a>Klassische Konsolen-APIs im Vergleich zu virtuellen Terminal Sequenzen
+# <a name="classic-console-apis-versus-virtual-terminal-sequences"></a>Klassische Konsolen-APIs im Vergleich zu virtuellen Terminalsequenzen
 
 Unsere Empfehlung besteht darin, die klassische **Windows-Konsolen-API** durch **virtuelle Terminal Sequenzen** zu ersetzen. In diesem Artikel werden die Unterschiede zwischen den beiden erläutert und die Gründe für unsere Empfehlung erörtert.
 
@@ -90,7 +91,7 @@ Für alle neuen und fortlaufenden Entwicklungen unter Windows **werden virtuelle
 
 **Es ist immer noch eine begrenzte Teilmenge der Windows-Konsolen-APIs erforderlich** , um die anfängliche Umgebung einzurichten. Die Windows-Plattform unterscheidet sich weiterhin von anderen in Verarbeitung, Signal, Gerät und Codierung:
 
-- Die Standard Handles für einen Prozess werden weiterhin mit " **[getstdhandle](getstdhandle.md)** " und " **[setstdhandle](setstdhandle.md)** " gesteuert.
+- Die Standard Handles für einen Prozess werden weiterhin mit " **[getstdhandle](getstdhandle.md)** " und " **[setstdhandle](setstdhandle.md)**" gesteuert.
 
 - Die Konfiguration der Konsolen Modi eines Handles zum Abonnieren der Unterstützung virtueller Terminal Sequenzen wird mit **[getconsolemode](getconsolemode.md)** und **[setconsolemode](setconsolemode.md)** behandelt.
 
@@ -100,9 +101,9 @@ Für alle neuen und fortlaufenden Entwicklungen unter Windows **werden virtuelle
 
 - Signale und die Signalverarbeitung werden weiterhin mit [**SetConsoleCtrlHandler**](setconsolectrlhandler.md), [**Handlerroutine**](handlerroutine.md)und [**generateconsolectrlevent**](generateconsolectrlevent.md)durchgeführt.
 
-- Die Kommunikation mit den Geräte Handles der Konsole kann mit " [**Write Console**](writeconsole.md) " und "read [**Console**](readconsole.md)" durchgeführt werden. Diese können auch über Laufzeiten der Programmiersprache in den folgenden Formen genutzt werden:-C Runtime (CRT): [Stream](https://docs.microsoft.com/cpp/c-runtime-library/stream-i-o) -e/a wie **printf** , **scanf** , **putc** , **getc** oder [andere Ebenen von e/a-Funktionen](https://docs.microsoft.com/cpp/c-runtime-library/input-and-output).
-        -C++-Standard Bibliothek (STL): [iostream](https://docs.microsoft.com/cpp/standard-library/iostream) wie **cout** und **CIN** .
-        -.NET-Runtime: [System. Console](https://docs.microsoft.com/dotnet/api/system.console) wie **Console. Write teline** .
+- Die Kommunikation mit den Geräte Handles der Konsole kann mit " [**Write Console**](writeconsole.md) " und "read [**Console**](readconsole.md)" durchgeführt werden. Diese können auch über Laufzeiten der Programmiersprache in den folgenden Formen genutzt werden:-C Runtime (CRT): [Stream](https://docs.microsoft.com/cpp/c-runtime-library/stream-i-o) -e/a wie **printf**, **scanf**, **putc**, **getc** oder [andere Ebenen von e/a-Funktionen](https://docs.microsoft.com/cpp/c-runtime-library/input-and-output).
+        -C++-Standard Bibliothek (STL): [iostream](https://docs.microsoft.com/cpp/standard-library/iostream) wie **cout** und **CIN**.
+        -.NET-Runtime: [System. Console](https://docs.microsoft.com/dotnet/api/system.console) wie **Console. Write teline**.
 
 - Anwendungen, die sich auf Änderungen der Fenstergröße beziehen müssen, müssen weiterhin " [**leconsoleinput**](readconsoleinput.md) " verwenden, um Sie mit Schlüsselereignissen zu überlappen, da diese von der "read **Console** " allein verworfen werden.
 

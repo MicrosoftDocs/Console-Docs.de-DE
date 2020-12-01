@@ -13,12 +13,13 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: f94995fc-5f5f-4fcd-969d-7e10020634c2
-ms.openlocfilehash: c3121a53f654bd2fa85fa140c2efc6d6217b7796
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: 4c5740be3b60d54f9e7b586b41e962a4102222a0
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039168"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420199"
 ---
 # <a name="console-screen-buffers"></a>Konsolenbildschirmpuffer
 
@@ -34,7 +35,7 @@ Eine Reihe von Eigenschaften, die einem Bildschirm Puffer zugeordnet sind, könn
 - Text Attribute (Vordergrund-und Hintergrundfarben zum Anzeigen von Text, der von der Funktion " [**Write File**](https://msdn.microsoft.com/library/windows/desktop/aa365747) " oder " [**Write-Console**](writeconsole.md) " geschrieben werden soll).
 - Fenstergröße und-Position (der rechteckige Bereich des Konsolenbildschirm Puffers, der im Konsolenfenster angezeigt wird).
 - Cursor Position, Darstellung und Sichtbarkeit.
-- Ausgabe Modi ( **die \_ verarbeitete \_ Ausgabe aktivieren** und **\_ Wrap \_ bei \_ EOL- \_ Ausgabe aktivieren** ). Weitere Informationen zu Konsolenausgabe Modi finden Sie unter allgemeine [Konsolen Modi](high-level-console-modes.md).
+- Ausgabe Modi (**die \_ verarbeitete \_ Ausgabe aktivieren** und **\_ Wrap \_ bei \_ EOL- \_ Ausgabe aktivieren**). Weitere Informationen zu Konsolenausgabe Modi finden Sie unter allgemeine [Konsolen Modi](high-level-console-modes.md).
 
 Wenn ein Bildschirm Puffer erstellt wird, enthält er Leerzeichen an jeder Position. Der Cursor ist sichtbar und wird am Ursprung des Puffers (0,0) positioniert, und das Fenster wird mit seiner oberen linken Ecke am Ursprungs des Puffers positioniert. Die Größe des Konsolenbildschirm Puffers, die Fenstergröße, die Text Attribute und die Darstellung des Cursors werden durch den Benutzer oder die System Standardwerte bestimmt. Zum Abrufen der aktuellen Werte der verschiedenen Eigenschaften, die dem Konsolenbildschirm Puffer zugeordnet sind, verwenden Sie die Funktionen [**getconsoleskreenbufferinfo**](getconsolescreenbufferinfo.md), [**getconsolecursorinfo**](getconsolecursorinfo.md)und [**getconsolemode**](getconsolemode.md) .
 
@@ -100,4 +101,4 @@ Die [**getcurrentconsolefont**](getcurrentconsolefont.md) -Funktion Ruft Informa
 Die [**getconsolefontsize**](getconsolefontsize.md) -Funktion Ruft die Größe der Schriftart ab, die vom angegebenen Konsolenbildschirm Puffer verwendet wird.
 
 > [!NOTE]
-> Die Verwendung von Funktionen zum Suchen und Bearbeiten von Schriftart Informationen wird nicht empfohlen. Es wird empfohlen, Befehlszeilen Anwendungen auf Schriftart neutrale Weise zu betreiben, um die plattformübergreifende Kompatibilität sowie die Kompatibilität mit Host Umgebungen sicherzustellen, die es dem Benutzer ermöglichen, die Schriftart anzupassen. Weitere Informationen zu Benutzereinstellungen und Host Umgebungen, einschließlich Terminals, finden Sie in der Roadmap für das **[Ökosystem](ecosystem-roadmap.md)** .
+> Die Verwendung von Funktionen zum Suchen und Bearbeiten von Schriftart Informationen wird nicht empfohlen. Es wird empfohlen, Befehlszeilen Anwendungen auf Schriftart neutrale Weise zu betreiben, um die plattformübergreifende Kompatibilität sowie die Kompatibilität mit Host Umgebungen sicherzustellen, die es dem Benutzer ermöglichen, die Schriftart anzupassen. Weitere Informationen zu Benutzereinstellungen und Host Umgebungen, einschließlich Terminals, finden Sie in der Roadmap für das **[Ökosystem](ecosystem-roadmap.md)**.

@@ -13,12 +13,13 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: dc723046-b3e9-418a-b386-79be411e5ac8
-ms.openlocfilehash: 29d25e83281c7c98c74ae4a0da03eea06dbf0077
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: acc7d65e15451fc2804dc1782644c1ccbaa30e28
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039228"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420239"
 ---
 # <a name="console-handles"></a>Konsolenhandles
 
@@ -28,7 +29,7 @@ Die [**getstdhandle**](getstdhandle.md) -Funktion bietet einen Mechanismus zum A
 
 Der Wert der von [**getstdhandle**](getstdhandle.md) zurückgegebenen Handles ist nicht 0, 1 und 2, sodass die standardmäßigen vordefinierten streamkonstanten in stdio. h ( `STDIN` , `STDOUT` und `STDERR` ) nicht in Funktionen verwendet werden können, die ein Konsolen handle erfordern.
 
-Die [**Funktion**](https://msdn.microsoft.com/library/windows/desktop/aa363858) "-Funktion" ermöglicht einem Prozess, ein Handle für den Eingabepuffer und den aktiven Bildschirm Puffer der Konsole zu erhalten, auch wenn `STDIN` und `STDOUT` umgeleitet wurden. Wenn Sie ein Handle für den Eingabepuffer einer Konsole öffnen möchten, geben Sie den `CONIN$` Wert in einem Aufrufen von " **anatefile** " an. Geben Sie `CONOUT$` **den** Wert in einem aufzurufenden Befehl an, um ein Handle für den aktiven Bildschirm Puffer einer Konsole zu öffnen. Mit " **anatefile** " können Sie den Lese-/Schreibzugriff des Handles angeben, das zurückgegeben wird.
+Die [**Funktion**](https://msdn.microsoft.com/library/windows/desktop/aa363858) "-Funktion" ermöglicht einem Prozess, ein Handle für den Eingabepuffer und den aktiven Bildschirm Puffer der Konsole zu erhalten, auch wenn `STDIN` und `STDOUT` umgeleitet wurden. Wenn Sie ein Handle für den Eingabepuffer einer Konsole öffnen möchten, geben Sie den `CONIN$` Wert in einem Aufrufen von " **anatefile**" an. Geben Sie `CONOUT$` **den** Wert in einem aufzurufenden Befehl an, um ein Handle für den aktiven Bildschirm Puffer einer Konsole zu öffnen. Mit " **anatefile** " können Sie den Lese-/Schreibzugriff des Handles angeben, das zurückgegeben wird.
 
 Die Funktion " [**kreateconsoleskreenbuffer**](createconsolescreenbuffer.md) " erstellt einen neuen Bildschirm Puffer und gibt ein Handle zurück. Dieses Handle kann in jeder Funktion verwendet werden, die ein Handle für die Konsolenausgabe akzeptiert. Der neue Bildschirm Puffer ist nicht aktiv (angezeigt), bis sein Handle in einem Aufrufen der [**setconsoleactiveskreenbuffer**](setconsoleactivescreenbuffer.md) -Funktion angegeben wird. Beachten Sie, dass sich das Ändern des aktiven Bildschirm Puffers nicht auf das von [**getstdhandle**](getstdhandle.md)zurückgegebene Handle auswirkt. Ebenso wirkt sich die Verwendung von [**setstdhandle**](setstdhandle.md) zum Ändern des `STDOUT` Handles nicht auf den aktiven Bildschirm Puffer aus.
 

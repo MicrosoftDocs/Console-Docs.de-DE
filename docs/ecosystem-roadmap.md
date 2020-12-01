@@ -1,19 +1,20 @@
 ---
-title: Roadmap für die Windows-Konsole und das Terminal Ökosystem
+title: Roadmap für die Windows-Konsole und das Terminalökosystem
 description: Bietet eine allgemeine Übersicht über die Interaktionen zwischen und Plänen für den Windows-Konsolen Host, Konsolen-APIs, Konsolen Subsystem und Terminal Produkt.
 author: miniksa
 ms.author: miniksa
 ms.topic: conceptual
 keywords: Konsole, Terminal, virtuelles Terminal, Konsolen Host, Befehlszeile, Subsystem, Roadmap, Ökosystem
 ms.prod: console
-ms.openlocfilehash: e47b72a6f66e54b5f2904770f7c1a87e08d927e2
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.localizationpriority: high
+ms.openlocfilehash: e5d28a06789f230943d70a49e7c89642b17fdb5c
+ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039610"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96420259"
 ---
-# <a name="windows-console-and-terminal-ecosystem-roadmap"></a>Roadmap für die Windows-Konsole und das Terminal Ökosystem
+# <a name="windows-console-and-terminal-ecosystem-roadmap"></a>Roadmap für die Windows-Konsole und das Terminalökosystem
 
 Dieses Dokument ist eine allgemeine Roadmap der Windows-Konsole und der Windows-Terminal Produkte. Folgendes wird behandelt:
 
