@@ -1,6 +1,6 @@
 ---
-title: Funktion "Beschreib teconsole"
-description: Schreibt eine Zeichenfolge in einen Konsolenbildschirm Puffer, beginnend an der aktuellen Cursorposition.
+title: WriteConsole-Funktion
+description: Schreibt eine Zeichenfolge in einen Konsolenbildschirm-Puffer, beginnend an der aktuellen Cursorposition.
 author: miniksa
 ms.author: miniksa
 ms.topic: article
@@ -40,14 +40,14 @@ api_type:
 ms.localizationpriority: high
 ms.openlocfilehash: 426aa6711e46e0d5cda1eb1b7dab7b2b0b7156d6
 ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 12/04/2020
 ms.locfileid: "96420289"
 ---
-# <a name="writeconsole-function"></a>Funktion "Beschreib teconsole"
+# <a name="writeconsole-function"></a>WriteConsole-Funktion
 
-Schreibt eine Zeichenfolge in einen Konsolenbildschirm Puffer, beginnend an der aktuellen Cursorposition.
+Schreibt eine Zeichenfolge in einen Konsolenbildschirm-Puffer, beginnend an der aktuellen Cursorposition.
 
 ## <a name="syntax"></a>Syntax
 
@@ -63,52 +63,52 @@ BOOL WINAPI WriteConsole(
 
 ## <a name="parameters"></a>Parameter
 
-*hconsoleoutput* \[ in\]  
-Ein Handle für den Bildschirm Puffer der Konsole. Das Handle muss über das **allgemeine \_ Schreib** Zugriffsrecht verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
+*hConsoleOutput* \[in\]  
+Ein Handle für den Konsolenbildschirm-Puffer. Das Handle muss das Zugriffsrecht **GENERIC\_WRITE** besitzen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für Konsolenpuffer](console-buffer-security-and-access-rights.md).
 
-*lpBuffer* \[ in\]  
-Ein Zeiger auf einen Puffer, der Zeichen enthält, die in den Konsolenbildschirm Puffer geschrieben werden sollen. Es wird davon ausgegangen, dass es sich um ein Array von `char` für `WriteConsoleA` oder handelt `wchar_t` `WriteConsoleW` .
+*lpBuffer* \[in\]  
+Ein Zeiger auf einen Puffer, der Zeichen enthält, die in den Konsolenbildschirm-Puffer geschrieben werden sollen. Es wird erwartet, dass es sich um ein Array von `char` für `WriteConsoleA` oder von `wchar_t` für `WriteConsoleW` handelt.
 
-*nnumofcharstowrite* \[ in\]  
-Die Anzahl der zu schreibenden Zeichen. Wenn die Gesamtgröße der angegebenen Anzahl von Zeichen den verfügbaren Heap überschreitet, tritt bei der Funktion ein Fehler auf, und es ist **\_ nicht \_ genügend Arbeits \_ Speicher** vorhanden.
+*nNumberOfCharsToWrite* \[in\]  
+Die Anzahl der zu schreibenden Zeichen. Wenn die Gesamtgröße der angegebenen Anzahl von Zeichen den verfügbaren Heap überschreitet, schlägt die Funktion mit **ERROR\_NOT\_ENOUGH\_MEMORY** fehl.
 
-*lpnumofcharswritten* \[ Out, optional\]  
+*lpNumberOfCharsWritten* \[out, optional\]  
 Ein Zeiger auf eine Variable, die die Anzahl der tatsächlich geschriebenen Zeichen empfängt.
 
-*lbeibehalten* Bleiben muss **null** sein.
+*lpReserved* reserviert; muss **NULL** sein.
 
 ## <a name="return-value"></a>Rückgabewert
 
-Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
+Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) auf.
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
-Die Funktion " **Write Console** " schreibt Zeichen an der aktuellen Cursorposition in den Konsolenbildschirm Puffer. Die Cursorposition wird beim Schreiben von Zeichen fortgesetzt. Die [**SetConsoleCursorPosition**](setconsolecursorposition.md) -Funktion legt die aktuelle Cursorposition fest.
+Die **WriteConsole**-Funktion schreibt Zeichen an der aktuellen Cursorposition in den Konsolenbildschirm-Puffer. Die Cursorposition wird mit dem Schreiben von Zeichen vorgerückt. Die [**SetConsoleCursorPosition**](setconsolecursorposition.md)-Funktion legt die aktuelle Cursorposition fest.
 
-Zeichen werden mithilfe der Vordergrund-und Hintergrundfarben Attribute geschrieben, die dem Konsolenbildschirm Puffer zugeordnet sind. Die [**SetConsoleTextAttribute**](setconsoletextattribute.md) -Funktion ändert diese Farben. Zum Ermitteln der aktuellen Farb Attribute und der aktuellen Cursorposition verwenden Sie [**getconsoleskreenbufferinfo**](getconsolescreenbufferinfo.md).
+Zeichen werden unter Verwendung der Vordergrund- und Hintergrundfarbenattribute geschrieben, die dem Konsolenbildschirm-Puffer zugeordnet sind. Die [**SetConsoleTextAttribute**](setconsoletextattribute.md)-Funktion ändert diese Farben. Um die aktuellen Farbattribute und die aktuelle Cursorposition zu bestimmen, verwenden Sie [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md).
 
-Alle Eingabemodi, die das Verhalten der Funktion " [**Write File**](https://msdn.microsoft.com/library/windows/desktop/aa365747) " beeinflussen, haben dieselbe Auswirkung auf " **Write Console**". Zum Abrufen und Festlegen der Ausgabe Modi eines Konsolenbildschirm Puffers verwenden Sie die Funktionen [**getconsolemode**](getconsolemode.md) und [**setconsolemode**](setconsolemode.md) .
+Alle Eingabemodi, die sich auf das Verhalten der [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)-Funktion auswirken, haben denselben Effekt auf **WriteConsole**. Zum Abrufen und Festlegen der Ausgabemodi eines Konsolenbildschirm-Puffers verwenden Sie die Funktionen [**GetConsoleMode**](getconsolemode.md) und [**SetConsoleMode**](setconsolemode.md).
 
 [!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-Die **Schreib Konsole** schlägt fehl, wenn Sie mit einem Standard Handle verwendet wird, das zu einer Datei umgeleitet wird. Wenn eine Anwendung mehrsprachige Ausgaben verarbeitet, die umgeleitet werden können, bestimmen Sie, ob das Ausgabe Handle ein Konsolen Handle ist (eine Methode besteht darin, die [**getconsolemode**](getconsolemode.md) -Funktion aufzurufen und zu überprüfen, ob Sie erfolgreich ist). Wenn das Handle ein Konsolen Handle ist, müssen Sie " **Write-Console**" anrufen. Wenn das Handle kein Konsolen Handle ist, wird die Ausgabe umgeleitet, und Sie sollten " [**Write File**](https://msdn.microsoft.com/library/windows/desktop/aa365747) " zum Ausführen des e/a-Vorgangs aufruft. Stellen Sie sicher, dass eine Unicode-nur-Text-Datei mit einer Byte Reihenfolge Markierung versehen wird. Weitere Informationen finden Sie unter [Verwenden von Byte Reihenfolge Markierungen](https://msdn.microsoft.com/library/windows/desktop/dd374101).
+**WriteConsole** schlägt fehl, wenn sie mit einem Standardhandle verwendet wird, das an eine Datei umgeleitet wird. Wenn eine Anwendung mehrsprachige Ausgaben verarbeitet, die umgeleitet werden können, stellen Sie fest, ob das Ausgabehandle ein Konsolenhandle ist (eine Methode besteht darin, die [**GetConsoleMode**](getconsolemode.md)-Funktion aufzurufen und zu überprüfen, ob sie erfolgreich ist). Wenn das Handle ein Konsolenhandle ist, rufen Sie **WriteConsole** auf. Wenn das Handle kein Konsolenhandle ist, wird die Ausgabe umgeleitet, und Sie sollten [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) aufrufen, um die E/A auszuführen. Stellen Sie sicher, dass Sie eine Unicode-Nur-Text-Datei mit einer Bytereihenfolge-Marke versehen. Weitere Informationen finden Sie unter [Verwenden von Bytereihenfolge-Marken](https://msdn.microsoft.com/library/windows/desktop/dd374101).
 
-Obwohl eine Anwendung die Schreib **Konsole** im ANSI-Modus zum Schreiben von ANSI-Zeichen verwenden kann, unterstützen-Konsolen keine "ANSI-Escapezeichen" oder "virtuelle Terminal"-Sequenzen, sofern diese nicht aktiviert sind Weitere Informationen und die Anwendbarkeit der Betriebssystemversion finden Sie unter [**Konsolen-virtuelle Terminal Sequenzen**](console-virtual-terminal-sequences.md) .
+Obwohl eine Anwendung **WriteConsole** im ANSI-Modus verwenden kann, um ANSI-Zeichen zu schreiben, unterstützen Konsolen keine „ANSI-Escapezeichen“ oder „virtuellen Terminal“sequenzen, sofern diese nicht aktiviert sind. Weitere Informationen, auch zur Anwendbarkeit von Betriebssystemversionen, finden Sie unter [**Virtuelle Konsolenterminalsequenzen**](console-virtual-terminal-sequences.md).
 
-Wenn virtuelle Terminal-Escapesequenzen nicht aktiviert sind, können Konsolenfunktionen entsprechende Funktionen bereitstellen. Weitere Informationen finden Sie unter [**setcurrsorpos**](https://msdn.microsoft.com/library/windows/desktop/ms648394(v=vs.85).aspx), [**SetConsoleTextAttribute**](setconsoletextattribute.md)und [**getconsolecursorinfo**](getconsolecursorinfo.md).
+Wenn virtuelle Terminal-Escapesequenzen nicht aktiviert sind, können Konsolenfunktionen entsprechende Funktionalitäten bereitstellen. Weitere Informationen finden Sie unter [**SetCursorPos**](https://msdn.microsoft.com/library/windows/desktop/ms648394(v=vs.85).aspx), [**SetConsoleTextAttribute**](setconsoletextattribute.md)und [**GetConsoleCursorInfo**](getconsolecursorinfo.md).
 
 ## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
-| Header | Consoleapi. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
+| Header | ConsoleApi.h (über WinCon.h, Windows.h einschließen) |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
-| Unicode- und ANSI-Name | " **Schreibconsolew** (Unicode)" und " **Beschreib teconsolea** " (ANSI) |
+| Unicode- und ANSI-Name | **WriteConsoleW** (Unicode) und **WriteConsoleA** (ANSI) |
 
 ## <a name="see-also"></a>Siehe auch
 
@@ -120,7 +120,7 @@ Wenn virtuelle Terminal-Escapesequenzen nicht aktiviert sind, können Konsolenfu
 
 [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)
 
-[Eingabe-und Ausgabemethoden](input-and-output-methods.md)
+[Ein- und Ausgabemethoden](input-and-output-methods.md)
 
 [**ReadConsole**](readconsole.md)
 
@@ -134,6 +134,6 @@ Wenn virtuelle Terminal-Escapesequenzen nicht aktiviert sind, können Konsolenfu
 
 [**SetConsoleTextAttribute**](setconsoletextattribute.md)
 
-[**Setcurrsorpos**](https://msdn.microsoft.com/library/windows/desktop/ms648394(v=vs.85).aspx)
+[**SetCursorPos**](https://msdn.microsoft.com/library/windows/desktop/ms648394(v=vs.85).aspx)
 
 [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
