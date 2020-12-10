@@ -1,6 +1,6 @@
 ---
-title: Setconsolemode-Funktion
-description: Legt den Eingabemodus für den Eingabepuffer einer Konsole oder den Ausgabemodus eines Konsolenbildschirm Puffers fest.
+title: SetConsoleMode-Funktion
+description: Legt den Eingabemodus des Eingabepuffers einer Konsole oder den Ausgabemodus des Bildschirmpuffers einer Konsole fest.
 author: miniksa
 ms.author: miniksa
 ms.topic: article
@@ -32,14 +32,14 @@ api_type:
 ms.localizationpriority: high
 ms.openlocfilehash: 2af598f465be6e1a33f5a8f9a2c9abe98d6ed0d2
 ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 12/04/2020
 ms.locfileid: "96420299"
 ---
-# <a name="setconsolemode-function"></a>Setconsolemode-Funktion
+# <a name="setconsolemode-function"></a>SetConsoleMode-Funktion
 
-Legt den Eingabemodus für den Eingabepuffer einer Konsole oder den Ausgabemodus eines Konsolenbildschirm Puffers fest.
+Legt den Eingabemodus des Eingabepuffers einer Konsole oder den Ausgabemodus des Bildschirmpuffers einer Konsole fest.
 
 ## <a name="syntax"></a>Syntax
 
@@ -52,38 +52,38 @@ BOOL WINAPI SetConsoleMode(
 
 ## <a name="parameters"></a>Parameter
 
-*hconsolehandle* \[ in\]  
-Ein Handle des Konsolen Eingabe Puffers oder eines Konsolenbildschirm Puffers. Das Handle muss über das **allgemeine \_ Lese** Zugriffsrecht verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
+*hConsoleHandle* \[in\]  
+Ein Handle zum Konsoleneingabepuffer oder zu einem Konsolenbildschirmpuffer. Das Handle muss über das Zugriffsrecht **GENERIC\_READ** verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für Konsolenpuffer](console-buffer-security-and-access-rights.md).
 
-*dwmode* \[ in\]  
-Der Eingabe-oder Ausgabemodus, der festgelegt werden soll.
+*dwMode* \[in\]  
+Der Eingabe- oder Ausgabemodus, der festgelegt werden soll.
 
 [!INCLUDE [console-mode-flags](./includes/console-mode-flags.md)]
 
 ## <a name="return-value"></a>Rückgabewert
 
-Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
+Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) auf.
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 [!INCLUDE [console-mode-remarks](./includes/console-mode-remarks.md)]
 
-Verwenden Sie die [**getconsolemode**](getconsolemode.md) -Funktion, um den aktuellen Modus eines Konsolen Eingabe Puffers oder Bildschirm Puffers zu bestimmen.
+Um den aktuellen Modus eines Konsoleneingabepuffers oder Bildschirmpuffers zu bestimmen, verwenden Sie die Funktion [**GetConsoleMode**](getconsolemode.md).
 
 ## <a name="examples"></a>Beispiele
 
-Ein Beispiel finden Sie unter [Lesen von Eingabepuffer Ereignissen](reading-input-buffer-events.md).
+Ein Beispiel finden Sie unter [Lesen von Eingabepufferereignissen](reading-input-buffer-events.md).
 
 ## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
-| Header | Consoleapi. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
+| Header | ConsoleApi.h (über WinCon.h, Windows.h einschließen) |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 
 ## <a name="see-also"></a>Siehe auch

@@ -1,49 +1,49 @@
 ---
-title: Erstellen einer pseudoconsole-Sitzung
-description: Eine Pseudo Konsolen Sitzung ermöglicht einer Anwendung das Hosten der Aktivitäten einer zeichenmodusanwendung.
+title: Erstellen einer Pseudokonsolensitzung
+description: Eine Pseudokonsolensitzung ermöglicht einer Anwendung das Hosten der Aktivitäten einer Zeichenmodusanwendung.
 author: miniksa
 ms.author: miniksa
 ms.topic: conceptual
 ms.prod: console
-keywords: Konsolen-, Zeichenmodusanwendungen, Befehlszeilen Anwendungen, Terminalanwendungen, Konsolen-API, konpty, pseudoconsole, Windows Pty, Pseudo Konsole
+keywords: Konsole, Zeichenmodusanwendungen, Befehlszeilenanwendungen, Terminalanwendungen, Konsolen-API, Kon-PTY, Pseudokonsole, Windows-PTY, Pseudo-Konsole
 ms.localizationpriority: high
 ms.openlocfilehash: 8cd057d3e74659fdeff6c569ddb053c881af1de8
 ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 12/04/2020
 ms.locfileid: "96420229"
 ---
-# <a name="creating-a-pseudoconsole-session"></a>Erstellen einer pseudoconsole-Sitzung
+# <a name="creating-a-pseudoconsole-session"></a>Erstellen einer Pseudokonsolensitzung
 
-Die Windows-Pseudo Konsole, manchmal auch als Pseudo Konsole,-Konstante oder Windows-Pty bezeichnet, ist ein Mechanismus, der zum Erstellen eines externen Hosts für subsystemaktivitäten im Zeichenmodus entwickelt wurde, die den Benutzer Interaktivität-Teil des standardmäßigen Konsolen Host Fensters ersetzen.
+Die Windows-Pseudokonsole, manchmal auch als Pseudokonsole, Kon-PTY oder Windows-PTY bezeichnet, ist ein Mechanismus, der dazu dient, einen externen Host für Aktivitäten des Zeichenmodus-Subsystems zu schaffen, der den Anteil des Standardkonsolen-Hostfensters ersetzt, der für Benutzerinteraktivität vorgesehen ist.
 
-Das Hosting einer pseudoconsole-Sitzung unterscheidet sich etwas von einer herkömmlichen Konsolen Sitzung. Herkömmliche Konsolen Sitzungen werden automatisch gestartet, wenn das Betriebssystem erkennt, dass eine zeichenmodusanwendung gerade ausgeführt wird. Im Gegensatz dazu müssen eine Pseudo Konsolen Sitzung und die Kommunikationskanäle von der Hostinganwendung erstellt werden, bevor der Prozess mit der untergeordneten Zeichenmodus-Anwendung erstellt wird, die gehostet werden soll. Der untergeordnete Prozess wird weiterhin mithilfe der Funktion " [**deateprocess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) " erstellt, aber mit einigen zusätzlichen Informationen, die das Betriebssystem zum Einrichten der entsprechenden Umgebung leiten werden.
+Das Hosten einer Pseudokonsolensitzung unterscheidet sich etwas von einer herkömmlichen Konsolensitzung. Herkömmliche Konsolensitzungen werden automatisch gestartet, wenn das Betriebssystem erkennt, dass eine Zeichenmodusanwendung ausgeführt werden soll. Im Gegensatz dazu müssen eine Pseudokonsolensitzung und die Kommunikationskanäle von der Hostinganwendung erstellt werden, bevor der Prozess mit der zu hostenden, untergeordneten Zeichenmodusanwendung erstellt wird. Der untergeordnete Prozess wird trotzdem mithilfe der Funktion [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) erstellt, jedoch mit einigen zusätzlichen Informationen, die das Betriebssystem anweisen, die passende Umgebung herzustellen.
 
-Weitere Hintergrundinformationen zu diesem System finden Sie im [ersten Ankündigungs Blogbeitrag](https://blogs.msdn.microsoft.com/commandline/2018/08/02/windows-command-line-introducing-the-windows-pseudo-console-conpty/).
+Weitere Hintergrundinformationen zu diesem System finden Sie im [Blogbeitrag mit der ursprünglichen Ankündigung](https://blogs.msdn.microsoft.com/commandline/2018/08/02/windows-command-line-introducing-the-windows-pseudo-console-conpty/).
 
-Ausführliche Beispiele für die Verwendung von pseudoconsole finden Sie im GitHub [-Repository Microsoft/Terminal](https://github.com/microsoft/terminal) im Verzeichnis "Beispiele".
+Ausführliche Beispiele zum Verwenden der Pseudokonsole finden Sie in unserem GitHub-Repository [microsoft/terminal](https://github.com/microsoft/terminal) im Beispielverzeichnis.
 
 ## <a name="preparing-the-communication-channels"></a>Vorbereiten der Kommunikationskanäle
 
-Der erste Schritt besteht darin, ein paar synchroner Kommunikationskanäle zu erstellen, die während der Erstellung der pseudoconsole-Sitzung für die bidirektionale Kommunikation mit der gehosteten Anwendung bereitgestellt werden. Diese Kanäle werden vom pseudoconsole-System mithilfe von "read [**File**](https://docs.microsoft.com/windows/desktop/api/fileapi/nf-fileapi-readfile) " und " [**Write File**](https://docs.microsoft.com/windows/desktop/api/fileapi/nf-fileapi-writefile) " mit [synchroner e/a-](https://docs.microsoft.com/windows/desktop/Sync/synchronization-and-overlapped-input-and-output)Vorgängen verarbeitet. Datei-oder e/a-Geräte Handles wie ein Dateistream oder eine Pipe sind zulässig, solange keine [**über**](https://docs.microsoft.com/windows/desktop/api/minwinbase/ns-minwinbase-_overlapped) Lapp Ende Struktur für die asynchrone Kommunikation erforderlich ist.
+Der erste Schritt besteht darin, ein Paar synchroner Kommunikationskanäle zu erstellen, die während der Erstellung der Pseudokonsolensitzung für die bidirektionale Kommunikation mit der gehosteten Anwendung bereitgestellt werden. Diese Kanäle werden vom Pseudokonsolensystem mithilfe von [**ReadFile**](https://docs.microsoft.com/windows/desktop/api/fileapi/nf-fileapi-readfile) und [**WriteFile**](https://docs.microsoft.com/windows/desktop/api/fileapi/nf-fileapi-writefile) mit [synchroner E/A](https://docs.microsoft.com/windows/desktop/Sync/synchronization-and-overlapped-input-and-output) verarbeitet. Datei- oder E/A-Gerätehandles wie ein Dateistream oder eine Pipe sind akzeptabel, sofern keine [**OVERLAPPED**](https://docs.microsoft.com/windows/desktop/api/minwinbase/ns-minwinbase-_overlapped)-Struktur für die asynchrone Kommunikation erforderlich ist.
 
 > [!WARNING]
->Um Racebedingungen und Deadlocks zu vermeiden, wird dringend empfohlen, dass jeder der Kommunikationskanäle in einem separaten Thread gewartet wird, der seinen eigenen Client Puffer Status und jede Messaging Warteschlange in der Anwendung verwaltet. Wenn Sie alle pseudoconsole-Aktivitäten im gleichen Thread ausführen, kann dies zu einem Deadlock führen, bei dem einer der Kommunikationspuffer ausgefüllt wird und auf die Aktion wartet, während Sie versuchen, eine blockierende Anforderung an einen anderen Kanal zu senden.
+>Zum Verhindern von Racebedingungen und Deadlocks empfehlen wir dringend, dass jeder der Kommunikationskanäle in einem separaten Thread bedient wird, der einen eigenen Clientpufferstatus und eine eigene Nachrichtenwarteschlange innerhalb Ihrer Anwendung aufweist. Das Bedienen aller Aktivitäten der Pseudokonsole im gleichen Thread kann zu einem Deadlock führen, bei dem einer der Kommunikationspuffer gefüllt ist und auf Ihre Aktion wartet, während Sie versuchen, eine blockierende Anforderung an einen anderen Kanal zu verteilen.
 
-## <a name="creating-the-pseudoconsole"></a>Erstellen der pseudoconsole
+## <a name="creating-the-pseudoconsole"></a>Erstellen der Pseudokonsole
 
-Identifizieren Sie mit den eingerichteten Kommunikationskanälen das Lese Ende des Eingabe Kanals und das "Write"-Ende des Ausgabe Kanals. Dieses Paar von Handles wird beim Aufrufen von [**createpseudoconsole**](createpseudoconsole.md) zum Erstellen des-Objekts bereitgestellt.
+Identifizieren Sie mithilfe der eingerichteten Kommunikationskanäle das „Leseende“ des Eingabekanals und das „Schreibende“ des Ausgabekanals. Dieses Paar Handles wird beim Aufrufen von [**CreatePseudoConsole**](createpseudoconsole.md) zum Erstellen des Objekts bereitgestellt.
 
-Bei der Erstellung ist eine Größe erforderlich, die die X-und Y-Dimensionen (als Anzahl von Zeichen) darstellt. Dies sind die Abmessungen, die auf die Anzeige Oberfläche für das endgültige Präsentations Fenster (Terminal) angewendet werden. Die Werte werden verwendet, um einen in-Memory-Puffer im Pseudo Konsolensystem zu erstellen.
+Bei der Erstellung ist eine Größe erforderlich, die die X- und die Y-Abmessung (als Zeichenanzahl) darstellt. Dies sind die Abmessungen, die wir für das endgültige (Terminal-) Präsentationsfenster auf die Anzeigeoberfläche anwenden. Die Werte werden verwendet, um innerhalb des Pseudokonsolensystems einen Puffer im Arbeitsspeicher zu erstellen.
 
-Die Puffergröße bietet Antworten auf Client-Zeichenmodus-Anwendungen, die mithilfe der [Client seitigen Konsolenfunktionen](console-functions.md) wie [**getconsoleskreenbufferinfoex**](getconsolescreenbufferinfoex.md) nach Informationen suchen und das Layout und die Positionierung von Text vorschreiben, wenn Clients Funktionen wie " [**Beschreib teconsoleoutput**](writeconsoleoutput.md)" verwenden.
+Die Puffergröße wird als Antwort an Clientanwendungen im Zeichenmodus übergeben, die mithilfe der [clientseitigen Konsolenfunktionen](console-functions.md) wie [**GetConsoleScreenBufferInfoEx**](getconsolescreenbufferinfoex.md) Informationen abzufragen versuchen, und gibt das Layout und die Positionierung von Text vor, wenn Clients Funktionen wie [**WriteConsoleOutput**](writeconsoleoutput.md) verwenden.
 
-Zum Schluss wird ein Flags-Feld bei der Erstellung einer pseudoconsole zur Durchführung spezieller Funktionen bereitgestellt. Legen Sie diese Einstellung standardmäßig auf 0 fest, um keine besondere Funktionalität zu haben.
+Schließlich wird bei der Erstellung einer Pseudokonsole ein Feld für Flags bereitgestellt, um besondere Funktionalität zu realisieren. Standardmäßig ist es auf 0 festgelegt, was keine Sonderfunktionalität bedeutet.
 
-Zurzeit ist nur ein spezielles Flag verfügbar, um die ervererbungsquelle der Cursorposition von einer Konsolen Sitzung anzufordern, die bereits an den Aufrufer der pseudoconsole-API angefügt ist. Dies ist für die Verwendung in komplexeren Szenarien vorgesehen, in denen eine Host Anwendung, die eine Pseudo Konsolen Sitzung vorbereitet, selbst auch eine Client Zeichenmodus-Anwendung einer anderen Konsolen Umgebung ist.
+Zurzeit ist nur ein besonderes Flag verfügbar, das die Vererbung der Cursorposition von einer Konsolensitzung anfordert, die dem Aufrufer der Pseudokonsolen-API bereits angefügt ist. Dies ist für die Verwendung in komplexeren Szenarien vorgesehen, in denen eine hostende Anwendung, die eine Pseudokonsolensitzung vorbereitet, ihrerseits ebenfalls als Clientanwendung im Zeichenmodus einer weiteren Konsolenumgebung ausgeführt wird.
 
-Unten finden Sie einen Beispielcode Ausschnitt, der mit der Verwendung von "" erstellt wird, um ein paar von Kommunikations [**Kanälen einzurichten und**](https://msdn.microsoft.com/library/windows/desktop/aa365152(v=vs.85).aspx) die Pseudo Konsole zu erstellen.
+Im Codeausschnitt unten ist ein Beispiel angegeben, das [**CreatePipe**](https://msdn.microsoft.com/library/windows/desktop/aa365152(v=vs.85).aspx) verwendet, um ein Paar Kommunikationskanäle einzurichten und die Pseudokonsole zu erstellen.
 
 ```C
 
@@ -82,19 +82,19 @@ HRESULT SetUpPseudoConsole(COORD size)
 ```
 
 > [!NOTE]
->Dieser Code Ausschnitt ist unvollständig und wird nur für die Demonstration dieses bestimmten Aufrufes verwendet. Sie müssen die Lebensdauer des **Handles** s entsprechend verwalten. Wenn die Lebensdauer von **Handles** nicht ordnungsgemäß verwaltet wird, kann dies zu deadlockszenarien führen, insbesondere bei synchronen e/a-aufrufen.
+>Dieser Codeausschnitt ist unvollständig und dient nur zur Demonstration dieses bestimmten Aufrufs. Sie müssen die Lebensdauer der **HANDLE** s passend verwalten. Wenn die Lebensdauer der **HANDLE** s nicht ordnungsgemäß verwaltet wird, kann dies zu Deadlockszenarien führen, insbesondere bei synchronen E/A-Aufrufen.
 
-Nach Abschluss [**des Vorgangs zum**](https://msdn.microsoft.com/library/windows/desktop/ms682425) Erstellen einer Anwendung, die an die pseudoconsole angefügt ist, müssen die während der Erstellung angegebenen Handles von diesem Prozess freigegeben werden. Dadurch wird der Verweis Zähler für das zugrunde liegende Geräte Objekt verringert, und e/a-Vorgänge können einen unterbrochenen Kanal ordnungsgemäß erkennen, wenn die pseudoconsole-Sitzung seine Kopie der Handles schließt.
+Beim Abschluss des [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425)-Aufrufs, um die Clientanwendung im Zeichenmodus zu erstellen, die an die Pseudokonsole angefügt ist, sollten die während der Erstellung übergebenen Handles von diesem Prozess freigegeben werden. Dadurch wird die Verweisanzahl des zugrundeliegenden Geräteobjekts verringert, und E/A-Vorgänge können einen unterbrochenen Kanal ordnungsgemäß erkennen, wenn die Pseudokonsolensitzung ihre Kopie der Handles schließt.
 
-## <a name="preparing-for-creation-of-the-child-process"></a>Die Erstellung des untergeordneten Prozesses wird vorbereitet.
+## <a name="preparing-for-creation-of-the-child-process"></a>Vorbereiten der Erstellung des untergeordneten Prozesses
 
-Die nächste Phase besteht in der Vorbereitung der [**startupinfoex**](https://docs.microsoft.com/windows/desktop/api/winbase/ns-winbase-_startupinfoexw) -Struktur, die die pseudoconsole-Informationen beim Starten des untergeordneten Prozesses vermittelt.
+Die nächste Phase besteht im Vorbereiten der Struktur [**STARTUPINFOEX**](https://docs.microsoft.com/windows/desktop/api/winbase/ns-winbase-_startupinfoexw), die die Pseudokonsoleninformationen beim Starten des untergeordneten Prozesses übermittelt.
 
-Diese Struktur enthält die Möglichkeit, komplexe Startinformationen bereitzustellen, einschließlich der Attribute für die Prozess-und Thread Erstellung.
+Diese Struktur bietet die Möglichkeit, komplexe Startinformationen einschließlich Attributen für die Prozess- und Threaderstellung bereitzustellen.
 
-Verwenden Sie [**initializeprocthreadattributelist**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-initializeprocthreadattributelist) in einem doppelten Callcenter, um zunächst die Anzahl der Bytes zu berechnen, die zum Speichern der Liste erforderlich sind, den angeforderten Arbeitsspeicher zuzuordnen und dann erneut den nicht transparenten Speicher Zeiger bereitzustellen, um ihn als Attribut Liste einzurichten.
+Verwenden Sie [**InitializeProcThreadAttributeList**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-initializeprocthreadattributelist) in der Art eines Doppelaufrufs, um zuerst die Anzahl der erforderlichen Bytes zum Aufnehmen der Liste zu berechnen, den angeforderten Arbeitsspeicher zuzuweisen und dann in einem erneuten Aufruf den opaken Arbeitsspeicherzeiger zu übergeben, um ihn als Attributliste einrichten zu lassen.
 
-Führen Sie als nächstes [**updateprocthreadattribute**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute) aus, indem Sie die initialisierte Attribut Liste mit dem-Flag **PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE**, dem pseudoconsole-Handle und der Größe des pseudoconsole-Handles übergeben.
+Rufen Sie anschließend [**UpdateProcThreadAttribute**](https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-updateprocthreadattribute) auf, und übergeben Sie die initialisierte Attributliste mit dem Flag **PROC_THREAD_ATTRIBUTE_PSEUDOCONSOLE**, das Handle der Pseudokonsole und die Größe des Handles der Pseudokonsole.
 
 ```C
 
@@ -145,7 +145,7 @@ HRESULT PrepareStartupInformation(HPCON hpc, STARTUPINFOEX* psi)
 
 ## <a name="creating-the-hosted-process"></a>Erstellen des gehosteten Prozesses
 
-[**Rufen Sie als nächstes**](https://msdn.microsoft.com/library/windows/desktop/ms682425) die [**startupinfoex**](https://docs.microsoft.com/windows/desktop/api/winbase/ns-winbase-_startupinfoexw) -Struktur mit dem Pfad zur ausführbaren Datei und ggf. zusätzlichen Konfigurationsinformationen auf. Es ist wichtig, das **EXTENDED_STARTUPINFO_PRESENT** -Flag festzulegen, wenn aufgerufen wird, um das System zu warnen, dass der pseudoconsole-Verweis in den erweiterten Informationen enthalten ist.
+Rufen Sie als nächstes [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) auf, und übergeben Sie die [**STARTUPINFOEX**](https://docs.microsoft.com/windows/desktop/api/winbase/ns-winbase-_startupinfoexw)-Struktur zusammen mit dem Pfad zur ausführbaren Datei und allen weiteren Konfigurationsinformationen, sofern zutreffend. Es ist wichtig, beim Aufrufen das Flag **EXTENDED_STARTUPINFO_PRESENT** festzulegen, um das System darüber zu informieren, dass der Verweis auf die Pseudokonsole in den erweiterten Informationen enthalten ist.
 
 ```C
 HRESULT SetUpPseudoConsole(COORD size)
@@ -189,21 +189,21 @@ HRESULT SetUpPseudoConsole(COORD size)
 ```
 
 > [!NOTE]
-> Das Schließen der Pseudo Konsolen Sitzung, während der gehostete Prozess noch startet und eine Verbindung hergestellt wird, kann dazu führen, dass von der Client Anwendung ein Fehler Dialogfeld angezeigt wird. Das gleiche Fehler Dialogfeld wird angezeigt, wenn dem gehosteten Prozess ein ungültiges Pseudo Konsolen Handle für den Start zugewiesen wird. Der Initialisierungs Code für den gehosteten Prozess ist identisch. Im Popup Dialogfeld der gehosteten Client Anwendung bei einem Fehler wird `0xc0000142` eine lokalisierte Meldung mit der fehlerhaften Initialisierung gelesen.
+> Das Schließen der Pseudokonsolensitzung, während der gehostete Prozess noch gestartet wird und eine Verbindung herstellt, kann dazu führen, dass die Clientanwendung ein Fehlerdialogfeld anzeigt. Das gleiche Fehlerdialogfeld wird angezeigt, wenn dem gehosteten Prozess beim Start ein ungültiges Handle für die Pseudokonsole übergeben wird. Aus der Sicht des Initialisierungscodes des gehosteten Prozesses sind die zwei Bedingungen identisch. Das Popupdialogfeld der gehosteten Clientanwendung lautet `0xc0000142`, mit einer lokalisierten Meldung, die den Initialisierungsfehler im Detail angibt.
 
-## <a name="communicating-with-the-pseudoconsole-session"></a>Kommunikation mit der pseudoconsole-Sitzung
+## <a name="communicating-with-the-pseudoconsole-session"></a>Kommunikation mit der Pseudokonsolensitzung
 
-Nachdem der Prozess erfolgreich erstellt wurde, kann die Host Anwendung das schreibende der Eingabe Pipe verwenden, um Benutzer Interaktions Informationen an die pseudoconsole zu senden, und das leseende der ausgabepipe, um grafische Präsentationsinformationen von der Pseudo Konsole zu erhalten.
+Nach der erfolgreichen Erstellung des Prozesses kann die hostende Anwendung das Schreibende der Eingabepipe verwenden, um Informationen zur Benutzerinteraktion an die Pseudokonsole zu senden, und das Leseende der Ausgabepipe, um Informationen zur grafischen Darstellung von der Pseudokonsole zu empfangen.
 
-Es ist vollständig für die Host Anwendung zu entscheiden, wie weitere Aktivitäten behandelt werden sollen. Die Hostinganwendung könnte ein Fenster in einem anderen Thread starten, um Benutzerinteraktionen zu erfassen und in das schreibende der Eingabe Pipe für die Pseudo Konsole und die Anwendung im gehosteten Zeichenmodus zu serialisieren. Ein anderer Thread könnte gestartet werden, um das leseende der Ausgabe Pipe für die Pseudo Konsole zu entfernen, den Text und die Informationen zu den [virtuellen Terminal Sequenzen](console-virtual-terminal-sequences.md) zu decodieren und auf dem Bildschirm darzustellen.
+Die Entscheidung, wie weitere Aktivitäten behandelt werden, liegt ausschließlich bei der hostenden Anwendung. Die hostende Anwendung kann etwa ein Fenster in einem anderen Thread starten, um Eingaben aus der Benutzerinteraktion zu erfassen und sie für die Pseudokonsole und die gehostete Zeichenmodusanwendung in das Schreibende der Eingabepipe zu serialisieren. Ein weiterer Thread könnte gestartet werden, der das Leseende der Ausgabepipe für die Pseudokonsole leert, den Text und die Informationen der [virtuellen Terminalsequenz](console-virtual-terminal-sequences.md) decodiert und sie auf dem Bildschirm ausgibt.
 
-Threads können auch verwendet werden, um die Informationen aus den pseudoconsole-Kanälen an einen anderen Kanal oder ein anderes Gerät zu übertragen, einschließlich eines Netzwerks an Remote Informationen an einen anderen Prozess oder Computer, und jegliche lokale Transcodierung der Informationen zu vermeiden.
+Threads können außerdem verwendet werden, um die Informationen aus den Kanälen der Pseudokonsole an einen anderen Kanal oder ein anderes Gerät zu übertragen, einschließlich eines Netzwerks, um Informationen remote an einen anderen Prozess oder Computer zu übergeben und jegliche lokale Transcodierung der Informationen zu vermeiden.
 
-## <a name="resizing-the-pseudoconsole"></a>Ändern der Größe der pseudoconsole
+## <a name="resizing-the-pseudoconsole"></a>Ändern der Größe der Pseudokonsole
 
-Während der Laufzeit gibt es möglicherweise eine Situation, in der die Größe des Puffers aufgrund einer Benutzerinteraktion oder einer Out-of-Band-Anforderung von einem anderen Anzeige-/Interaktionsgerät geändert werden muss.
+Zur Laufzeit kann ein Umstand eintreten, durch den die Größe des Puffers aufgrund einer Benutzerinteraktion oder einer außer der Reihe empfangenen Anforderung von einem anderen Anzeige-/Interaktionsgerät geändert werden muss.
 
-Dies kann mit der [**resizepseudoconsole**](resizepseudoconsole.md) -Funktion durchgeführt werden, wobei die Höhe und die Breite des Puffers in der Anzahl von Zeichen angegeben werden.
+Dies kann mit der [**ResizePseudoConsole**](resizepseudoconsole.md)-Funktion erfolgen, die sowohl die Höhe als auch die Breite des Puffers in Form einer Zeichenanzahl angibt.
 
 ```C
 // Theoretical event handler function with theoretical
@@ -224,9 +224,9 @@ void OnWindowResize(Event e)
 }
 ```
 
-## <a name="ending-the-pseudoconsole-session"></a>Beenden der pseudoconsole-Sitzung
+## <a name="ending-the-pseudoconsole-session"></a>Beenden der Pseudokonsolensitzung
 
-Um die Sitzung zu beenden, müssen Sie die Funktion [**closepseudoconsole**](closepseudoconsole.md) mit dem Handle aus der ursprünglichen Pseudo Konsolen Erstellung abrufen. Alle angefügten Anwendungen im Zeichenmodus, wie z. b. der aus dem [**Vorgang "deateprocess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) ", werden beendet, wenn die Sitzung geschlossen wird. Wenn das ursprüngliche untergeordnete Element eine shelltyp Anwendung war, die andere Prozesse erstellt, werden alle zugehörigen verknüpften Prozesse in der Struktur ebenfalls beendet.
+Um die Sitzung zu beenden, rufen Sie die Funktion [**ClosePseudoConsole**](closepseudoconsole.md) mit dem Handle aus der ursprünglichen Erstellung der Pseudokonsole auf. Alle verknüpften Clientanwendungen im Zeichenmodus, wie etwa die aus dem [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425)-Aufruf, werden beim Schließen der Sitzung beendet. Wenn das ursprüngliche untergeordnete Element eine Anwendung vom Shelltyp war, die andere Prozesse erstellt, werden alle zugehörigen verknüpften Prozesse in der Struktur ebenfalls beendet.
 
 > [!WARNING]
->Das Schließen der Sitzung hat mehrere Nebeneffekte, die zu einer Deadlockbedingung führen können, wenn die Pseudo Konsole synchron mit einem Single Thread verwendet wird. Beim Schließen der pseudoconsole-Sitzung kann ein abschließendes Frame Update ausgegeben `hOutput` werden, das aus dem Kommunikationskanal Puffer abgeleitet werden soll. Wenn außerdem `PSEUDOCONSOLE_INHERIT_CURSOR` beim Erstellen der pseudoconsole ausgewählt wurde, kann der Versuch, die pseudoconsole zu schließen, ohne auf die Cursor erstellungsabfragenmeldung (die empfangen `hOutput` und Antworten über übermittelt wird `hInput` ) zu einer anderen Deadlock-Bedingung führen. Es wird empfohlen, dass Kommunikationskanäle für die pseudoconsole in einzelnen Threads gewartet werden und verbleibt, bis Sie von der Client Anwendung, die beendet wird, oder durch den Abschluss von Beendigungs-Aktivitäten beim Aufrufen der [**closepseudoconsole**](closepseudoconsole.md) -Funktion beendet und verarbeitet wird.
+>Das Schließen der Sitzung hat eine Reihe von Nebenwirkungen, die zu einer Deadlocksituation führen können, wenn die Pseudokonsole synchron in einem einzelnen Thread ausgeführt wird. Der Vorgang des Schließens der Pseudokonsolensitzung kann zum Senden eines finalen Frameupdates an `hOutput` führen, das aus dem Puffer des Kommunikationskanals entfernt werden sollte. Wenn beim Erstellen der Pseudokonsole `PSEUDOCONSOLE_INHERIT_CURSOR` ausgewählt war, kann der Versuch, die Pseudokonsole zu schließen, ohne auf die Nachricht zur Abfrage der Cursorvererbung zu reagieren (die an `hOutput` empfangen wurde und über `hInput` beantwortet wird), eine andere Deadlockbedingung verursachen. Es wird empfohlen, dass die Kommunikationskanäle für die Pseudokonsole auf einzelnen Threads bedient werden und so lange entleert und verarbeitet bleiben, bis sie von sich aus durch das Beenden der Clientanwendung oder durch den Abschluss der Löschaktivitäten beim Aufruf der Funktion [**ClosePseudoConsole**](closepseudoconsole.md) unterbrochen werden.
