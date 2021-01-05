@@ -19,12 +19,12 @@ api_location:
 - KernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: f10a77781d555a76fdfcea8c8f10ae6bc1f72047
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: b015f224684a53a8bb654f04b1797ac1af794fc3
+ms.sourcegitcommit: f16996b9c7deead9bcfa44954be93a6ba087abcb
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038298"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97601477"
 ---
 # <a name="createpseudoconsole-function"></a>Funktion "anatepseudoconsole"
 
@@ -59,7 +59,7 @@ Der Wert kann in folgenden Formen vorliegen:
 | Wert | Bedeutung |
 |-|-|
 | **0** | Führt eine standardmäßige Pseudo Konsolen Erstellung aus. |
-| **PSEUDOCONSOLE_INHERIT_CURSOR** (DWORD) 1 | Die erstellte pseudoconsole-Sitzung versucht, die Cursorposition der Pernt-Konsole zu erben. |
+| **PSEUDOCONSOLE_INHERIT_CURSOR** (DWORD) 1 | Die erstellte pseudoconsole-Sitzung versucht, die Cursorposition der übergeordneten Konsole zu erben. |
 
 *PHPC* \[ vorgenommen\]  
 Zeiger auf einen Speicherort, der ein Handle für das neue pseudoconsole-Gerät empfängt.
@@ -70,7 +70,7 @@ Typ: **HRESULT**
 
 Wenn diese Methode erfolgreich ausgeführt wird, wird **S_OK** zurückgegeben. Andernfalls wird ein **HRESULT** -Fehlercode zurückgegeben.
 
-## <a name="remarks"></a>Bemerkungen
+## <a name="remarks"></a>Hinweise
 
 Diese Funktion wird hauptsächlich von Anwendungen verwendet, die versuchen, ein Terminalfenster für eine Befehlszeilen-Benutzerschnittstellen Anwendung (CUI) zu sein. Die Aufrufer werden für die Darstellung der Informationen im Ausgabestream und für die Erfassung von Benutzereingaben und die Serialisierung in den Eingabestream verantwortlich.
 
@@ -88,17 +88,17 @@ Wenn verwendet wird `PSEUDOCONSOLE_INHERIT_CURSOR` , sollte die aufrufende Anwen
 
 Eine vollständige Exemplarische Vorgehensweise zur Verwendung dieser Funktion zum Einrichten einer Pseudo Konsolen Sitzung finden Sie unter [Erstellen einer pseudoconsole-Sitzung](creating-a-pseudoconsole-session.md).
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
 | Unterstützte Mindestversion (Client) | Windows 10-Update vom Oktober 2018 (Version 1809) \[ nur Desktop-Apps\] |
 | Unterstützte Mindestversion (Server) | Nur Windows Server 2019 \[ -Desktop-Apps\] |
-| Header | Consoleapi. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Header | ConsoleApi.h (über WinCon.h, Windows.h einschließen) |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Pseudo Konsolen](pseudoconsoles.md)
 
