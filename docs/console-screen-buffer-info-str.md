@@ -28,12 +28,12 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 8b3a739a9f66e25687b60a3450c9381822c16e53
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 31ef1cf8e78029be48d5217cbc82f84663d627b5
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039178"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358120"
 ---
 # <a name="console_screen_buffer_info-structure"></a>Konsolen \_ Bildschirm- \_ Puffer \_ Info Struktur
 
@@ -60,7 +60,7 @@ Eine [**Koord**](coord-str.md) -Struktur, die die Größe des Konsolenbildschirm
 Eine [**Koord**](coord-str.md) -Struktur, die die Spalten-und Zeilen Koordinaten des Cursors im Konsolenbildschirm Puffer enthält.
 
 **wattributes**  
-Die Attribute der Zeichen, die von den Funktionen " [**Write File**](https://msdn.microsoft.com/library/windows/desktop/aa365747) " und " [**Write-Console**](writeconsole.md) " in einen Bildschirm Puffer geschrieben wurden oder von den Funktionen "read [**File**](https://msdn.microsoft.com/library/windows/desktop/aa365467) " und "read [**Console**](readconsole.md) " auf einen Bildschirm Puffer gespiegelt werden. Weitere Informationen finden Sie unter [Zeichen Attribute](console-screen-buffers.md#character-attributes).
+Die Attribute der Zeichen, die von den Funktionen " [**Write File**](/windows/win32/api/fileapi/nf-fileapi-writefile) " und " [**Write-Console**](writeconsole.md) " in einen Bildschirm Puffer geschrieben wurden oder von den Funktionen "read [**File**](/windows/win32/api/fileapi/nf-fileapi-readfile) " und "read [**Console**](readconsole.md) " auf einen Bildschirm Puffer gespiegelt werden. Weitere Informationen finden Sie unter [Zeichen Attribute](console-screen-buffers.md#character-attributes).
 
 **srwindow**  
 Eine [**kleine \_ Rect**](small-rect-str.md) -Struktur, die die Konsolenbildschirm Puffer Koordinaten der oberen linken und unteren rechten Ecke des Anzeige Fensters enthält.
@@ -72,12 +72,12 @@ Eine [**Koord**](coord-str.md) -Struktur, die die maximale Größe des Konsolenf
 
 Ein Beispiel finden Sie unter [Scrollen des Inhalts eines Bildschirm Puffers](scrolling-a-screen-buffer-s-contents.md).
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
 | Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
 
 ## <a name="see-also"></a>Weitere Informationen
@@ -88,10 +88,10 @@ Ein Beispiel finden Sie unter [Scrollen des Inhalts eines Bildschirm Puffers](sc
 
 [**ReadConsole**](readconsole.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**kleine \_ Rect**](small-rect-str.md)
 
 [**WriteConsole**](writeconsole.md)
 
-[**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)

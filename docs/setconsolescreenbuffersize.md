@@ -28,12 +28,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 46c412ccb41ac17a8e7cf327c80d7f8330738d65
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 66c8eee2b3c4cd50e74ac17404dd30c571e47f96
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039328"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357580"
 ---
 # <a name="setconsolescreenbuffersize-function"></a>Setconsoleskreenbuffersize-Funktion
 
@@ -52,33 +52,33 @@ BOOL WINAPI SetConsoleScreenBufferSize(
 
 ## <a name="parameters"></a>Parameter
 
-*hconsoleoutput* \[ in\]  
-Ein Handle für den Bildschirm Puffer der Konsole. Das Handle muss über das **allgemeine \_ Lese** Zugriffsrecht verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
+*hConsoleOutput* \[in\]  
+Ein Handle für den Konsolenbildschirm-Puffer. Das Handle muss über das Zugriffsrecht **GENERIC\_READ** verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für Konsolenpuffer](console-buffer-security-and-access-rights.md).
 
 *dwSize* \[ in\]  
-Eine [**Koord**](coord-str.md) -Struktur, die die neue Größe des Konsolenbildschirm Puffers in Zeichen Zeilen und-Spalten angibt. Die angegebene Breite und Höhe darf nicht kleiner sein als die Breite und Höhe des Fensters des Konsolenbildschirm Puffers. Die angegebenen Dimensionen dürfen auch nicht kleiner als die vom System zulässige Mindestgröße sein. Dieses Minimum hängt von der aktuellen Schriftgröße für die Konsole (vom Benutzer ausgewählt) und den von der [**GetSystemMetrics**](https://msdn.microsoft.com/library/windows/desktop/ms724385) -Funktion zurückgegebenen **SM- \_ cxMin** -und **SM- \_ Cymin** -Werten ab.
+Eine [**Koord**](coord-str.md) -Struktur, die die neue Größe des Konsolenbildschirm Puffers in Zeichen Zeilen und-Spalten angibt. Die angegebene Breite und Höhe darf nicht kleiner sein als die Breite und Höhe des Fensters des Konsolenbildschirm Puffers. Die angegebenen Dimensionen dürfen auch nicht kleiner als die vom System zulässige Mindestgröße sein. Dieses Minimum hängt von der aktuellen Schriftgröße für die Konsole (vom Benutzer ausgewählt) und den von der [**GetSystemMetrics**](/windows/win32/api/winuser/nf-winuser-getsystemmetrics) -Funktion zurückgegebenen **SM- \_ cxMin** -und **SM- \_ Cymin** -Werten ab.
 
 ## <a name="return-value"></a>Rückgabewert
 
-Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
+Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
 [!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
 | Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolenfunktionen](console-functions.md)
 

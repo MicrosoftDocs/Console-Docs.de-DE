@@ -30,12 +30,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 36531872df90239e2b909c80fb75ad3011280c78
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 317acd84289e5138e1a947251e745077ba581083
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039298"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358510"
 ---
 # <a name="setstdhandle-function"></a>Setstdhandle-Funktion
 
@@ -52,48 +52,48 @@ BOOL WINAPI SetStdHandle(
 
 ## <a name="parameters"></a>Parameter
 
-*nstdhandle* \[ in\]  
-Das Standardgerät, für das das Handle festgelegt werden soll. Dieser Parameter kann einen der folgenden Werte aufweisen.
+*nStdHandle* \[in\]  
+Das Standardgerät, für das das Handle festgelegt werden soll. Dieser Parameter kann einen der folgenden Werte annehmen.
 
 | Wert | Bedeutung |
 |-|-|
-| **STD_INPUT_HANDLE** (DWORD)-10 | Das Standardeingabe Gerät. Anfänglich ist dies der Konsolen Eingabepuffer `CONIN$` . |
-| **STD_OUTPUT_HANDLE** (DWORD)-11 | Das Standardausgabe Gerät. Anfänglich ist dies der aktive Konsolenbildschirm Puffer `CONOUT$` . |
-| **STD_ERROR_HANDLE** (DWORD)-12 | Das Standardfehler Gerät. Anfänglich ist dies der aktive Konsolenbildschirm Puffer `CONOUT$` . |
+| **STD_INPUT_HANDLE** (DWORD) -10 | Das Standardeingabegerät. Anfänglich ist dies der Konsoleneingabepuffer, `CONIN$`. |
+| **STD_OUTPUT_HANDLE** (DWORD) -11 | Das Standardausgabegerät. Anfänglich ist dies der aktive Konsolenbildschirmpuffer, `CONOUT$`. |
+| **STD_ERROR_HANDLE** (DWORD) -12 | Das Standardfehlergerät. Anfänglich ist dies der aktive Konsolenbildschirmpuffer, `CONOUT$`. |
 
 *hHandle* \[ in\]  
 Das Handle für das Standardgerät.
 
 ## <a name="return-value"></a>Rückgabewert
 
-Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
+Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
-Die Standard Handles eines Prozesses wurden möglicherweise durch einen Aufrufen von **setstdhandle** umgeleitet. in diesem Fall gibt [**getstdhandle**](getstdhandle.md) das umgeleitete Handle zurück. Wenn die Standard Handles umgeleitet wurden, können Sie den Wert von "$" in einem Aufrufen der Funktion "angleichen [**Datei**](https://msdn.microsoft.com/library/windows/desktop/aa363858) " angeben, um ein Handle für den Eingabepuffer einer Konsole abzurufen. Entsprechend können Sie den Wert für "$ $" angeben, um ein Handle für den aktiven Bildschirm Puffer der Konsole zu erhalten.
+Die Standard Handles eines Prozesses wurden möglicherweise durch einen Aufrufen von **setstdhandle** umgeleitet. in diesem Fall gibt [**getstdhandle**](getstdhandle.md) das umgeleitete Handle zurück. Wenn die Standard Handles umgeleitet wurden, können Sie den Wert von "$" in einem Aufrufen der Funktion "angleichen [**Datei**](/windows/win32/api/fileapi/nf-fileapi-createfilea) " angeben, um ein Handle für den Eingabepuffer einer Konsole abzurufen. Entsprechend können Sie den Wert für "$ $" angeben, um ein Handle für den aktiven Bildschirm Puffer der Konsole zu erhalten.
 
 ## <a name="examples"></a>Beispiele
 
-Ein Beispiel finden Sie unter [Erstellen eines untergeordneten Prozesses mit umgeleiteter Eingabe und Ausgabe](https://msdn.microsoft.com/library/windows/desktop/ms682499).
+Ein Beispiel finden Sie unter [Erstellen eines untergeordneten Prozesses mit umgeleiteter Eingabe und Ausgabe](/windows/win32/procthread/creating-a-child-process-with-redirected-input-and-output).
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
-| Header | Processenv. h (über Winbase. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
+| Header | ProcessEnv.h (via Winbase.h, include Windows.h) |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolenfunktionen](console-functions.md)
 
 [Konsolenhandles](console-handles.md)
 
-[**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858)
+[**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea)
 
 [**GetStdHandle**](getstdhandle.md)

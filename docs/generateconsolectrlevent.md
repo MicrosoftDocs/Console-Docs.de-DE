@@ -28,12 +28,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: f074ad87676673221d34461e8bae484895781f56
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 4002ec67000edda38c7b14476528a0167e521bbf
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038138"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357530"
 ---
 # <a name="generateconsolectrlevent-function"></a>Generateconsolectrlevent-Funktion
 
@@ -51,7 +51,7 @@ BOOL WINAPI GenerateConsoleCtrlEvent(
 ## <a name="parameters"></a>Parameter
 
 *dwctrlevent* \[ in\]  
-Der Typ des zu generierenden Signals. Dieser Parameter kann einen der folgenden Werte aufweisen.
+Der Typ des zu generierenden Signals. Dieser Parameter kann einen der folgenden Werte annehmen.
 
 | Wert | Bedeutung |
 |-|-|
@@ -59,40 +59,40 @@ Der Typ des zu generierenden Signals. Dieser Parameter kann einen der folgenden 
 | **CTRL_BREAK_EVENT** 1 | Generiert ein STRG + UNTBR-Signal. |
 
 *dwprocessgroupid* \[ in\]  
-Der Bezeichner der Prozessgruppe, für die das Signal empfangen werden soll. Eine Prozessgruppe wird erstellt, wenn das Flag " **\_ neue \_ Prozess \_ Gruppe erstellen** " in einem Aufrufen der Funktion " [**deateprocess**](https://msdn.microsoft.com/library/windows/desktop/ms682425) " angegeben wird. Der Prozess Bezeichner des neuen Prozesses ist auch der Prozessgruppen Bezeichner einer neuen Prozessgruppe. Die Prozessgruppe umfasst alle Prozesse, bei denen es sich um nachfolgende Elemente des Stamm Prozesses handelt. Nur die Prozesse in der Gruppe, die dieselbe Konsole wie der aufrufende Prozess nutzen, erhalten das Signal. Anders ausgedrückt: Wenn ein Prozess in der Gruppe eine neue Konsole erstellt, empfängt dieser Prozess weder das Signal noch seine Nachfolger.
+Der Bezeichner der Prozessgruppe, für die das Signal empfangen werden soll. Eine Prozessgruppe wird erstellt, wenn das Flag " **\_ neue \_ Prozess \_ Gruppe erstellen** " in einem Aufrufen der Funktion " [**deateprocess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa) " angegeben wird. Der Prozess Bezeichner des neuen Prozesses ist auch der Prozessgruppen Bezeichner einer neuen Prozessgruppe. Die Prozessgruppe umfasst alle Prozesse, bei denen es sich um nachfolgende Elemente des Stamm Prozesses handelt. Nur die Prozesse in der Gruppe, die dieselbe Konsole wie der aufrufende Prozess nutzen, erhalten das Signal. Anders ausgedrückt: Wenn ein Prozess in der Gruppe eine neue Konsole erstellt, empfängt dieser Prozess weder das Signal noch seine Nachfolger.
 
 Wenn dieser Parameter 0 (null) ist, wird das Signal in allen Prozessen generiert, die die Konsole des aufrufenden Prozesses gemeinsam verwenden.
 
 ## <a name="return-value"></a>Rückgabewert
 
-Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
+Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
-**Generateconsolectrlevent** bewirkt, dass die Handlerfunktionen der Prozesse in der Zielgruppe aufgerufen werden. Alle Konsolen Prozesse verfügen über eine Standardhandlerfunktion, die die [**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658) -Funktion aufruft. Ein Konsolen Prozess kann die [**SetConsoleCtrlHandler**](setconsolectrlhandler.md) -Funktion verwenden, um andere Handlerfunktionen zu installieren oder zu entfernen.
+**Generateconsolectrlevent** bewirkt, dass die Handlerfunktionen der Prozesse in der Zielgruppe aufgerufen werden. Alle Konsolen Prozesse verfügen über eine Standardhandlerfunktion, die die [**ExitProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-exitprocess) -Funktion aufruft. Ein Konsolen Prozess kann die [**SetConsoleCtrlHandler**](setconsolectrlhandler.md) -Funktion verwenden, um andere Handlerfunktionen zu installieren oder zu entfernen.
 
 [**SetConsoleCtrlHandler**](setconsolectrlhandler.md) kann auch ein Vererb bares Attribut aktivieren, das bewirkt, dass der aufrufende Prozess STRG + C-Signale ignoriert. Wenn **generateconsolectrlevent** ein STRG + C-Signal an einen Prozess sendet, für den dieses Attribut aktiviert ist, werden die Handlerfunktionen für diesen Prozess nicht aufgerufen. STRG + untbugsignale bewirken immer, dass die Handlerfunktionen aufgerufen werden.
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
 | Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolen-Bearbeitungssteuerelemente](console-control-handlers.md)
 
 [Konsolenfunktionen](console-functions.md)
 
-[**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425)
+[**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa)
 
-[**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658)
+[**ExitProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-exitprocess)
 
 [**SetConsoleCtrlHandler**](setconsolectrlhandler.md)

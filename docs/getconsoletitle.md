@@ -38,12 +38,12 @@ api_location:
 - Kernel32Legacy.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 23b52ba1d5dde40ef842297249fdd2f87cebcb12
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 6a4c4634316442ac2b03602b6c931b05385d77df
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037878"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358330"
 ---
 # <a name="getconsoletitle-function"></a>Getconsoletitle-Funktion
 
@@ -72,7 +72,7 @@ Die Größe des Puffers, auf den der *lpconsoletitle* -Parameter zeigt (in Zeich
 
 Wenn die Funktion erfolgreich ausgeführt wird, entspricht der Rückgabewert der Länge des Konsolenfenster Titels in Zeichen.
 
-Wenn die Funktion fehlschlägt, ist der Rückgabewert 0 (null), und [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) gibt den Fehlercode zurück.
+Wenn die Funktion fehlschlägt, ist der Rückgabewert 0 (null), und [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) gibt den Fehlercode zurück.
 
 ## <a name="remarks"></a>Bemerkungen
 
@@ -87,18 +87,18 @@ Um den Titel für ein Konsolenfenster festzulegen, verwenden Sie die [**setconso
 
 Ein Beispiel finden Sie unter [**setconsoletitle**](setconsoletitle.md).
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
 | Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Unicode- und ANSI-Name | **Getconsoletitlew** (Unicode) und **getconsoletitlea** (ANSI) |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolenfunktionen](console-functions.md)
 

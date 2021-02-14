@@ -24,12 +24,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 8335b7e23ffec0e894221f97f2c01be5b081d31f
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: a26dbeb2a873bd780f91c240bf2658cde11b45ec
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038028"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100359020"
 ---
 # <a name="getconsolehistoryinfo-function"></a>Getconsolehistoryinfo-Funktion
 
@@ -54,25 +54,25 @@ Ein Zeiger auf eine [**Konsolen \_ Verlauf- \_ Informations**](console-history-i
 
 Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich 0 (null).
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
-Wenn es sich bei dem aufrufenden Prozess nicht um einen Konsolen Prozess handelt, schlägt die Funktion fehl und legt den letzten Fehler auf " **Fehler \_ Zugriff \_ verweigert** " fest.
+Wenn es sich bei dem aufrufenden Prozess nicht um einen Konsolen Prozess handelt, schlägt die Funktion fehl und legt den letzten Fehler auf " **Fehler \_ Zugriff \_ verweigert**" fest.
 
 [!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
 | Unterstützte Mindestversion (Client) | Nur Windows Vista \[ -Desktop-Apps\] |
 | Unterstützte Mindestversion (Server) | Nur Windows Server 2008 \[ -Desktop-Apps\] |
 | Header | ConsoleApi3. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolenfunktionen](console-functions.md)
 

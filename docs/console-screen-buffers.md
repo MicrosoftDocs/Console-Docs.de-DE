@@ -14,25 +14,25 @@ MSHAttr:
 - PreferredLib:/library/windows/desktop
 ms.assetid: f94995fc-5f5f-4fcd-969d-7e10020634c2
 ms.localizationpriority: high
-ms.openlocfilehash: 4c5740be3b60d54f9e7b586b41e962a4102222a0
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 7d617b48676c0e4272d11dea3c1bd990f4334d11
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420199"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358089"
 ---
 # <a name="console-screen-buffers"></a>Konsolenbildschirmpuffer
 
 Ein *Bildschirmpuffer* ist ein zweidimensionales Array aus Zeichen- und Farbdaten für die Ausgabe in einem Konsolenfenster. Eine Konsole kann über mehrere Bildschirmpuffer verfügen. Der *aktive Bildschirmpuffer* ist derjenige, der auf dem Bildschirm angezeigt wird.
 
-Ein Bildschirmpuffer wird vom System immer beim Erstellen einer neuen Konsole erstellt. Zum Öffnen eines Handles zum aktiven Bildschirmpuffer einer Konsole geben Sie den **CONOUT$** -Wert in einem Aufruf der Funktion [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) an. Ein Prozess kann die Funktion [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md) verwenden, um zusätzliche Bildschirmpuffer für seine Konsole zu erstellen. Ein neuer Bildschirmpuffer ist nicht aktiv, bis sein Handle in einem Aufruf der Funktion [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md) angegeben wird. Allerdings kann auf Bildschirmpuffer lesend und schreibend zugegriffen werden, gleich, ob sie aktiv oder inaktiv sind.
+Ein Bildschirmpuffer wird vom System immer beim Erstellen einer neuen Konsole erstellt. Zum Öffnen eines Handles zum aktiven Bildschirmpuffer einer Konsole geben Sie den **CONOUT$** -Wert in einem Aufruf der Funktion [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea) an. Ein Prozess kann die Funktion [**CreateConsoleScreenBuffer**](createconsolescreenbuffer.md) verwenden, um zusätzliche Bildschirmpuffer für seine Konsole zu erstellen. Ein neuer Bildschirmpuffer ist nicht aktiv, bis sein Handle in einem Aufruf der Funktion [**SetConsoleActiveScreenBuffer**](setconsoleactivescreenbuffer.md) angegeben wird. Allerdings kann auf Bildschirmpuffer lesend und schreibend zugegriffen werden, gleich, ob sie aktiv oder inaktiv sind.
 
 Jeder Bildschirmpuffer weist sein eigenes zweidimensionales Array aus Zeicheninformations-Datensätzen auf. Die Daten für jedes Zeichen sind in einer [**CHAR\_INFO**](char-info-str.md)-Struktur gespeichert, die das Unicode- oder ANSI-Zeichen und die Vordergrund- und Hintergrundfarben angibt, in denen das betreffende Zeichen angezeigt wird.
 
 Eine Reihe von Eigenschaften, die einem Bildschirmpuffer zugeordnet sind, kann für jeden Bildschirmpuffer unabhängig festgelegt werden. Das bedeutet, dass ein Wechsel des aktiven Bildschirmpuffers dramatische Auswirkungen auf die Darstellung des Konsolenfensters haben kann. Zu den Eigenschaften, die einem Bildschirm Puffer zugeordnet sind, gehören:
 
 - Die Größe des Bildschirmpuffers in Zeichenzeilen und -spalten.
-- Textattribute (Vordergrund- und Hintergrundfarben zum Anzeigen von Text, der von der [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)- oder [**WriteConsole**](writeconsole.md)-Funktion geschrieben werden soll).
+- Textattribute (Vordergrund- und Hintergrundfarben zum Anzeigen von Text, der von der [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)- oder [**WriteConsole**](writeconsole.md)-Funktion geschrieben werden soll).
 - Fenstergröße und -position (der rechteckige Bereich des Konsolenbildschirmpuffers, der im Konsolenfenster angezeigt wird).
 - Position, Darstellung und Sichtbarkeit des Cursors.
 - Ausgabemodi (**ENABLE\_PROCESSED\_OUTPUT** and **ENABLE\_WRAP\_AT\_EOL\_OUTPUT**). Weitere Informationen zu Ausgabemodi von Konsolen finden Sie unter [Allgemeine Konsolenmodi](high-level-console-modes.md).
@@ -77,7 +77,7 @@ Zeichenattribute lassen sich nach zwei Klassen unterscheiden: Farbe und DBCS. In
 | **COMMON\_LVB\_REVERSE\_VIDEO** | Vertausche Vordergrund- und Hintergrundattribute. |
 | **COMMON\_LVB\_UNDERSCORE** | Unterstrich. |
 
-Die Vordergrundattribute geben die Textfarbe an. Die Hintergrundattribute geben die Farbe an, die zum Auffüllen des Zellenhintergrunds verwendet wird. Die anderen Attribute werden im Zusammenhang von [DBCS](https://msdn.microsoft.com/library/windows/desktop/dd317794)verwendet.
+Die Vordergrundattribute geben die Textfarbe an. Die Hintergrundattribute geben die Farbe an, die zum Auffüllen des Zellenhintergrunds verwendet wird. Die anderen Attribute werden im Zusammenhang von [DBCS](/windows/win32/intl/double-byte-character-sets)verwendet.
 
 Anwendungen können die Vordergrund- und Hintergrundkonstanten kombinieren, um verschiedene Farben zu erzielen. Beispielsweise ergibt die folgende Kombination hellblaugrünen Text auf einem blauen Hintergrund.
 

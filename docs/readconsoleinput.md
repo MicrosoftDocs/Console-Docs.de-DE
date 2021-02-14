@@ -37,12 +37,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 38778931522dff8d1d000bb6f0ce13c2849d76db
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 06e784ebaebde2ed68ed17f75f4e54932aa463f5
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039488"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358720"
 ---
 # <a name="readconsoleinput-function"></a>Read ConsoleInput-Funktion
 
@@ -62,7 +62,7 @@ BOOL WINAPI ReadConsoleInput(
 ## <a name="parameters"></a>Parameter
 
 *hconsoleinput* \[ in\]  
-Ein Handle für den Konsolen Eingabepuffer. Das Handle muss über das **allgemeine \_ Lese** Zugriffsrecht verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
+Ein Handle für den Konsolen Eingabepuffer. Das Handle muss über das Zugriffsrecht **GENERIC\_READ** verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für Konsolenpuffer](console-buffer-security-and-access-rights.md).
 
 *lpBuffer* \[ vorgenommen\]  
 Ein Zeiger auf ein Array von [**Eingabedaten \_ Satz**](input-record-str.md) Strukturen, die die Eingabepuffer Daten empfangen.
@@ -75,15 +75,15 @@ Ein Zeiger auf eine Variable, die die Anzahl der gelesenen Eingabedaten Sätze e
 
 ## <a name="return-value"></a>Rückgabewert
 
-Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
+Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
 Wenn die Anzahl der im *nlength* -Parameter angeforderten Datensätze die Anzahl der Datensätze überschreitet, die im Puffer verfügbar sind, wird die Anzahl der verfügbaren Datensätze gelesen. Die Funktion gibt erst zurück, wenn mindestens ein Eingabedaten Satz gelesen wurde.
 
-Ein Prozess kann ein Konsolen Eingabepuffer Handle in einer der Wait- [Funktionen](https://msdn.microsoft.com/library/windows/desktop/ms687069) angeben, um zu bestimmen, wann eine ungelesene Konsolen Eingabe vorhanden ist. Wenn der Eingabepuffer nicht leer ist, wird der Status eines Konsolen Eingabepuffer-Handles signalisiert.
+Ein Prozess kann ein Konsolen Eingabepuffer Handle in einer der Wait- [Funktionen](/windows/win32/sync/wait-functions) angeben, um zu bestimmen, wann eine ungelesene Konsolen Eingabe vorhanden ist. Wenn der Eingabepuffer nicht leer ist, wird der Status eines Konsolen Eingabepuffer-Handles signalisiert.
 
 Verwenden Sie die [**getnummeriofconsoleinputevents**](getnumberofconsoleinputevents.md) -Funktion, um die Anzahl der ungelesenen Eingabedaten Sätze im Eingabepuffer einer Konsole zu ermitteln. Um Eingabedaten Sätze aus einem Konsolen Eingabepuffer zu lesen, ohne die Anzahl der ungelesenen Datensätze zu beeinträchtigen, verwenden Sie die Funktion " [**Peer**](peekconsoleinput.md) . Verwenden Sie die [**flushconsoleinputbuffer**](flushconsoleinputbuffer.md) -Funktion, um alle ungelesenen Datensätze im Eingabepuffer einer Konsole zu verwerfen.
 
@@ -91,20 +91,20 @@ Verwenden Sie die [**getnummeriofconsoleinputevents**](getnumberofconsoleinputev
 
 ## <a name="examples"></a>Beispiele
 
-Ein Beispiel finden Sie unter [Lesen von Eingabepuffer Ereignissen](reading-input-buffer-events.md).
+Ein Beispiel finden Sie unter [Lesen von Eingabepufferereignissen](reading-input-buffer-events.md).
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
-| Header | Consoleapi. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
+| Header | ConsoleApi.h (über WinCon.h, Windows.h einschließen) |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Unicode- und ANSI-Name | "Read **consolinput w** (Unicode)" und "read **consolinput a** " (ANSI) |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolenfunktionen](console-functions.md)
 
@@ -120,7 +120,7 @@ Ein Beispiel finden Sie unter [Lesen von Eingabepuffer Ereignissen](reading-inpu
 
 [**ReadConsole**](readconsole.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**SetConsoleCP**](setconsolecp.md)
 

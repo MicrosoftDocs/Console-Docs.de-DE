@@ -29,12 +29,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 30276765b35e9179767fa4e82fc40643ee3b2558
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 858b0de83c7b1c4678e992b5f9d0ca3d4876ba49
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038818"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358950"
 ---
 # <a name="getconsoleoutputcp-function"></a>Getconsoleoutputcp-Funktion
 
@@ -52,27 +52,27 @@ Diese Funktion besitzt keine Parameter.
 
 ## <a name="return-value"></a>Rückgabewert
 
-Der Rückgabewert ist ein Code, der die Codepage bezeichnet. Eine Liste der Bezeichner finden Sie unter [Code Page Identifier](https://msdn.microsoft.com/library/windows/desktop/dd317756).
+Der Rückgabewert ist ein Code, der die Codepage bezeichnet. Eine Liste der Bezeichner finden Sie unter [Code Page Identifier](/windows/win32/intl/code-page-identifiers).
 
-Wenn der Rückgabewert 0 (null) ist, ist die Funktion fehlgeschlagen. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn der Rückgabewert 0 (null) ist, ist die Funktion fehlgeschlagen. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
-Eine Codepage ordnet 256 Zeichen Codes einzelnen Zeichen zu. Zu verschiedenen Codepages gehören verschiedene spezielle Zeichen, die normalerweise für eine Sprache oder eine Gruppe von Sprachen angepasst sind. Weitere Informationen zu einer Codepage, einschließlich des Namens, finden Sie in der [**getcpinfoex**](https://msdn.microsoft.com/library/windows/desktop/dd318081) -Funktion.
+Eine Codepage ordnet 256 Zeichen Codes einzelnen Zeichen zu. Zu verschiedenen Codepages gehören verschiedene spezielle Zeichen, die normalerweise für eine Sprache oder eine Gruppe von Sprachen angepasst sind. Weitere Informationen zu einer Codepage, einschließlich des Namens, finden Sie in der [**getcpinfoex**](/windows/win32/api/winnls/nf-winnls-getcpinfoexa) -Funktion.
 
 Verwenden Sie die [**setconsoleoutputcp**](setconsoleoutputcp.md) -Funktion, um die Ausgabe Codepage einer Konsole festzulegen. Verwenden Sie die Funktionen [**setconsolecp**](setconsolecp.md) und [**getconsolecp**](getconsolecp.md) , um die Eingabe Codepage einer Konsole festzulegen und abzufragen.
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
-| Header | Consoleapi. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
+| Header | ConsoleApi.h (über WinCon.h, Windows.h einschließen) |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolen-Codepages](console-code-pages.md)
 

@@ -32,12 +32,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: d204fd3effe5169b6be3e60a9e3c0d39fa418d20
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 4285bb64e919851a38494383a440afa6b94c8032
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038908"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358470"
 ---
 # <a name="getconsolealiasexeslength-function"></a>Getconsolealiasexeslength-Funktion
 
@@ -61,18 +61,18 @@ Die Größe des Puffers, der zum Speichern der Namen aller ausführbaren Dateien
 
 ## <a name="remarks"></a>Bemerkungen
 
-Um eine Anwendung zu kompilieren, die diese Funktion verwendet, definieren Sie **\_ Win32 \_ Winnt** als 0x0501 oder höher. Weitere Informationen finden Sie unter [Verwenden der Windows-Header](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Um eine Anwendung zu kompilieren, die diese Funktion verwendet, definieren Sie **\_ Win32 \_ Winnt** als 0x0501 oder höher. Weitere Informationen finden Sie unter [Verwenden der Windows-Header](/windows/win32/winprog/using-the-windows-headers).
 
 [!INCLUDE [no-vt-equiv-shell-banner](./includes/no-vt-equiv-shell-banner.md)]
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
 | Header | ConsoleApi3. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Unicode- und ANSI-Name | **Getconsolealiasexeslengthw** (Unicode) und **getconsolealiasexeslengtha** (ANSI) |
 

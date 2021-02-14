@@ -37,12 +37,12 @@ api_location:
 - MinKernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: f38994156a8c8e58c952a2ffc3d5d9531ec027e7
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 757d770bc7fea543d15678af5f80f15c17dd0e82
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037768"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358280"
 ---
 # <a name="readconsole-function"></a>Funktion "Read Console"
 
@@ -63,7 +63,7 @@ BOOL WINAPI ReadConsole(
 ## <a name="parameters"></a>Parameter
 
 *hconsoleinput* \[ in\]  
-Ein Handle für den Konsolen Eingabepuffer. Das Handle muss über das **allgemeine \_ Lese** Zugriffsrecht verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für die Konsolen Puffer](console-buffer-security-and-access-rights.md).
+Ein Handle für den Konsolen Eingabepuffer. Das Handle muss über das Zugriffsrecht **GENERIC\_READ** verfügen. Weitere Informationen finden Sie unter [Sicherheit und Zugriffsrechte für Konsolenpuffer](console-buffer-security-and-access-rights.md).
 
 *lpBuffer* \[ vorgenommen\]  
 Ein Zeiger auf einen Puffer, der die aus dem Konsolen Eingabepuffer gelesenen Daten empfängt.
@@ -75,21 +75,21 @@ Die Anzahl der zu lesenden Zeichen. Die Größe des Puffers, auf den der *lpBuff
 Ein Zeiger auf eine Variable, die die Anzahl der tatsächlich gelesenen Zeichen empfängt.
 
 *pinputcontrol* \[ in, optional\]  
-Ein Zeiger auf eine [**Konsolen-einfügekonsolen- \_ \_ Steuer**](console-readconsole-control.md) Elementstruktur, die ein Steuerzeichen angibt, das das Ende des Lesevorgangs signalisiert. Dieser Parameter kann **null** sein.
+Ein Zeiger auf eine [**Konsolen-einfügekonsolen- \_ \_ Steuer**](console-readconsole-control.md) Elementstruktur, die ein Steuerzeichen angibt, das das Ende des Lesevorgangs signalisiert. Dieser Parameter kann **NULL** sein.
 
 Dieser Parameter erfordert standardmäßig Unicode-Eingaben. Legen Sie für den ANSI-Modus diesen Parameter auf **null** fest.
 
 ## <a name="return-value"></a>Rückgabewert
 
-Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
+Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
-Die **Lese Konsole** liest Tastatureingaben aus dem Eingabepuffer einer Konsole. Sie verhält sich wie die Funktion "read [**File**](https://msdn.microsoft.com/library/windows/desktop/aa365467) ", mit dem Unterschied, dass Sie entweder in Unicode (Wide-Character) oder ANSI-Modus gelesen werden kann. Verwenden Sie die **infoconsole** anstelle von " **Infofile** ", damit Anwendungen, die einen einzelnen Satz von Quellen verwalten, mit beiden Modi kompatibel sind. Obwohl die **infoconsole** nur mit einem Konsolen Eingabepuffer Handle verwendet werden kann, kann die **Infodatei** mit anderen Handles (z. b. Dateien oder Pipes) verwendet werden. Der Wert von "read **Console** " schlägt fehl, wenn er mit einem Standard Handle verwendet wird, das zu einem anderen als einem Konsolen handle umgeleitet wurde.
+Die **Lese Konsole** liest Tastatureingaben aus dem Eingabepuffer einer Konsole. Sie verhält sich wie die Funktion "read [**File**](/windows/win32/api/fileapi/nf-fileapi-readfile) ", mit dem Unterschied, dass Sie entweder in Unicode (Wide-Character) oder ANSI-Modus gelesen werden kann. Verwenden Sie die **infoconsole** anstelle von " **Infofile**", damit Anwendungen, die einen einzelnen Satz von Quellen verwalten, mit beiden Modi kompatibel sind. Obwohl die **infoconsole** nur mit einem Konsolen Eingabepuffer Handle verwendet werden kann, kann die **Infodatei** mit anderen Handles (z. b. Dateien oder Pipes) verwendet werden. Der Wert von "read **Console** " schlägt fehl, wenn er mit einem Standard Handle verwendet wird, das zu einem anderen als einem Konsolen handle umgeleitet wurde.
 
-Alle Eingabemodi, die das Verhalten von " [**Infofile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) " beeinflussen, haben in der " **infoconsole** " dieselbe Wirkung. Um die Eingabemodi eines Konsolen Eingabe Puffers abzurufen und festzulegen, verwenden Sie die Funktionen [**getconsolemode**](getconsolemode.md) und [**setconsolemode**](setconsolemode.md) .
+Alle Eingabemodi, die das Verhalten von " [**Infofile**](/windows/win32/api/fileapi/nf-fileapi-readfile) " beeinflussen, haben in der " **infoconsole**" dieselbe Wirkung. Um die Eingabemodi eines Konsolen Eingabe Puffers abzurufen und festzulegen, verwenden Sie die Funktionen [**getconsolemode**](getconsolemode.md) und [**setconsolemode**](setconsolemode.md) .
 
 Wenn der Eingabepuffer andere Eingabeereignisse als Tastatur Ereignisse enthält (z. b. Mausereignisse oder Ereignisse zum Ändern von Fenstern), werden diese verworfen. Diese Ereignisse können nur mit der Funktion " [**leseconsoleinput**](readconsoleinput.md) " gelesen werden.
 
@@ -99,18 +99,18 @@ Der *pinputcontrol* -Parameter kann verwendet werden, um zwischengeschaltete Auf
 
 **Windows Server 2003 und Windows XP/2000:** Das zwischen Lese Feature wird nicht unterstützt.
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
-| Header | Consoleapi. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
+| Header | ConsoleApi.h (über WinCon.h, Windows.h einschließen) |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 | Unicode- und ANSI-Name | "Read **consolew** (Unicode)" und "read **Consolea** " (ANSI) |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolenfunktionen](console-functions.md)
 
@@ -118,11 +118,11 @@ Der *pinputcontrol* -Parameter kann verwendet werden, um zwischengeschaltete Auf
 
 [**GetConsoleMode**](getconsolemode.md)
 
-[Eingabe-und Ausgabemethoden](input-and-output-methods.md)
+[Ein- und Ausgabemethoden](input-and-output-methods.md)
 
 [**ReadConsoleInput**](readconsoleinput.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**SetConsoleCP**](setconsolecp.md)
 

@@ -30,12 +30,12 @@ api_location:
 api_type:
 - DllExport
 ms.localizationpriority: high
-ms.openlocfilehash: 208eebc92b718fed9856a48dfaf5cbebdaddc1e1
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 03e7166f84be2f760a4ffea385225390bdb3ffa1
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420269"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357710"
 ---
 # <a name="setconsolectrlhandler-function"></a>SetConsoleCtrlHandler-Funktion
 
@@ -66,13 +66,13 @@ Wenn der *HandlerRoutine*-Parameter **NULL** ist, bewirkt der Wert **TRUE**, das
 
 Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) auf.
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
-Diese Funktion bietet eine ähnliche Benachrichtigung für Konsolenanwendungen und-Dienste, wie sie [**WM\_QUERYENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376890) für grafische Anwendungen mit einem Nachrichtensystem bereitstellt. Sie könnten diese Funktion auch aus einer grafischen Anwendung heraus verwenden, es ist aber nicht sichergestellt, dass sie vor der Benachrichtigung von **WM\_QUERYENDSESSION** eingehen würde.
+Diese Funktion bietet eine ähnliche Benachrichtigung für Konsolenanwendungen und-Dienste, wie sie [**WM\_QUERYENDSESSION**](/windows/win32/shutdown/wm-queryendsession) für grafische Anwendungen mit einem Nachrichtensystem bereitstellt. Sie könnten diese Funktion auch aus einer grafischen Anwendung heraus verwenden, es ist aber nicht sichergestellt, dass sie vor der Benachrichtigung von **WM\_QUERYENDSESSION** eingehen würde.
 
-Für jeden Konsolenprozess gibt es eine eigene Liste mit anwendungsdefinierten [**HandlerRoutine**](handlerroutine.md)-Funktionen, die <kbd>STRG</kbd>+<kbd>C</kbd>- und <kbd>STRG</kbd>+<kbd>UNTBR</kbd>-Signale verarbeiten. Die Handlerfunktionen verarbeiten außerdem Signale, die vom System generiert werden, wenn der Benutzer die Konsole schließt, sich abmeldet oder das System herunterfährt. Anfänglich enthält die Handlerliste für jeden Prozess nur eine Standardhandlerfunktion, die die [**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658)-Funktion aufruft. Ein Konsolenprozess fügt zusätzliche Handlerfunktionen hinzu oder entfernt diese, indem er die Funktion **SetConsoleCtrlHandler** aufruft, was sich nicht auf die Liste der Handlerfunktionen für andere Prozesse auswirkt. Wenn ein Konsolenprozess eins der Steuersignale empfängt, werden seine Handlerfunktionen der Reihe nach beginnend mit der zuletzt registrierten aufgerufen, bis einer der Handler `TRUE` zurückgibt. Wenn keiner der Handler `TRUE` zurückgibt, wird der Standardhandler aufgerufen.
+Für jeden Konsolenprozess gibt es eine eigene Liste mit anwendungsdefinierten [**HandlerRoutine**](handlerroutine.md)-Funktionen, die <kbd>STRG</kbd>+<kbd>C</kbd>- und <kbd>STRG</kbd>+<kbd>UNTBR</kbd>-Signale verarbeiten. Die Handlerfunktionen verarbeiten außerdem Signale, die vom System generiert werden, wenn der Benutzer die Konsole schließt, sich abmeldet oder das System herunterfährt. Anfänglich enthält die Handlerliste für jeden Prozess nur eine Standardhandlerfunktion, die die [**ExitProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-exitprocess)-Funktion aufruft. Ein Konsolenprozess fügt zusätzliche Handlerfunktionen hinzu oder entfernt diese, indem er die Funktion **SetConsoleCtrlHandler** aufruft, was sich nicht auf die Liste der Handlerfunktionen für andere Prozesse auswirkt. Wenn ein Konsolenprozess eins der Steuersignale empfängt, werden seine Handlerfunktionen der Reihe nach beginnend mit der zuletzt registrierten aufgerufen, bis einer der Handler `TRUE` zurückgibt. Wenn keiner der Handler `TRUE` zurückgibt, wird der Standardhandler aufgerufen.
 
 Für Konsolenprozesse werden die Tastenkombinationen <kbd>STRG</kbd>+<kbd>C</kbd> und <kbd>STRG</kbd>+<kbd>UNTBR</kbd> normalerweise als Signale (**STRG\_C\_EVENT** und **STRG\_BREAK\_EVENT**) behandelt. Wenn ein Konsolenfenster mit Tastaturfokus <kbd>STRG</kbd>+<kbd>C</kbd> oder <kbd>STRG</kbd>+<kbd>UNTBR</kbd> empfängt, wird das Signal normalerweise an alle Prozesse übergeben, die die betreffende Konsole gemeinsam verwenden.
 
@@ -88,9 +88,9 @@ Das System generiert **CTRL\_CLOSE\_EVENT**-, **CTRL\_LOGOFF\_EVENT**- und **CTR
 
 **Windows 7, Windows 8, Windows 8.1 und Windows 10:**
 
-Wenn eine Konsolenanwendung die gdi32.dll- oder user32.dll-Bibliothek lädt, wird die [**HandlerRoutine**](handlerroutine.md)-Funktion, die Sie beim Aufrufen von **SetConsoleCtrlHandler** angeben, für die Ereignisse **CTRL\_LOGOFF\_EVENT** und **CTRL\_SHUTDOWN\_EVENT** nicht aufgerufen. Das Betriebssystem erkennt Prozesse, die gdi32.dll oder user32.dll laden, als Windows-Anwendungen und nicht als Konsolenanwendungen. Dieses Verhalten tritt auch bei Konsolenanwendungen auf, die keine Funktionen in gdi32.dll oder user32.dll direkt aufrufen, sondern Funktionen wie etwa [Shellfunktionen](https://msdn.microsoft.com/library/windows/desktop/bb776426) aufrufen, die ihrerseits Funktionen in gdi32.dll oder user32.dll aufrufen.
+Wenn eine Konsolenanwendung die gdi32.dll- oder user32.dll-Bibliothek lädt, wird die [**HandlerRoutine**](handlerroutine.md)-Funktion, die Sie beim Aufrufen von **SetConsoleCtrlHandler** angeben, für die Ereignisse **CTRL\_LOGOFF\_EVENT** und **CTRL\_SHUTDOWN\_EVENT** nicht aufgerufen. Das Betriebssystem erkennt Prozesse, die gdi32.dll oder user32.dll laden, als Windows-Anwendungen und nicht als Konsolenanwendungen. Dieses Verhalten tritt auch bei Konsolenanwendungen auf, die keine Funktionen in gdi32.dll oder user32.dll direkt aufrufen, sondern Funktionen wie etwa [Shellfunktionen](/previous-versions/windows/desktop/legacy/bb776426(v=vs.85)) aufrufen, die ihrerseits Funktionen in gdi32.dll oder user32.dll aufrufen.
 
-Zum Empfangen von Ereignissen, wenn sich ein Benutzer abmeldet oder das Gerät unter diesen Umständen heruntergefahren wird, erstellen Sie ein verborgenes Fenster in Ihrer Konsolenanwendung, und verarbeiten Sie dann die Fensternachrichten [**WM\_QUERYENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376890) und [**WM\_ENDSESSION**](https://msdn.microsoft.com/library/windows/desktop/aa376889), die vom verborgenen Fenster empfangen werden. Sie können ein ausgeblendetes Fenster erstellen, indem Sie die Methode [**CreateWindowEx**](https://msdn.microsoft.com/library/windows/desktop/ms632680) mit auf 0 festgelegtem Parameter *dwExStyle* aufrufen.
+Zum Empfangen von Ereignissen, wenn sich ein Benutzer abmeldet oder das Gerät unter diesen Umständen heruntergefahren wird, erstellen Sie ein verborgenes Fenster in Ihrer Konsolenanwendung, und verarbeiten Sie dann die Fensternachrichten [**WM\_QUERYENDSESSION**](/windows/win32/shutdown/wm-queryendsession) und [**WM\_ENDSESSION**](/windows/win32/shutdown/wm-endsession), die vom verborgenen Fenster empfangen werden. Sie können ein ausgeblendetes Fenster erstellen, indem Sie die Methode [**CreateWindowEx**](/windows/win32/api/winuser/nf-winuser-createwindowexa) mit auf 0 festgelegtem Parameter *dwExStyle* aufrufen.
 
 ## <a name="examples"></a>Beispiele
 
@@ -113,7 +113,7 @@ Ein Beispiel finden Sie unter [Registrieren einer Steuerelementhandler-Funktion]
 
 [Konsolenfunktionen](console-functions.md)
 
-[**ExitProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682658)
+[**ExitProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-exitprocess)
 
 [**GenerateConsoleCtrlEvent**](generateconsolectrlevent.md)
 

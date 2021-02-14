@@ -28,14 +28,14 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: b07938d6ac58744533711c91a04b1a0188f7daf6
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: a16fb23d148f75480437211204a0fd7c1f161bfe
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037378"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357850"
 ---
-# <a name="char_info-structure"></a>Char \_ Info-Struktur
+# `CHAR\_INFO structure`
 
 [!INCLUDE [not-recommended-banner](./includes/not-recommended-banner.md)]
 
@@ -69,17 +69,17 @@ Die Zeichen Attribute. Dieser Member kann NULL oder eine beliebige Kombination d
 
 | Wert | Bedeutung |
 |-|-|
-| **FOREGROUND_BLUE**`0x0001` | Textfarbe enthält blau. |
-| **FOREGROUND_GREEN**`0x0002` | Textfarbe enthält grün. |
-| **FOREGROUND_RED**`0x0004` | Textfarbe enthält rot. |
+| **FOREGROUND_BLUE**`0x0001` | Die Textfarbe enthält Blau. |
+| **FOREGROUND_GREEN**`0x0002` | Die Textfarbe enthält Grün. |
+| **FOREGROUND_RED**`0x0004` | Die Textfarbe enthält Rot. |
 | **FOREGROUND_INTENSITY**`0x0008` | Die Textfarbe wird verstärkt. |
-| **BACKGROUND_BLUE**`0x0010` | Hintergrundfarbe enthält blau. |
-| **BACKGROUND_GREEN**`0x0020` | Hintergrundfarbe enthält grün. |
-| **BACKGROUND_RED**`0x0040` | Die Hintergrundfarbe enthält rot. |
+| **BACKGROUND_BLUE**`0x0010` | Die Hintergrundfarbe enthält Blau. |
+| **BACKGROUND_GREEN**`0x0020` | Die Hintergrundfarbe enthält Grün. |
+| **BACKGROUND_RED**`0x0040` | Die Hintergrundfarbe enthält Rot. |
 | **BACKGROUND_INTENSITY**`0x0080` | Die Hintergrundfarbe wird verstärkt. |
 | **COMMON_LVB_LEADING_BYTE**`0x0100` | Führendes Byte. |
-| **COMMON_LVB_TRAILING_BYTE**`0x0200` | Nachfolgendes Byte. |
-| **COMMON_LVB_GRID_HORIZONTAL**`0x0400` | Obere horizontale. |
+| **COMMON_LVB_TRAILING_BYTE**`0x0200` | Schließendes Byte. |
+| **COMMON_LVB_GRID_HORIZONTAL**`0x0400` | Oben horizontal. |
 | **COMMON_LVB_GRID_LVERTICAL**`0x0800` | Links vertikal. |
 | **COMMON_LVB_GRID_RVERTICAL**`0x1000` | Rechts vertikal. |
 | **COMMON_LVB_REVERSE_VIDEO**`0x4000` | Umgekehrtes Vordergrund-und Hintergrund Attribut. |
@@ -89,12 +89,12 @@ Die Zeichen Attribute. Dieser Member kann NULL oder eine beliebige Kombination d
 
 Ein Beispiel finden Sie unter [Scrollen des Inhalts eines Bildschirm Puffers](scrolling-a-screen-buffer-s-contents.md).
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
 | Header | WinCon. h (Include Windows. h) |
 
 ## <a name="see-also"></a>Weitere Informationen

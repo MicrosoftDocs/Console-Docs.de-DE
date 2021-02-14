@@ -28,12 +28,12 @@ api_location:
 - API-MS-Win-DownLevel-Kernel32-l1-1-0.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 644f4d925b31da94f42a465d4bce21bb2dc2ecf9
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: 040a97360f455fec2ebd043de21e390959f1db0a
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039408"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357720"
 ---
 # <a name="setconsolecp-function"></a>Setconsolecp-Funktion
 
@@ -54,35 +54,35 @@ Der Bezeichner der festzulegenden Codepage. Weitere Informationen finden Sie in 
 
 ## <a name="return-value"></a>Rückgabewert
 
-Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
+Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
 Eine Codepage ordnet 256 Zeichen Codes einzelnen Zeichen zu. Zu verschiedenen Codepages gehören verschiedene spezielle Zeichen, die normalerweise für eine Sprache oder eine Gruppe von Sprachen angepasst sind.
 
-Verwenden Sie die Funktion " [**enumsystemcodepages**](https://msdn.microsoft.com/library/windows/desktop/dd317825) ", um die Codepages zu suchen, die vom Betriebssystem installiert oder unterstützt werden. Die Bezeichner der auf dem lokalen Computer verfügbaren Codepages werden auch in der Registrierung unter folgendem Schlüssel gespeichert:
+Verwenden Sie die Funktion " [**enumsystemcodepages**](/windows/win32/api/winnls/nf-winnls-enumsystemcodepagesa) ", um die Codepages zu suchen, die vom Betriebssystem installiert oder unterstützt werden. Die Bezeichner der auf dem lokalen Computer verfügbaren Codepages werden auch in der Registrierung unter folgendem Schlüssel gespeichert:
 
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Nls\CodePage`
 
-Es ist jedoch besser, mit [**enumsystemcodepages Codepages**](https://msdn.microsoft.com/library/windows/desktop/dd317825) aufzuzählen, da sich die Registrierung in verschiedenen Versionen von Windows unterscheiden kann.
+Es ist jedoch besser, mit [**enumsystemcodepages Codepages**](/windows/win32/api/winnls/nf-winnls-enumsystemcodepagesa) aufzuzählen, da sich die Registrierung in verschiedenen Versionen von Windows unterscheiden kann.
 
-Verwenden Sie die [**IsValidCodePage**](https://msdn.microsoft.com/library/windows/desktop/dd318674) -Funktion, um zu bestimmen, ob eine bestimmte Codepage gültig ist. Verwenden Sie die [**getcpinfoex**](https://msdn.microsoft.com/library/windows/desktop/dd318081) -Funktion, um weitere Informationen über eine Codepage einschließlich Ihres Namens abzurufen. Eine Liste der verfügbaren Code Page Bezeichner finden Sie unter [Code Page Identifier](https://msdn.microsoft.com/library/windows/desktop/dd317756).
+Verwenden Sie die [**IsValidCodePage**](/windows/win32/api/winnls/nf-winnls-isvalidcodepage) -Funktion, um zu bestimmen, ob eine bestimmte Codepage gültig ist. Verwenden Sie die [**getcpinfoex**](/windows/win32/api/winnls/nf-winnls-getcpinfoexa) -Funktion, um weitere Informationen über eine Codepage einschließlich Ihres Namens abzurufen. Eine Liste der verfügbaren Code Page Bezeichner finden Sie unter [Code Page Identifier](/windows/win32/intl/code-page-identifiers).
 
 Verwenden Sie die [**getconsolecp**](getconsolecp.md) -Funktion, um die aktuelle Eingabe Codepage einer Konsole zu ermitteln. Zum Festlegen und Abrufen der Ausgabe Codepage einer Konsole verwenden Sie die Funktionen [**setconsoleoutputcp**](setconsoleoutputcp.md) und [**getconsoleoutputcp**](getconsoleoutputcp.md) .
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
 | Header | ConsoleApi2. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolen-Codepages](console-code-pages.md)
 

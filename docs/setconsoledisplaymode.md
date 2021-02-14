@@ -24,12 +24,12 @@ api_location:
 - Kernel32.dll
 api_type:
 - DllExport
-ms.openlocfilehash: 52d7e50d7ced5615cb296c0590876e4604057e42
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: af61d897269311ccfa9db336083e898f6d75da80
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039388"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357700"
 ---
 # <a name="setconsoledisplaymode-function"></a>Setconsoledisplaymode-Funktion
 
@@ -49,8 +49,8 @@ BOOL WINAPI SetConsoleDisplayMode(
 
 ## <a name="parameters"></a>Parameter
 
-*hconsoleoutput* \[ in\]  
-Ein Handle für den Bildschirm Puffer der Konsole.
+*hConsoleOutput* \[in\]  
+Ein Handle für den Konsolenbildschirm-Puffer.
 
 *dwFlags* \[ in\]  
 Der Anzeigemodus der Konsole. Dieser Parameter kann einen oder mehrere der folgenden Werte aufweisen.
@@ -65,28 +65,28 @@ Ein Zeiger auf eine [**Koord**](coord-str.md) -Struktur, die die neuen Abmessung
 
 ## <a name="return-value"></a>Rückgabewert
 
-Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ungleich 0 (null).
+Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen abzurufen, nennen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360).
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
 [!INCLUDE [no-vt-equiv-user-priv](./includes/no-vt-equiv-user-priv.md)]
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
 | Unterstützte Mindestversion (Client) | Nur Windows XP \[ -Desktop-Apps\] |
 | Unterstützte Mindestversion (Server) | Nur Windows Server 2003 \[ -Desktop-Apps\] |
 | Header | ConsoleApi3. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolenfunktionen](console-functions.md)
 
-[Konsolen Modi](console-modes.md)
+[Konsolenmodi](console-modes.md)
 
 [**GetConsoleDisplayMode**](getconsoledisplaymode.md)

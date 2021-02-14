@@ -38,12 +38,12 @@ api_location:
 api_type:
 - DllExport
 ms.localizationpriority: high
-ms.openlocfilehash: 426aa6711e46e0d5cda1eb1b7dab7b2b0b7156d6
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 27caf0b0a804b99fdfe695efef4c085bf0c51567
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420289"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357610"
 ---
 # <a name="writeconsole-function"></a>WriteConsole-Funktion
 
@@ -81,7 +81,7 @@ Ein Zeiger auf eine Variable, die die Anzahl der tatsächlich geschriebenen Zeic
 
 Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) auf.
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
@@ -89,15 +89,15 @@ Die **WriteConsole**-Funktion schreibt Zeichen an der aktuellen Cursorposition i
 
 Zeichen werden unter Verwendung der Vordergrund- und Hintergrundfarbenattribute geschrieben, die dem Konsolenbildschirm-Puffer zugeordnet sind. Die [**SetConsoleTextAttribute**](setconsoletextattribute.md)-Funktion ändert diese Farben. Um die aktuellen Farbattribute und die aktuelle Cursorposition zu bestimmen, verwenden Sie [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md).
 
-Alle Eingabemodi, die sich auf das Verhalten der [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)-Funktion auswirken, haben denselben Effekt auf **WriteConsole**. Zum Abrufen und Festlegen der Ausgabemodi eines Konsolenbildschirm-Puffers verwenden Sie die Funktionen [**GetConsoleMode**](getconsolemode.md) und [**SetConsoleMode**](setconsolemode.md).
+Alle Eingabemodi, die sich auf das Verhalten der [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)-Funktion auswirken, haben denselben Effekt auf **WriteConsole**. Zum Abrufen und Festlegen der Ausgabemodi eines Konsolenbildschirm-Puffers verwenden Sie die Funktionen [**GetConsoleMode**](getconsolemode.md) und [**SetConsoleMode**](setconsolemode.md).
 
 [!INCLUDE [setting-codepage-mode-remarks](./includes/setting-codepage-mode-remarks.md)]
 
-**WriteConsole** schlägt fehl, wenn sie mit einem Standardhandle verwendet wird, das an eine Datei umgeleitet wird. Wenn eine Anwendung mehrsprachige Ausgaben verarbeitet, die umgeleitet werden können, stellen Sie fest, ob das Ausgabehandle ein Konsolenhandle ist (eine Methode besteht darin, die [**GetConsoleMode**](getconsolemode.md)-Funktion aufzurufen und zu überprüfen, ob sie erfolgreich ist). Wenn das Handle ein Konsolenhandle ist, rufen Sie **WriteConsole** auf. Wenn das Handle kein Konsolenhandle ist, wird die Ausgabe umgeleitet, und Sie sollten [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) aufrufen, um die E/A auszuführen. Stellen Sie sicher, dass Sie eine Unicode-Nur-Text-Datei mit einer Bytereihenfolge-Marke versehen. Weitere Informationen finden Sie unter [Verwenden von Bytereihenfolge-Marken](https://msdn.microsoft.com/library/windows/desktop/dd374101).
+**WriteConsole** schlägt fehl, wenn sie mit einem Standardhandle verwendet wird, das an eine Datei umgeleitet wird. Wenn eine Anwendung mehrsprachige Ausgaben verarbeitet, die umgeleitet werden können, stellen Sie fest, ob das Ausgabehandle ein Konsolenhandle ist (eine Methode besteht darin, die [**GetConsoleMode**](getconsolemode.md)-Funktion aufzurufen und zu überprüfen, ob sie erfolgreich ist). Wenn das Handle ein Konsolenhandle ist, rufen Sie **WriteConsole** auf. Wenn das Handle kein Konsolenhandle ist, wird die Ausgabe umgeleitet, und Sie sollten [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) aufrufen, um die E/A auszuführen. Stellen Sie sicher, dass Sie eine Unicode-Nur-Text-Datei mit einer Bytereihenfolge-Marke versehen. Weitere Informationen finden Sie unter [Verwenden von Bytereihenfolge-Marken](/windows/win32/intl/using-byte-order-marks).
 
 Obwohl eine Anwendung **WriteConsole** im ANSI-Modus verwenden kann, um ANSI-Zeichen zu schreiben, unterstützen Konsolen keine „ANSI-Escapezeichen“ oder „virtuellen Terminal“sequenzen, sofern diese nicht aktiviert sind. Weitere Informationen, auch zur Anwendbarkeit von Betriebssystemversionen, finden Sie unter [**Virtuelle Konsolenterminalsequenzen**](console-virtual-terminal-sequences.md).
 
-Wenn virtuelle Terminal-Escapesequenzen nicht aktiviert sind, können Konsolenfunktionen entsprechende Funktionalitäten bereitstellen. Weitere Informationen finden Sie unter [**SetCursorPos**](https://msdn.microsoft.com/library/windows/desktop/ms648394(v=vs.85).aspx), [**SetConsoleTextAttribute**](setconsoletextattribute.md)und [**GetConsoleCursorInfo**](getconsolecursorinfo.md).
+Wenn virtuelle Terminal-Escapesequenzen nicht aktiviert sind, können Konsolenfunktionen entsprechende Funktionalitäten bereitstellen. Weitere Informationen finden Sie unter [**SetCursorPos**](/windows/win32/api/winuser/nf-winuser-setcursorpos), [**SetConsoleTextAttribute**](setconsoletextattribute.md)und [**GetConsoleCursorInfo**](getconsolecursorinfo.md).
 
 ## <a name="requirements"></a>Anforderungen
 
@@ -134,6 +134,6 @@ Wenn virtuelle Terminal-Escapesequenzen nicht aktiviert sind, können Konsolenfu
 
 [**SetConsoleTextAttribute**](setconsoletextattribute.md)
 
-[**SetCursorPos**](https://msdn.microsoft.com/library/windows/desktop/ms648394(v=vs.85).aspx)
+[**SetCursorPos**](/windows/win32/api/winuser/nf-winuser-setcursorpos)
 
-[**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)

@@ -33,12 +33,12 @@ api_location:
 - API-MS-Win-Core-Kernel32-Legacy-L1-1-5.dll
 api_type:
 - DllExport
-ms.openlocfilehash: c74fe1a29b9ba2ea721e874eb624ea2f8517094c
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: ead8c4216fd0d1beb2a5fa6a6acfe3f4ce20df6f
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038808"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358890"
 ---
 # <a name="getconsolewindow-function"></a>GetConsoleWindow-Funktion
 
@@ -62,25 +62,25 @@ Der Rückgabewert ist ein Handle für das Fenster, das von der Konsole verwendet
 
 ## <a name="remarks"></a>Bemerkungen
 
-Um eine Anwendung zu kompilieren, die diese Funktion verwendet, definieren Sie **\_ Win32 \_ Winnt** als 0x0500 sein oder höher. Weitere Informationen finden Sie unter [Verwenden der Windows-Header](https://msdn.microsoft.com/library/windows/desktop/aa383745).
+Um eine Anwendung zu kompilieren, die diese Funktion verwendet, definieren Sie **\_ Win32 \_ Winnt** als 0x0500 sein oder höher. Weitere Informationen finden Sie unter [Verwenden der Windows-Header](/windows/win32/winprog/using-the-windows-headers).
 
 
 [!INCLUDE [no-vt-equiv-local-context](./includes/no-vt-equiv-local-context.md)]
 
 Für eine Anwendung, die in einer [**pseudoconsole**](pseudoconsoles.md) -Sitzung gehostet wird, gibt diese Funktion ein Fenster Handle nur für Nachrichten Warteschlangen-Zwecke zurück. Das zugehörige Fenster wird nicht lokal angezeigt, da die _pseudoconsole_ alle Aktionen in einen Stream für die Darstellung in einem anderen Terminalfenster an anderer Stelle serialisiert.
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
 | Header | ConsoleApi3. h (über WinCon. h, Include Windows. h) |
-| Bibliothek | Kernel32. lib |
+| Bibliothek | Kernel32.lib |
 | DLL | Kernel32.dll |
 
 </table>
 
-## <a name="see-also"></a>Weitere Informationen
+## <a name="see-also"></a>Siehe auch
 
 [Konsolenfunktionen](console-functions.md)

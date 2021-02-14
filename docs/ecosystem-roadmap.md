@@ -7,12 +7,12 @@ ms.topic: conceptual
 keywords: Konsole, Terminal, virtuelles Terminal, Konsolenhost, Befehlszeile, Subsystem, Roadmap, Ökosystem
 ms.prod: console
 ms.localizationpriority: high
-ms.openlocfilehash: e5d28a06789f230943d70a49e7c89642b17fdb5c
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 3db266b761d4a8ee1fd8ec24d640bb277ab76edb
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420259"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357900"
 ---
 # <a name="windows-console-and-terminal-ecosystem-roadmap"></a>Roadmap für die Windows-Konsole und das Terminalökosystem
 
@@ -78,11 +78,11 @@ Die wichtigsten historischen Meilensteine für das Konsolensubsystem gliedern si
 
 ### <a name="initial-implementation"></a>Erste Implementierung
 
-**\[1989–1990er Jahre]** Das ursprüngliche Konsolenhostsystem wurde als Emulation der DOS-Umgebung innerhalb des Windows-Betriebssystems implementiert. Sein Code ist verflochten und kooperiert mit der [Eingabeaufforderung](https://docs.microsoft.com/windows-server/administration/windows-commands/cmd) (`cmd.exe`), die eine Repräsentation dieser DOS-Umgebung ist. Der Systemcode des Konsolenhosts teilt sich Verantwortlichkeiten und Berechtigungen mit dem/der Eingabeaufforderungs-Interpreter/-Shell. Er bietet außerdem eine grundlegende Diensteschicht für andere Befehlszeilen-Hilfsprogramme, um Dienste in einer CMD-ähnlichen Weise auszuführen.
+**\[1989–1990er Jahre]** Das ursprüngliche Konsolenhostsystem wurde als Emulation der DOS-Umgebung innerhalb des Windows-Betriebssystems implementiert. Sein Code ist verflochten und kooperiert mit der [Eingabeaufforderung](/windows-server/administration/windows-commands/cmd) (`cmd.exe`), die eine Repräsentation dieser DOS-Umgebung ist. Der Systemcode des Konsolenhosts teilt sich Verantwortlichkeiten und Berechtigungen mit dem/der Eingabeaufforderungs-Interpreter/-Shell. Er bietet außerdem eine grundlegende Diensteschicht für andere Befehlszeilen-Hilfsprogramme, um Dienste in einer CMD-ähnlichen Weise auszuführen.
 
 ### <a name="dbcs-for-cjk"></a>DBCS für CJK
 
-**\[1997–1999\]** Zu diesem Zeitpunkt wird [DBCS](https://docs.microsoft.com/windows/win32/intl/double-byte-character-sets)-Unterstützung („Doppelbyte-Zeichensatz“) eingeführt, um CJK-Märkte (Chinesisch, Japanisch und Koreanisch) zu unterstützen. Diese Anstrengung führt zu einer Zweiteilung zahlreicher Schreib- und Lesemethoden in der Konsole, um sowohl „westliche“ Versionen für die Verarbeitung von Einzelbytezeichen als auch eine Alternativdarstellung für „östliche“ Versionen bereitzustellen, bei denen zwei Bytes erforderlich sind, um deren umfangreichen Zeichensatz darzustellen. Diese Zweiteilung beinhaltete die erweiternde Darstellung einer Zelle in der Konsolenumgebung auf eine Breite von entweder 1 oder 2 Zellen, wobei 1 Zelle schmal (höher als breit) und 2 Zellen breit (volle Breite) oder anderweitig ein Quadrat sind, in dem typische chinesische, japanische und koreanische Ideogramme eingetragen werden können.
+**\[1997–1999\]** Zu diesem Zeitpunkt wird [DBCS](/windows/win32/intl/double-byte-character-sets)-Unterstützung („Doppelbyte-Zeichensatz“) eingeführt, um CJK-Märkte (Chinesisch, Japanisch und Koreanisch) zu unterstützen. Diese Anstrengung führt zu einer Zweiteilung zahlreicher Schreib- und Lesemethoden in der Konsole, um sowohl „westliche“ Versionen für die Verarbeitung von Einzelbytezeichen als auch eine Alternativdarstellung für „östliche“ Versionen bereitzustellen, bei denen zwei Bytes erforderlich sind, um deren umfangreichen Zeichensatz darzustellen. Diese Zweiteilung beinhaltete die erweiternde Darstellung einer Zelle in der Konsolenumgebung auf eine Breite von entweder 1 oder 2 Zellen, wobei 1 Zelle schmal (höher als breit) und 2 Zellen breit (volle Breite) oder anderweitig ein Quadrat sind, in dem typische chinesische, japanische und koreanische Ideogramme eingetragen werden können.
 
 ### <a name="securityisolation"></a>Sicherheit/Isolation
 
@@ -94,7 +94,7 @@ Die wichtigsten historischen Meilensteine für das Konsolensubsystem gliedern si
 
 ### <a name="virtual-terminal-client"></a>Virtueller Terminalclient
 
-**\[2015–2017\]** Mit der Ankunft des [Windows-Subsystems für Linux](https://docs.microsoft.com/windows/wsl/), Microsofts Anstrengungen zur Verbesserung der Erfahrung von [Docker unter Windows](https://docs.microsoft.com/dotnet/architecture/microservices/container-docker-introduction/docker-defined) und der Einführung von [OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_overview) als bedeutendster Remoteausführungstechnologie für Befehlszeilen wurden die ersten Implementierungen von [virtuellen Terminalsequenzen](console-virtual-terminal-sequences.md) in den Konsolenhost eingeführt. Dadurch konnte die vorhandene Konsole als Terminal fungieren, direkt an diese nativen Linux-Anwendungen in ihrer jeweiligen Umgebung angeschlossen, und dabei die Grafik- und Textattribute an der Anzeige rendern und Benutzereingaben im geeigneten Dialekt zurückgeben.
+**\[2015–2017\]** Mit der Ankunft des [Windows-Subsystems für Linux](/windows/wsl/), Microsofts Anstrengungen zur Verbesserung der Erfahrung von [Docker unter Windows](/dotnet/architecture/microservices/container-docker-introduction/docker-defined) und der Einführung von [OpenSSH](/windows-server/administration/openssh/openssh_overview) als bedeutendster Remoteausführungstechnologie für Befehlszeilen wurden die ersten Implementierungen von [virtuellen Terminalsequenzen](console-virtual-terminal-sequences.md) in den Konsolenhost eingeführt. Dadurch konnte die vorhandene Konsole als Terminal fungieren, direkt an diese nativen Linux-Anwendungen in ihrer jeweiligen Umgebung angeschlossen, und dabei die Grafik- und Textattribute an der Anzeige rendern und Benutzereingaben im geeigneten Dialekt zurückgeben.
 
 ### <a name="virtual-terminal-server"></a>Virtueller Terminalserver
 

@@ -31,12 +31,12 @@ api_location:
 api_type:
 - DllExport
 ms.localizationpriority: high
-ms.openlocfilehash: 42857417cedb661014de869536b798d29c9eb884
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 0804e12ff7510cd41bec66e1a45f8a31add7c17a
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420209"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358750"
 ---
 # <a name="getstdhandle-function"></a>GetStdHandle-Funktion
 
@@ -65,21 +65,21 @@ Das Standardgerät. Dieser Parameter kann einen der folgenden Werte annehmen.
 
 Wenn die Funktion erfolgreich ausgeführt wird, ist der Rückgabewert ein Handle für das angegebene Gerät oder ein umgeleitetes Handle, das durch einen vorhergehenden Aufruf von [**SetStdHandle**](setstdhandle.md) festgelegt wurde. Das Handle verfügt über die Zugriffsrechte **GENERIC\_READ** und **GENERIC\_WRITE**, es sei denn, die Anwendung hat **SetStdHandle** verwendet, um ein Standardhandle mit geringeren Zugriffsrechten festzulegen.
 
-Wenn bei der Ausführung der Funktion ein Fehler auftritt, lautet der Rückgabewert **INVALID\_HANDLE\_VALUE**. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) auf.
+Wenn bei der Ausführung der Funktion ein Fehler auftritt, lautet der Rückgabewert **INVALID\_HANDLE\_VALUE**. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 Wenn eine Anwendung nicht über zugeordnete Standardhandles verfügt, wie etwa ein Dienst, der auf einem interaktiven Desktop ausgeführt wird und diese nicht umgeleitet hat, ist der Rückgabewert **NULL**.
 
 ## <a name="remarks"></a>Bemerkungen
 
-Von **GetStdHandle** zurückgegebene Handles können von Anwendungen verwendet werden, die aus der Konsole lesen oder in die Konsole schreiben müssen. Beim Erstellen einer Konsole ist das Standardeingabehandle ein Handle für den Eingabepuffer der Konsole, und die Standardausgabe- und Standardfehlerhandles sind Handles für den aktiven Bildschirmpuffer der Konsole. Diese Handles können von den Funktionen [**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467) und [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) oder von jeder Konsolenfunktion verwendet werden, die auf den Konsoleneingabepuffer oder einen Bildschirmpuffer zugreift (beispielsweise die Funktionen [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md) oder [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)).
+Von **GetStdHandle** zurückgegebene Handles können von Anwendungen verwendet werden, die aus der Konsole lesen oder in die Konsole schreiben müssen. Beim Erstellen einer Konsole ist das Standardeingabehandle ein Handle für den Eingabepuffer der Konsole, und die Standardausgabe- und Standardfehlerhandles sind Handles für den aktiven Bildschirmpuffer der Konsole. Diese Handles können von den Funktionen [**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile) und [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) oder von jeder Konsolenfunktion verwendet werden, die auf den Konsoleneingabepuffer oder einen Bildschirmpuffer zugreift (beispielsweise die Funktionen [**ReadConsoleInput**](readconsoleinput.md), [**WriteConsole**](writeconsole.md) oder [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)).
 
-Die Standardhandles eines Prozesses können durch einen Aufruf von [**SetStdHandle**](setstdhandle.md) umgeleitet werden. In diesem Fall gibt **GetStdHandle** das umgeleitete Handle zurück. Wenn die Standardhandles umgeleitet wurden, können Sie den `CONIN$`-Wert in einem Aufruf der Funktion [**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858) angeben, um ein Handle zum Eingabespeicher einer Konsole abzurufen. In ähnlicher Weise können Sie den `CONOUT$`-Wert angeben, um ein Handle für den aktiven Bildschirmpuffer einer Konsole abzurufen.
+Die Standardhandles eines Prozesses können durch einen Aufruf von [**SetStdHandle**](setstdhandle.md) umgeleitet werden. In diesem Fall gibt **GetStdHandle** das umgeleitete Handle zurück. Wenn die Standardhandles umgeleitet wurden, können Sie den `CONIN$`-Wert in einem Aufruf der Funktion [**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea) angeben, um ein Handle zum Eingabespeicher einer Konsole abzurufen. In ähnlicher Weise können Sie den `CONOUT$`-Wert angeben, um ein Handle für den aktiven Bildschirmpuffer einer Konsole abzurufen.
 
-Die Standardhandles eines Prozesses beim Eintritt in die main-Methode werden durch die Konfiguration des [ **/SUBSYSTEM**](https://docs.microsoft.com/cpp/build/reference/subsystem-specify-subsystem)-Flags vorgeschrieben, das dem Linker zum Zeitpunkt des Erstellens der Anwendung übergeben wurde. Für die Angabe von **/SUBSYSTEM:CONSOLE** ist es erforderlich, dass das Betriebssystem die Handles beim Start mit einer Konsolensitzung füllt, falls die Tabelle der Standardhandles nicht bereits mithilfe von Vererbung durch das übergeordnete Element aufgefüllt wurde. Im Gegensatz dazu impliziert **/SUBSYSTEM:WINDOWS**, dass die Anwendung keine Konsole benötigt und von den Standardhandles wahrscheinlich keinen Gebrauch machen wird. Weitere Informationen zur Handlevererbung finden Sie in der Dokumentation zu [**STARTF\_USESTDHANDLES**](https://docs.microsoft.com/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa).
+Die Standardhandles eines Prozesses beim Eintritt in die main-Methode werden durch die Konfiguration des [ **/SUBSYSTEM**](/cpp/build/reference/subsystem-specify-subsystem)-Flags vorgeschrieben, das dem Linker zum Zeitpunkt des Erstellens der Anwendung übergeben wurde. Für die Angabe von **/SUBSYSTEM:CONSOLE** ist es erforderlich, dass das Betriebssystem die Handles beim Start mit einer Konsolensitzung füllt, falls die Tabelle der Standardhandles nicht bereits mithilfe von Vererbung durch das übergeordnete Element aufgefüllt wurde. Im Gegensatz dazu impliziert **/SUBSYSTEM:WINDOWS**, dass die Anwendung keine Konsole benötigt und von den Standardhandles wahrscheinlich keinen Gebrauch machen wird. Weitere Informationen zur Handlevererbung finden Sie in der Dokumentation zu [**STARTF\_USESTDHANDLES**](/windows/win32/api/processthreadsapi/ns-processthreadsapi-startupinfoa).
 
 Einige Anwendungen werden außerhalb der Grenzen ihres deklarierten Subsystems betrieben; beispielsweise kann eine **/SUBSYSTEM:WINDOWS**-Anwendung die Standardhandles zu Protokollierungs- oder Debuggingzwecken überprüfen/verwenden, aber zugleich normal mit einer grafischen Benutzeroberfläche ausgeführt werden. Diese Anwendungen müssen den Zustand von Standardhandles beim Start sorgfältig überprüfen und [**AttachConsole**](attachconsole.md), [**AllocConsole**](allocconsole.md) sowie [**FreeConsole**](freeconsole.md) verwenden, um bei Bedarf eine Konsole hinzuzufügen bzw. zu entfernen.
 
-Einige Anwendungen können sogar ihr Verhalten je nach dem Typ des geerbten Handles ändern. Die Unterscheidung des Typs zwischen Konsole, Pipe, Datei und anderen kann mithilfe von [**GetFileType**](https://docs.microsoft.com/windows/win32/api/fileapi/nf-fileapi-getfiletype) durchgeführt werden.
+Einige Anwendungen können sogar ihr Verhalten je nach dem Typ des geerbten Handles ändern. Die Unterscheidung des Typs zwischen Konsole, Pipe, Datei und anderen kann mithilfe von [**GetFileType**](/windows/win32/api/fileapi/nf-fileapi-getfiletype) durchgeführt werden.
 
 ### <a name="attachdetach-behavior"></a>Verhalten beim Zuordnen/Trennen
 
@@ -112,16 +112,16 @@ Ein Beispiel finden Sie unter [Lesen von Eingabepufferereignissen](reading-input
 
 [Konsolenhandles](console-handles.md)
 
-[**CreateFile**](https://msdn.microsoft.com/library/windows/desktop/aa363858)
+[**CreateFile**](/windows/win32/api/fileapi/nf-fileapi-createfilea)
 
 [**GetConsoleScreenBufferInfo**](getconsolescreenbufferinfo.md)
 
 [**ReadConsoleInput**](readconsoleinput.md)
 
-[**ReadFile**](https://msdn.microsoft.com/library/windows/desktop/aa365467)
+[**ReadFile**](/windows/win32/api/fileapi/nf-fileapi-readfile)
 
 [**SetStdHandle**](setstdhandle.md)
 
 [**WriteConsole**](writeconsole.md)
 
-[**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747)
+[**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile)

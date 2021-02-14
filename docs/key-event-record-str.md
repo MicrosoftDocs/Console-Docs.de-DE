@@ -28,12 +28,12 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 0a2ba8ecf8b07a83db54642c2399bb93d99b7aa2
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: bcc58b90e71b848e3b6e4b0bf5ba162323830529
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039528"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357800"
 ---
 # <a name="key_event_record-structure"></a>Struktur des Schlüssel \_ Ereignis \_ Datensatzes
 
@@ -58,13 +58,13 @@ typedef struct _KEY_EVENT_RECORD {
 ## <a name="members"></a>Member
 
 **bkeydown**  
-Wenn die Taste gedrückt wird, ist dieser Member " **true** ". Andernfalls ist dieser Member **false** (der Schlüssel wird freigegeben).
+Wenn die Taste gedrückt wird, ist dieser Member " **true**". Andernfalls ist dieser Member **false** (der Schlüssel wird freigegeben).
 
 **wrepeatcount**  
 Der Wiederholungs Zähler, der angibt, dass ein Schlüssel angehalten wird. Wenn eine Taste z. b. angehalten wird, können fünf Ereignisse mit diesem Element gleich 1, ein Ereignis mit diesem Element gleich 5 oder mehrere Ereignisse mit diesem Member größer oder gleich 1 sein.
 
 **wvirtualkeycode**  
-Ein [Code für den virtuellen Schlüssel](https://msdn.microsoft.com/library/windows/desktop/dd375731(v=vs.85).aspx) , der den angegebenen Schlüssel Geräte unabhängig identifiziert.
+Ein [Code für den virtuellen Schlüssel](/windows/win32/inputdev/virtual-key-codes) , der den angegebenen Schlüssel Geräte unabhängig identifiziert.
 
 **wvirtualscancode**  
 Der virtuelle Scan Code des angegebenen Schlüssels, der den von der Tastatur Hardware generierten geräteabhängigen Wert darstellt.
@@ -97,18 +97,18 @@ Der Zustand der Steuerelement Schlüssel. Dieser Member kann einen oder mehrere 
 
 Erweiterte Schlüssel für die Tastaturen IBM® 101-und 102-Key sind die Tasten in, del, Home, End, page up, Page Down und Direction in den Clustern links neben der Tastatur. und die Unterteilung (/) und EINGABETASTE in der Tastatur.
 
-Tastatureingabe Ereignisse werden generiert, wenn ein beliebiger Schlüssel, einschließlich der Steuerelement Schlüssel, gedrückt oder freigegeben wird. Die Alt-Taste, wenn Sie gedrückt und freigegeben wird, ohne mit einem anderen Zeichen zu kombinieren, hat jedoch eine besondere Bedeutung für das System und wird nicht an die Anwendung übermittelt. Außerdem wird die Tastenkombination STRG + C nicht durchlaufen, wenn sich das Eingabe Handle im verarbeiteten Modus befindet **( \_ verarbeitete \_ Eingaben aktivieren** ).
+Tastatureingabe Ereignisse werden generiert, wenn ein beliebiger Schlüssel, einschließlich der Steuerelement Schlüssel, gedrückt oder freigegeben wird. Die Alt-Taste, wenn Sie gedrückt und freigegeben wird, ohne mit einem anderen Zeichen zu kombinieren, hat jedoch eine besondere Bedeutung für das System und wird nicht an die Anwendung übermittelt. Außerdem wird die Tastenkombination STRG + C nicht durchlaufen, wenn sich das Eingabe Handle im verarbeiteten Modus befindet **( \_ verarbeitete \_ Eingaben aktivieren**).
 
 ## <a name="examples"></a>Beispiele
 
-Ein Beispiel finden Sie unter [Lesen von Eingabepuffer Ereignissen](reading-input-buffer-events.md).
+Ein Beispiel finden Sie unter [Lesen von Eingabepufferereignissen](reading-input-buffer-events.md).
 
-## <a name="requirements"></a>Requirements (Anforderungen)
+## <a name="requirements"></a>Anforderungen
 
 | &nbsp; | &nbsp; |
 |-|-|
-| Unterstützte Mindestversion (Client) | Nur Windows 2000 Professional \[ Desktop-Apps\] |
-| Unterstützte Mindestversion (Server) | Nur Windows 2000 \[ -Server Desktop-Apps\] |
+| Unterstützte Mindestversion (Client) | Windows 2000 Professional \[nur Desktop-Apps\] |
+| Unterstützte Mindestversion (Server) | Windows 2000 Server \[nur Desktop-Apps\] |
 | Header | Wincontypes. h (über WinCon. h, Include Windows. h) |
 
 ## <a name="see-also"></a>Weitere Informationen

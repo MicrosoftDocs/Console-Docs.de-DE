@@ -30,12 +30,12 @@ api_location:
 api_type:
 - DllExport
 ms.localizationpriority: high
-ms.openlocfilehash: c63c9a176c0d8ca2ef4342f7bee1b427eae00014
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 3b48570424a4c60a56094f5c41934f9946f67203
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420169"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357860"
 ---
 # <a name="allocconsole-function"></a>AllocConsole-Funktion
 
@@ -55,7 +55,7 @@ Diese Funktion besitzt keine Parameter.
 
 Wenn die Funktion erfolgreich ist, ist der Rückgabewert ungleich Null.
 
-Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](https://msdn.microsoft.com/library/windows/desktop/ms679360) auf.
+Wenn die Funktion fehlerhaft ist, ist der Rückgabewert null. Um erweiterte Fehlerinformationen zu erhalten, rufen Sie [**GetLastError**](/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror) auf.
 
 ## <a name="remarks"></a>Bemerkungen
 
@@ -65,7 +65,7 @@ Wenn der aufrufenden Prozess einen untergeordneten Prozess erstellt, erbt der un
 
 **AllocConsole** initialisiert die Standardhandles für Eingabe, Ausgabe und Fehler für die neue Konsole. Das Standardeingabehandle ist ein Handle für den Eingabepuffer der Konsole, und die Standardausgabe- und Standardfehlerhandles sind Handles für den Bildschirmpuffer der Konsole. Um diese Handles abzurufen, verwenden Sie die Funktion [**GetStdHandle**](getstdhandle.md).
 
-Diese Funktion wird hauptsächlich von einer grafischen Benutzeroberflächenanwendung (GUI) zum Erstellen eines Konsolenfensters verwendet. GUI-Anwendungen werden ohne eine-Konsole initialisiert. Konsolenanwendungen werden mit einer Konsole initialisiert, es sei denn, sie werden als getrennte Prozesse erstellt (durch Aufrufen der [**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425)-Funktion mit dem **DETACHED\_PROCESS**-Flag).
+Diese Funktion wird hauptsächlich von einer grafischen Benutzeroberflächenanwendung (GUI) zum Erstellen eines Konsolenfensters verwendet. GUI-Anwendungen werden ohne eine-Konsole initialisiert. Konsolenanwendungen werden mit einer Konsole initialisiert, es sei denn, sie werden als getrennte Prozesse erstellt (durch Aufrufen der [**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa)-Funktion mit dem **DETACHED\_PROCESS**-Flag).
 
 ## <a name="requirements"></a>Anforderungen
 
@@ -85,7 +85,7 @@ Diese Funktion wird hauptsächlich von einer grafischen Benutzeroberflächenanwe
 
 [**AttachConsole**](attachconsole.md)
 
-[**CreateProcess**](https://msdn.microsoft.com/library/windows/desktop/ms682425)
+[**CreateProcess**](/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa)
 
 [**FreeConsole**](freeconsole.md)
 

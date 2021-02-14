@@ -19,12 +19,12 @@ api_location:
 - KernelBase.dll
 api_type:
 - DllExport
-ms.openlocfilehash: b015f224684a53a8bb654f04b1797ac1af794fc3
-ms.sourcegitcommit: f16996b9c7deead9bcfa44954be93a6ba087abcb
+ms.openlocfilehash: 91958b23348895f7454c9228e3c730d231dc4f0b
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97601477"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357940"
 ---
 # <a name="createpseudoconsole-function"></a>Funktion "anatepseudoconsole"
 
@@ -48,10 +48,10 @@ HRESULT WINAPI CreatePseudoConsole(
 Die Abmessungen des Fensters/Puffers in der Anzahl von Zeichen, die bei der anfänglichen Erstellung der pseudoconsole verwendet werden. Dies kann später mit [resizepseudoconsole](resizepseudoconsole.md)angepasst werden.
 
 *hinput* \[ in\]  
-Ein geöffnetes Handle für einen Datenstrom, der die Benutzereingabe für das Gerät darstellt. Dies ist zurzeit auf [synchrone](https://docs.microsoft.com/windows/desktop/Sync/synchronization-and-overlapped-input-and-output) e/a beschränkt.
+Ein geöffnetes Handle für einen Datenstrom, der die Benutzereingabe für das Gerät darstellt. Dies ist zurzeit auf [synchrone](/windows/desktop/Sync/synchronization-and-overlapped-input-and-output) e/a beschränkt.
 
 *houtput* \[ in\]  
-Ein geöffnetes Handle für einen Datenstrom, der die Anwendungs Ausgabe des Geräts darstellt. Dies ist zurzeit auf [synchrone](https://docs.microsoft.com/windows/desktop/Sync/synchronization-and-overlapped-input-and-output) e/a beschränkt.
+Ein geöffnetes Handle für einen Datenstrom, der die Anwendungs Ausgabe des Geräts darstellt. Dies ist zurzeit auf [synchrone](/windows/desktop/Sync/synchronization-and-overlapped-input-and-output) e/a beschränkt.
 
 *dwFlags* \[ in\]  
 Der Wert kann in folgenden Formen vorliegen:
@@ -70,7 +70,7 @@ Typ: **HRESULT**
 
 Wenn diese Methode erfolgreich ausgeführt wird, wird **S_OK** zurückgegeben. Andernfalls wird ein **HRESULT** -Fehlercode zurückgegeben.
 
-## <a name="remarks"></a>Hinweise
+## <a name="remarks"></a>Bemerkungen
 
 Diese Funktion wird hauptsächlich von Anwendungen verwendet, die versuchen, ein Terminalfenster für eine Befehlszeilen-Benutzerschnittstellen Anwendung (CUI) zu sein. Die Aufrufer werden für die Darstellung der Informationen im Ausgabestream und für die Erfassung von Benutzereingaben und die Serialisierung in den Eingabestream verantwortlich.
 

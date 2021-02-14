@@ -13,18 +13,18 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 6e536658-8a27-478e-82ee-d1e11f351301
-ms.openlocfilehash: 9b210e07fd2531b2f58130f4b96ad31a374923f4
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: d5d3604d3d4f2738af01ae1bc051c10af6249c62
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039208"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358110"
 ---
 # <a name="console-input-buffer"></a>Konsoleneingabepuffer
 
 Jede Konsole verfügt über einen Eingabepuffer, der eine Warteschlange von Eingabe Ereignisdaten Sätzen enthält. Wenn das Fenster einer Konsole den Tastaturfokus besitzt, formatiert eine Konsole jedes Eingabe Ereignis (z. b. einen einzelnen Tastatur Strich, eine Bewegung der Maus oder einen Mausklick) als Eingabedaten Satz, der im Eingabepuffer der Konsole platziert wird.
 
-Anwendungen können indirekt auf den Eingabepuffer einer Konsole zugreifen, indem Sie die e [/a-Funktionen auf hoher Ebene](high-level-console-input-and-output-functions.md)oder direkt mithilfe der [Konsolen Eingabefunktionen auf niedriger Ebene](low-level-console-input-functions.md)verwenden. Die Eingabefunktionen auf hoher Ebene filtern und verarbeiten die Daten im Eingabepuffer und geben nur einen Stream von Eingabezeichen zurück. Die Eingabefunktionen auf niedriger Ebene ermöglichen es Anwendungen, Eingabedaten Sätze direkt aus dem Eingabepuffer einer Konsole zu lesen oder Eingabedaten Sätze in den Eingabepuffer zu platzieren. Um ein Handle für den Eingabepuffer einer Konsole zu öffnen, geben Sie den Wert von " **$** " in einem aufrufen [**der Funktion "**](https://msdn.microsoft.com/library/windows/desktop/aa363858) Funktion" an.
+Anwendungen können indirekt auf den Eingabepuffer einer Konsole zugreifen, indem Sie die e [/a-Funktionen auf hoher Ebene](high-level-console-input-and-output-functions.md)oder direkt mithilfe der [Konsolen Eingabefunktionen auf niedriger Ebene](low-level-console-input-functions.md)verwenden. Die Eingabefunktionen auf hoher Ebene filtern und verarbeiten die Daten im Eingabepuffer und geben nur einen Stream von Eingabezeichen zurück. Die Eingabefunktionen auf niedriger Ebene ermöglichen es Anwendungen, Eingabedaten Sätze direkt aus dem Eingabepuffer einer Konsole zu lesen oder Eingabedaten Sätze in den Eingabepuffer zu platzieren. Um ein Handle für den Eingabepuffer einer Konsole zu öffnen, geben Sie den Wert von " **$** " in einem aufrufen [**der Funktion "**](/windows/win32/api/fileapi/nf-fileapi-createfilea) Funktion" an.
 
 Ein Eingabedaten Satz ist eine Struktur, die Informationen über den Typ des aufgetretenen Ereignisses (Tastatur, Maus, Fenstergröße, Fokus oder Menü Ereignis) sowie spezifische Details zum Ereignis enthält. Der **eventType** -Member in einer [**Eingabe \_ Daten Satz**](input-record-str.md) Struktur gibt an, welcher Ereignistyp im Datensatz enthalten ist.
 

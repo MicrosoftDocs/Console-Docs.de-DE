@@ -13,12 +13,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 0226cd94-86d0-452b-80e6-e0fed8af0a62
-ms.openlocfilehash: 13ad97a30459ba3abd0ed197352e69e6e8b45d47
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: a520c1688bf9e682e5c6696738f5b81d30679d7b
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93037068"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100358480"
 ---
 # <a name="using-the-high-level-input-and-output-functions"></a>Verwenden der High-Level Eingabe-und Ausgabefunktionen
 
@@ -26,7 +26,7 @@ ms.locfileid: "93037068"
 
 Im folgenden Beispiel werden die e/a-Funktionen auf hoher Ebene für Konsolen-e/a verwendet. Weitere Informationen zu den e/a-Funktionen auf hoher Ebene finden Sie unter Allgemeine Konsolen-e [/](high-level-console-i-o.md)a.
 
-Im Beispiel wird davon ausgegangen, dass die Standard-e/a-Modi anfänglich für die ersten Aufrufe der Funktionen "read [**File**](https://msdn.microsoft.com/library/windows/desktop/aa365467) " und " [**Write File**](https://msdn.microsoft.com/library/windows/desktop/aa365747) " wirksam sind. Anschließend wird der Eingabemodus geändert, sodass der Offline Eingabemodus und der Echo Eingabemodus für die zweiten Aufrufe von " **Infofile** " und " **Write File** " aktiviert werden. Die [**SetConsoleTextAttribute**](setconsoletextattribute.md) -Funktion wird zum Festlegen der Farben verwendet, in denen der anschließende geschriebene Text angezeigt wird. Vor dem Beenden stellt das Programm den ursprünglichen Konsolen Eingabemodus und die Farb Attribute wieder her.
+Im Beispiel wird davon ausgegangen, dass die Standard-e/a-Modi anfänglich für die ersten Aufrufe der Funktionen "read [**File**](/windows/win32/api/fileapi/nf-fileapi-readfile) " und " [**Write File**](/windows/win32/api/fileapi/nf-fileapi-writefile) " wirksam sind. Anschließend wird der Eingabemodus geändert, sodass der Offline Eingabemodus und der Echo Eingabemodus für die zweiten Aufrufe von " **Infofile** " und " **Write File**" aktiviert werden. Die [**SetConsoleTextAttribute**](setconsoletextattribute.md) -Funktion wird zum Festlegen der Farben verwendet, in denen der anschließende geschriebene Text angezeigt wird. Vor dem Beenden stellt das Programm den ursprünglichen Konsolen Eingabemodus und die Farb Attribute wieder her.
 
 Die-Funktion des-Beispiels `NewLine` wird verwendet, wenn der Zeilen Eingabemodus deaktiviert ist. Wagen Rückläufe werden verarbeitet, indem die Cursorposition in die erste Zelle der nächsten Zeile verschoben wird. Wenn sich der Cursor bereits in der letzten Zeile des Bildschirm Puffers der Konsole befindet, wird der Inhalt des Bildschirm Puffers der Konsole um eine Zeile hochskaliert.
 

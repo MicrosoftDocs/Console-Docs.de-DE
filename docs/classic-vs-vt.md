@@ -7,12 +7,12 @@ ms.topic: conceptual
 keywords: Konsole, Terminal, virtuelles Terminal, Escapesequenzen, vt, vt100, Konsolen-API
 ms.prod: console
 ms.localizationpriority: high
-ms.openlocfilehash: 541300b50521909b22ceaccb595f1945fbfc7e6d
-ms.sourcegitcommit: 508e93bc83b4bca6ce678f88ab081d66b95d605c
+ms.openlocfilehash: 2af1b2e2760df42dc60a991dad1afacf27831ec5
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96420179"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357810"
 ---
 # <a name="classic-console-apis-versus-virtual-terminal-sequences"></a>Klassische Konsolen-APIs im Vergleich zu virtuellen Terminalsequenzen
 
@@ -81,7 +81,7 @@ Die UTF-16-Unterstützung in der Konsole kann ohne zusätzliche Konfiguration ü
 Die UTF-8-Unterstützung in der Konsole kann über die _A_-Variante von Konsolen-APIs für Konsolenhandles verwendet werden, nachdem die Codepage je nachdem mit der Methode [**SetConsoleOutputCP**](setconsoleoutputcp.md) oder [**SetConsoleCP**](setconsolecp.md) auf `65001` oder `CP_UTF8` festgelegt wurde. Das Festlegen der Codepages im Voraus ist nur erforderlich, wenn der Computer in den Einstellungen für Nicht-Unicode-Anwendungen im Abschnitt „Region“ der Systemsteuerung nicht die Option „Unicode UTF-8 für weltweite Sprachunterstützung verwenden“ ausgewählt hat.
 
 >[!NOTE]
-> Ab sofort wird UTF-8 vollständig für den Standardausgabestream mit den Methoden [**WriteConsole**](writeconsole.md) und [**WriteFile**](https://msdn.microsoft.com/library/windows/desktop/aa365747) unterstützt. Die Unterstützung für den Eingabestream variiert abhängig vom Eingabemodus und wird im Laufe der Zeit weiter verbessert. Insbesondere die standardmäßigen **[„gekocht“](high-level-console-modes.md)** -Modi (cooked) bei Eingaben unterstützen UTF-8 noch nicht vollständig. Den aktuellen Status dieser Arbeit finden Sie unter [**microsoft/terminal#7777**](https://github.com/microsoft/terminal/issues/7777) auf GitHub. Die Problemumgehung besteht darin, dass Sie den algorithmisch übersetzbaren UTF-16-Code zum Lesen von Eingaben über [**ReadConsoleW**](readconsole.md) oder [**ReadConsoleInputW**](readconsoleinput.md) verwenden, bis die ausstehenden Probleme behoben sind.
+> Ab sofort wird UTF-8 vollständig für den Standardausgabestream mit den Methoden [**WriteConsole**](writeconsole.md) und [**WriteFile**](/windows/win32/api/fileapi/nf-fileapi-writefile) unterstützt. Die Unterstützung für den Eingabestream variiert abhängig vom Eingabemodus und wird im Laufe der Zeit weiter verbessert. Insbesondere die standardmäßigen **[„gekocht“](high-level-console-modes.md)** -Modi (cooked) bei Eingaben unterstützen UTF-8 noch nicht vollständig. Den aktuellen Status dieser Arbeit finden Sie unter [**microsoft/terminal#7777**](https://github.com/microsoft/terminal/issues/7777) auf GitHub. Die Problemumgehung besteht darin, dass Sie den algorithmisch übersetzbaren UTF-16-Code zum Lesen von Eingaben über [**ReadConsoleW**](readconsole.md) oder [**ReadConsoleInputW**](readconsoleinput.md) verwenden, bis die ausstehenden Probleme behoben sind.
 
 ## <a name="recommendations"></a>Empfehlungen
 
@@ -101,9 +101,9 @@ Es ist **immer noch eine begrenzte Teilmenge der Windows-Konsolen-APIs erforderl
 
 - Signale und Signalverarbeitung werden weiterhin mit [**SetConsoleCtrlHandler**](setconsolectrlhandler.md), [**HandlerRoutine**](handlerroutine.md) und [**GenerateConsoleCtrlEvent**](generateconsolectrlevent.md) durchgeführt.
 
-- Die Kommunikation mit den Konsolengerätehandles kann mit [**WriteConsoleKonsole**](writeconsole.md) und [**ReadConsole**](readconsole.md) erfolgen. Diese können auch durch Laufzeiten von Programmiersprachen in den Formen von: -C Runtime (CRT) genutzt werden: [Stream-E/A](https://docs.microsoft.com/cpp/c-runtime-library/stream-i-o) wie **printf**, **scanf**, **putc**, **getc** oder [anderen Ebenen von E/A-Funktionen](https://docs.microsoft.com/cpp/c-runtime-library/input-and-output).
-        - C++-Standardbibliothek (STL): [iostream](https://docs.microsoft.com/cpp/standard-library/iostream) wie **cout** und **cin**.
-        - .NET-Runtime: [System.Console](https://docs.microsoft.com/dotnet/api/system.console) wie **Console.WriteLine**.
+- Die Kommunikation mit den Konsolengerätehandles kann mit [**WriteConsoleKonsole**](writeconsole.md) und [**ReadConsole**](readconsole.md) erfolgen. Diese können auch durch Laufzeiten von Programmiersprachen in den Formen von: -C Runtime (CRT) genutzt werden: [Stream-E/A](/cpp/c-runtime-library/stream-i-o) wie **printf**, **scanf**, **putc**, **getc** oder [anderen Ebenen von E/A-Funktionen](/cpp/c-runtime-library/input-and-output).
+        - C++-Standardbibliothek (STL): [iostream](/cpp/standard-library/iostream) wie **cout** und **cin**.
+        - .NET-Runtime: [System.Console](/dotnet/api/system.console) wie **Console.WriteLine**.
 
 - Anwendungen, die über Änderungen der Fenstergröße informiert sein müssen, müssen weiterhin [**ReadConsoleInput**](readconsoleinput.md) verwenden, um sie kombiniert mit Schlüsselereignissen zu empfangen, da **ReadConsole** alleine sie verwirft.
 

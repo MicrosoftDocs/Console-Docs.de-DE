@@ -13,12 +13,12 @@ MSHAttr:
 - PreferredSiteName:MSDN
 - PreferredLib:/library/windows/desktop
 ms.assetid: 41488614-ca7c-4207-b706-f7776423c7ba
-ms.openlocfilehash: c214a90147fae2fbf876746078ce0301af15b7ad
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: fc2969cb266479a0acdde890f4ad3710ca8d7e42
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93038548"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357820"
 ---
 # <a name="low-level-console-input-functions"></a>Low-Level Konsolen Eingabefunktionen
 
@@ -46,4 +46,4 @@ Im folgenden finden Sie Beschreibungen der Konsolen Eingabefunktionen auf niedri
 | [**WriteConsoleInput**](writeconsoleinput.md) | Fügt Eingabedaten Sätze in den Eingabepuffer hinter allen ausstehenden Datensätzen im Puffer ein. Der Eingabepuffer wächst bei Bedarf dynamisch, um so viele Datensätze wie geschrieben zu halten. Um diese Funktion verwenden zu können, muss das angegebene Eingabepuffer Handle über das allgemeine \_ Schreibzugriffs Recht verfügen. |
 | [**FlushConsoleInputBuffer**](flushconsoleinputbuffer.md) | Verwirft alle ungelesenen Ereignisse im Eingabepuffer. Um diese Funktion verwenden zu können, muss das angegebene Eingabepuffer Handle über das allgemeine \_ Schreibzugriffs Recht verfügen. |
 
-Ein Thread des Anwendungsprozesses kann einen Warte Vorgang ausführen, um zu warten, bis die Eingabe in einem Eingabepuffer verfügbar ist. Um einen Warte Vorgang zu initiieren, geben Sie ein Handle für den Eingabepuffer an, wenn Sie eine der [Wait-Funktionen](https://msdn.microsoft.com/library/windows/desktop/ms687069)aufzurufen. Diese Funktionen können zurückgeben, wenn der Status von einem oder mehreren-Objekten signalisiert wird. Der Status eines Konsolen Eingabe Handles wird signalisiert, wenn sich ungelesene Datensätze im Eingabepuffer befinden. Der Status wird auf "nicht signalisiert" zurückgesetzt, wenn der Eingabepuffer leer ist. Wenn keine Eingabe verfügbar ist, wechselt der aufrufende Thread in einen effizienten Wartezustand und beansprucht sehr wenig Prozessorzeit, während darauf gewartet wird, dass die Bedingungen des warte Vorgangs erfüllt werden.
+Ein Thread des Anwendungsprozesses kann einen Warte Vorgang ausführen, um zu warten, bis die Eingabe in einem Eingabepuffer verfügbar ist. Um einen Warte Vorgang zu initiieren, geben Sie ein Handle für den Eingabepuffer an, wenn Sie eine der [Wait-Funktionen](/windows/win32/sync/wait-functions)aufzurufen. Diese Funktionen können zurückgeben, wenn der Status von einem oder mehreren-Objekten signalisiert wird. Der Status eines Konsolen Eingabe Handles wird signalisiert, wenn sich ungelesene Datensätze im Eingabepuffer befinden. Der Status wird auf "nicht signalisiert" zurückgesetzt, wenn der Eingabepuffer leer ist. Wenn keine Eingabe verfügbar ist, wechselt der aufrufende Thread in einen effizienten Wartezustand und beansprucht sehr wenig Prozessorzeit, während darauf gewartet wird, dass die Bedingungen des warte Vorgangs erfüllt werden.
