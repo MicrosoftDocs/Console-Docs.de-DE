@@ -28,18 +28,18 @@ api_location:
 - WinCon.h
 api_type:
 - HeaderDef
-ms.openlocfilehash: 0a2ba8ecf8b07a83db54642c2399bb93d99b7aa2
-ms.sourcegitcommit: 463975e71920908a6bff9a6a7291ddf3736652d5
+ms.openlocfilehash: bcc58b90e71b848e3b6e4b0bf5ba162323830529
+ms.sourcegitcommit: 281eb1469f77ae4fb4c67806898e14eac440522a
 ms.translationtype: MT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93039528"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100357800"
 ---
-# <a name="key_event_record-structure"></a><span data-ttu-id="e50bf-104">Struktur des Schlüssel \_ Ereignis \_ Datensatzes</span><span class="sxs-lookup"><span data-stu-id="e50bf-104">KEY\_EVENT\_RECORD structure</span></span>
+# <a name="key_event_record-structure"></a><span data-ttu-id="d32a2-104">Struktur des Schlüssel \_ Ereignis \_ Datensatzes</span><span class="sxs-lookup"><span data-stu-id="d32a2-104">KEY\_EVENT\_RECORD structure</span></span>
 
-<span data-ttu-id="e50bf-105">Beschreibt ein Tastatureingabe Ereignis in einer Konsolen [**Eingabe \_ Daten Satz**](input-record-str.md) Struktur.</span><span class="sxs-lookup"><span data-stu-id="e50bf-105">Describes a keyboard input event in a console [**INPUT\_RECORD**](input-record-str.md) structure.</span></span>
+<span data-ttu-id="d32a2-105">Beschreibt ein Tastatureingabe Ereignis in einer Konsolen [**Eingabe \_ Daten Satz**](input-record-str.md) Struktur.</span><span class="sxs-lookup"><span data-stu-id="d32a2-105">Describes a keyboard input event in a console [**INPUT\_RECORD**](input-record-str.md) structure.</span></span>
 
-## <a name="syntax"></a><span data-ttu-id="e50bf-106">Syntax</span><span class="sxs-lookup"><span data-stu-id="e50bf-106">Syntax</span></span>
+## <a name="syntax"></a><span data-ttu-id="d32a2-106">Syntax</span><span class="sxs-lookup"><span data-stu-id="d32a2-106">Syntax</span></span>
 
 ```C
 typedef struct _KEY_EVENT_RECORD {
@@ -55,68 +55,68 @@ typedef struct _KEY_EVENT_RECORD {
 } KEY_EVENT_RECORD;
 ```
 
-## <a name="members"></a><span data-ttu-id="e50bf-107">Member</span><span class="sxs-lookup"><span data-stu-id="e50bf-107">Members</span></span>
+## <a name="members"></a><span data-ttu-id="d32a2-107">Member</span><span class="sxs-lookup"><span data-stu-id="d32a2-107">Members</span></span>
 
-<span data-ttu-id="e50bf-108">**bkeydown**</span><span class="sxs-lookup"><span data-stu-id="e50bf-108">**bKeyDown**</span></span>  
-<span data-ttu-id="e50bf-109">Wenn die Taste gedrückt wird, ist dieser Member " **true** ".</span><span class="sxs-lookup"><span data-stu-id="e50bf-109">If the key is pressed, this member is **TRUE** .</span></span> <span data-ttu-id="e50bf-110">Andernfalls ist dieser Member **false** (der Schlüssel wird freigegeben).</span><span class="sxs-lookup"><span data-stu-id="e50bf-110">Otherwise, this member is **FALSE** (the key is released).</span></span>
+<span data-ttu-id="d32a2-108">**bkeydown**</span><span class="sxs-lookup"><span data-stu-id="d32a2-108">**bKeyDown**</span></span>  
+<span data-ttu-id="d32a2-109">Wenn die Taste gedrückt wird, ist dieser Member " **true**".</span><span class="sxs-lookup"><span data-stu-id="d32a2-109">If the key is pressed, this member is **TRUE**.</span></span> <span data-ttu-id="d32a2-110">Andernfalls ist dieser Member **false** (der Schlüssel wird freigegeben).</span><span class="sxs-lookup"><span data-stu-id="d32a2-110">Otherwise, this member is **FALSE** (the key is released).</span></span>
 
-<span data-ttu-id="e50bf-111">**wrepeatcount**</span><span class="sxs-lookup"><span data-stu-id="e50bf-111">**wRepeatCount**</span></span>  
-<span data-ttu-id="e50bf-112">Der Wiederholungs Zähler, der angibt, dass ein Schlüssel angehalten wird.</span><span class="sxs-lookup"><span data-stu-id="e50bf-112">The repeat count, which indicates that a key is being held down.</span></span> <span data-ttu-id="e50bf-113">Wenn eine Taste z. b. angehalten wird, können fünf Ereignisse mit diesem Element gleich 1, ein Ereignis mit diesem Element gleich 5 oder mehrere Ereignisse mit diesem Member größer oder gleich 1 sein.</span><span class="sxs-lookup"><span data-stu-id="e50bf-113">For example, when a key is held down, you might get five events with this member equal to 1, one event with this member equal to 5, or multiple events with this member greater than or equal to 1.</span></span>
+<span data-ttu-id="d32a2-111">**wrepeatcount**</span><span class="sxs-lookup"><span data-stu-id="d32a2-111">**wRepeatCount**</span></span>  
+<span data-ttu-id="d32a2-112">Der Wiederholungs Zähler, der angibt, dass ein Schlüssel angehalten wird.</span><span class="sxs-lookup"><span data-stu-id="d32a2-112">The repeat count, which indicates that a key is being held down.</span></span> <span data-ttu-id="d32a2-113">Wenn eine Taste z. b. angehalten wird, können fünf Ereignisse mit diesem Element gleich 1, ein Ereignis mit diesem Element gleich 5 oder mehrere Ereignisse mit diesem Member größer oder gleich 1 sein.</span><span class="sxs-lookup"><span data-stu-id="d32a2-113">For example, when a key is held down, you might get five events with this member equal to 1, one event with this member equal to 5, or multiple events with this member greater than or equal to 1.</span></span>
 
-<span data-ttu-id="e50bf-114">**wvirtualkeycode**</span><span class="sxs-lookup"><span data-stu-id="e50bf-114">**wVirtualKeyCode**</span></span>  
-<span data-ttu-id="e50bf-115">Ein [Code für den virtuellen Schlüssel](https://msdn.microsoft.com/library/windows/desktop/dd375731(v=vs.85).aspx) , der den angegebenen Schlüssel Geräte unabhängig identifiziert.</span><span class="sxs-lookup"><span data-stu-id="e50bf-115">A [virtual-key code](https://msdn.microsoft.com/library/windows/desktop/dd375731(v=vs.85).aspx) that identifies the given key in a device-independent manner.</span></span>
+<span data-ttu-id="d32a2-114">**wvirtualkeycode**</span><span class="sxs-lookup"><span data-stu-id="d32a2-114">**wVirtualKeyCode**</span></span>  
+<span data-ttu-id="d32a2-115">Ein [Code für den virtuellen Schlüssel](/windows/win32/inputdev/virtual-key-codes) , der den angegebenen Schlüssel Geräte unabhängig identifiziert.</span><span class="sxs-lookup"><span data-stu-id="d32a2-115">A [virtual-key code](/windows/win32/inputdev/virtual-key-codes) that identifies the given key in a device-independent manner.</span></span>
 
-<span data-ttu-id="e50bf-116">**wvirtualscancode**</span><span class="sxs-lookup"><span data-stu-id="e50bf-116">**wVirtualScanCode**</span></span>  
-<span data-ttu-id="e50bf-117">Der virtuelle Scan Code des angegebenen Schlüssels, der den von der Tastatur Hardware generierten geräteabhängigen Wert darstellt.</span><span class="sxs-lookup"><span data-stu-id="e50bf-117">The virtual scan code of the given key that represents the device-dependent value generated by the keyboard hardware.</span></span>
+<span data-ttu-id="d32a2-116">**wvirtualscancode**</span><span class="sxs-lookup"><span data-stu-id="d32a2-116">**wVirtualScanCode**</span></span>  
+<span data-ttu-id="d32a2-117">Der virtuelle Scan Code des angegebenen Schlüssels, der den von der Tastatur Hardware generierten geräteabhängigen Wert darstellt.</span><span class="sxs-lookup"><span data-stu-id="d32a2-117">The virtual scan code of the given key that represents the device-dependent value generated by the keyboard hardware.</span></span>
 
-<span data-ttu-id="e50bf-118">**uChar**</span><span class="sxs-lookup"><span data-stu-id="e50bf-118">**uChar**</span></span>  
-<span data-ttu-id="e50bf-119">Eine Union der folgenden Member.</span><span class="sxs-lookup"><span data-stu-id="e50bf-119">A union of the following members.</span></span>
+<span data-ttu-id="d32a2-118">**uChar**</span><span class="sxs-lookup"><span data-stu-id="d32a2-118">**uChar**</span></span>  
+<span data-ttu-id="d32a2-119">Eine Union der folgenden Member.</span><span class="sxs-lookup"><span data-stu-id="d32a2-119">A union of the following members.</span></span>
 
-<span data-ttu-id="e50bf-120">**Unicodechar**</span><span class="sxs-lookup"><span data-stu-id="e50bf-120">**UnicodeChar**</span></span>  
-<span data-ttu-id="e50bf-121">Übersetzte Unicode-Zeichen.</span><span class="sxs-lookup"><span data-stu-id="e50bf-121">Translated Unicode character.</span></span>
+<span data-ttu-id="d32a2-120">**Unicodechar**</span><span class="sxs-lookup"><span data-stu-id="d32a2-120">**UnicodeChar**</span></span>  
+<span data-ttu-id="d32a2-121">Übersetzte Unicode-Zeichen.</span><span class="sxs-lookup"><span data-stu-id="d32a2-121">Translated Unicode character.</span></span>
 
-<span data-ttu-id="e50bf-122">**Asciichar**</span><span class="sxs-lookup"><span data-stu-id="e50bf-122">**AsciiChar**</span></span>  
-<span data-ttu-id="e50bf-123">Übersetzte ASCII-Zeichen.</span><span class="sxs-lookup"><span data-stu-id="e50bf-123">Translated ASCII character.</span></span>
+<span data-ttu-id="d32a2-122">**Asciichar**</span><span class="sxs-lookup"><span data-stu-id="d32a2-122">**AsciiChar**</span></span>  
+<span data-ttu-id="d32a2-123">Übersetzte ASCII-Zeichen.</span><span class="sxs-lookup"><span data-stu-id="d32a2-123">Translated ASCII character.</span></span>
 
-<span data-ttu-id="e50bf-124">**dwcontrolkeystate**</span><span class="sxs-lookup"><span data-stu-id="e50bf-124">**dwControlKeyState**</span></span>  
-<span data-ttu-id="e50bf-125">Der Zustand der Steuerelement Schlüssel.</span><span class="sxs-lookup"><span data-stu-id="e50bf-125">The state of the control keys.</span></span> <span data-ttu-id="e50bf-126">Dieser Member kann einen oder mehrere der folgenden Werte aufweisen.</span><span class="sxs-lookup"><span data-stu-id="e50bf-126">This member can be one or more of the following values.</span></span>
+<span data-ttu-id="d32a2-124">**dwcontrolkeystate**</span><span class="sxs-lookup"><span data-stu-id="d32a2-124">**dwControlKeyState**</span></span>  
+<span data-ttu-id="d32a2-125">Der Zustand der Steuerelement Schlüssel.</span><span class="sxs-lookup"><span data-stu-id="d32a2-125">The state of the control keys.</span></span> <span data-ttu-id="d32a2-126">Dieser Member kann einen oder mehrere der folgenden Werte aufweisen.</span><span class="sxs-lookup"><span data-stu-id="d32a2-126">This member can be one or more of the following values.</span></span>
 
-| <span data-ttu-id="e50bf-127">Wert</span><span class="sxs-lookup"><span data-stu-id="e50bf-127">Value</span></span> | <span data-ttu-id="e50bf-128">Bedeutung</span><span class="sxs-lookup"><span data-stu-id="e50bf-128">Meaning</span></span> |
+| <span data-ttu-id="d32a2-127">Wert</span><span class="sxs-lookup"><span data-stu-id="d32a2-127">Value</span></span> | <span data-ttu-id="d32a2-128">Bedeutung</span><span class="sxs-lookup"><span data-stu-id="d32a2-128">Meaning</span></span> |
 |-|-|
-| <span data-ttu-id="e50bf-129">**CAPSLOCK_ON** 0x0080</span><span class="sxs-lookup"><span data-stu-id="e50bf-129">**CAPSLOCK_ON** 0x0080</span></span> | <span data-ttu-id="e50bf-130">Die Feststell Sperre ist auf on.</span><span class="sxs-lookup"><span data-stu-id="e50bf-130">The CAPS LOCK light is on.</span></span> |
-| <span data-ttu-id="e50bf-131">**ENHANCED_KEY** 0x0100</span><span class="sxs-lookup"><span data-stu-id="e50bf-131">**ENHANCED_KEY** 0x0100</span></span> | <span data-ttu-id="e50bf-132">Der Schlüssel ist erweitert.</span><span class="sxs-lookup"><span data-stu-id="e50bf-132">The key is enhanced.</span></span> <span data-ttu-id="e50bf-133">Siehe [Hinweise](key-event-record-str.md#remarks).</span><span class="sxs-lookup"><span data-stu-id="e50bf-133">See [remarks](key-event-record-str.md#remarks).</span></span> |
-| <span data-ttu-id="e50bf-134">**LEFT_ALT_PRESSED** 0x0002</span><span class="sxs-lookup"><span data-stu-id="e50bf-134">**LEFT_ALT_PRESSED** 0x0002</span></span> | <span data-ttu-id="e50bf-135">Die linke ALT-Taste wird gedrückt.</span><span class="sxs-lookup"><span data-stu-id="e50bf-135">The left ALT key is pressed.</span></span> |
-| <span data-ttu-id="e50bf-136">**LEFT_CTRL_PRESSED** 0x0008</span><span class="sxs-lookup"><span data-stu-id="e50bf-136">**LEFT_CTRL_PRESSED** 0x0008</span></span> | <span data-ttu-id="e50bf-137">Die linke STRG-Taste wird gedrückt.</span><span class="sxs-lookup"><span data-stu-id="e50bf-137">The left CTRL key is pressed.</span></span> |
-| <span data-ttu-id="e50bf-138">**NUMLOCK_ON** 0x0020</span><span class="sxs-lookup"><span data-stu-id="e50bf-138">**NUMLOCK_ON** 0x0020</span></span> | <span data-ttu-id="e50bf-139">Der NUM-Sperr Licht ist on.</span><span class="sxs-lookup"><span data-stu-id="e50bf-139">The NUM LOCK light is on.</span></span> |
-| <span data-ttu-id="e50bf-140">**RIGHT_ALT_PRESSED** 0x0001</span><span class="sxs-lookup"><span data-stu-id="e50bf-140">**RIGHT_ALT_PRESSED** 0x0001</span></span> | <span data-ttu-id="e50bf-141">Die Rechte ALT-Taste wird gedrückt.</span><span class="sxs-lookup"><span data-stu-id="e50bf-141">The right ALT key is pressed.</span></span> |
-| <span data-ttu-id="e50bf-142">**RIGHT_CTRL_PRESSED** 0x0004</span><span class="sxs-lookup"><span data-stu-id="e50bf-142">**RIGHT_CTRL_PRESSED** 0x0004</span></span> | <span data-ttu-id="e50bf-143">Die Rechte STRG-Taste wird gedrückt.</span><span class="sxs-lookup"><span data-stu-id="e50bf-143">The right CTRL key is pressed.</span></span> |
-| <span data-ttu-id="e50bf-144">**SCROLLLOCK_ON** 0x0040</span><span class="sxs-lookup"><span data-stu-id="e50bf-144">**SCROLLLOCK_ON** 0x0040</span></span> | <span data-ttu-id="e50bf-145">Das Licht der Scrollsperre ist on.</span><span class="sxs-lookup"><span data-stu-id="e50bf-145">The SCROLL LOCK light is on.</span></span> |
-| <span data-ttu-id="e50bf-146">**SHIFT_PRESSED** 0x0010</span><span class="sxs-lookup"><span data-stu-id="e50bf-146">**SHIFT_PRESSED** 0x0010</span></span> | <span data-ttu-id="e50bf-147">Die UMSCHALTTASTE wird gedrückt.</span><span class="sxs-lookup"><span data-stu-id="e50bf-147">The SHIFT key is pressed.</span></span> |
+| <span data-ttu-id="d32a2-129">**CAPSLOCK_ON** 0x0080</span><span class="sxs-lookup"><span data-stu-id="d32a2-129">**CAPSLOCK_ON** 0x0080</span></span> | <span data-ttu-id="d32a2-130">Die Feststell Sperre ist auf on.</span><span class="sxs-lookup"><span data-stu-id="d32a2-130">The CAPS LOCK light is on.</span></span> |
+| <span data-ttu-id="d32a2-131">**ENHANCED_KEY** 0x0100</span><span class="sxs-lookup"><span data-stu-id="d32a2-131">**ENHANCED_KEY** 0x0100</span></span> | <span data-ttu-id="d32a2-132">Der Schlüssel ist erweitert.</span><span class="sxs-lookup"><span data-stu-id="d32a2-132">The key is enhanced.</span></span> <span data-ttu-id="d32a2-133">Siehe [Hinweise](key-event-record-str.md#remarks).</span><span class="sxs-lookup"><span data-stu-id="d32a2-133">See [remarks](key-event-record-str.md#remarks).</span></span> |
+| <span data-ttu-id="d32a2-134">**LEFT_ALT_PRESSED** 0x0002</span><span class="sxs-lookup"><span data-stu-id="d32a2-134">**LEFT_ALT_PRESSED** 0x0002</span></span> | <span data-ttu-id="d32a2-135">Die linke ALT-Taste wird gedrückt.</span><span class="sxs-lookup"><span data-stu-id="d32a2-135">The left ALT key is pressed.</span></span> |
+| <span data-ttu-id="d32a2-136">**LEFT_CTRL_PRESSED** 0x0008</span><span class="sxs-lookup"><span data-stu-id="d32a2-136">**LEFT_CTRL_PRESSED** 0x0008</span></span> | <span data-ttu-id="d32a2-137">Die linke STRG-Taste wird gedrückt.</span><span class="sxs-lookup"><span data-stu-id="d32a2-137">The left CTRL key is pressed.</span></span> |
+| <span data-ttu-id="d32a2-138">**NUMLOCK_ON** 0x0020</span><span class="sxs-lookup"><span data-stu-id="d32a2-138">**NUMLOCK_ON** 0x0020</span></span> | <span data-ttu-id="d32a2-139">Der NUM-Sperr Licht ist on.</span><span class="sxs-lookup"><span data-stu-id="d32a2-139">The NUM LOCK light is on.</span></span> |
+| <span data-ttu-id="d32a2-140">**RIGHT_ALT_PRESSED** 0x0001</span><span class="sxs-lookup"><span data-stu-id="d32a2-140">**RIGHT_ALT_PRESSED** 0x0001</span></span> | <span data-ttu-id="d32a2-141">Die Rechte ALT-Taste wird gedrückt.</span><span class="sxs-lookup"><span data-stu-id="d32a2-141">The right ALT key is pressed.</span></span> |
+| <span data-ttu-id="d32a2-142">**RIGHT_CTRL_PRESSED** 0x0004</span><span class="sxs-lookup"><span data-stu-id="d32a2-142">**RIGHT_CTRL_PRESSED** 0x0004</span></span> | <span data-ttu-id="d32a2-143">Die Rechte STRG-Taste wird gedrückt.</span><span class="sxs-lookup"><span data-stu-id="d32a2-143">The right CTRL key is pressed.</span></span> |
+| <span data-ttu-id="d32a2-144">**SCROLLLOCK_ON** 0x0040</span><span class="sxs-lookup"><span data-stu-id="d32a2-144">**SCROLLLOCK_ON** 0x0040</span></span> | <span data-ttu-id="d32a2-145">Das Licht der Scrollsperre ist on.</span><span class="sxs-lookup"><span data-stu-id="d32a2-145">The SCROLL LOCK light is on.</span></span> |
+| <span data-ttu-id="d32a2-146">**SHIFT_PRESSED** 0x0010</span><span class="sxs-lookup"><span data-stu-id="d32a2-146">**SHIFT_PRESSED** 0x0010</span></span> | <span data-ttu-id="d32a2-147">Die UMSCHALTTASTE wird gedrückt.</span><span class="sxs-lookup"><span data-stu-id="d32a2-147">The SHIFT key is pressed.</span></span> |
 
-## <a name="remarks"></a><span data-ttu-id="e50bf-148">Bemerkungen</span><span class="sxs-lookup"><span data-stu-id="e50bf-148">Remarks</span></span>
+## <a name="remarks"></a><span data-ttu-id="d32a2-148">Bemerkungen</span><span class="sxs-lookup"><span data-stu-id="d32a2-148">Remarks</span></span>
 
-<span data-ttu-id="e50bf-149">Erweiterte Schlüssel für die Tastaturen IBM® 101-und 102-Key sind die Tasten in, del, Home, End, page up, Page Down und Direction in den Clustern links neben der Tastatur. und die Unterteilung (/) und EINGABETASTE in der Tastatur.</span><span class="sxs-lookup"><span data-stu-id="e50bf-149">Enhanced keys for the IBM® 101- and 102-key keyboards are the INS, DEL, HOME, END, PAGE UP, PAGE DOWN, and direction keys in the clusters to the left of the keypad; and the divide (/) and ENTER keys in the keypad.</span></span>
+<span data-ttu-id="d32a2-149">Erweiterte Schlüssel für die Tastaturen IBM® 101-und 102-Key sind die Tasten in, del, Home, End, page up, Page Down und Direction in den Clustern links neben der Tastatur. und die Unterteilung (/) und EINGABETASTE in der Tastatur.</span><span class="sxs-lookup"><span data-stu-id="d32a2-149">Enhanced keys for the IBM® 101- and 102-key keyboards are the INS, DEL, HOME, END, PAGE UP, PAGE DOWN, and direction keys in the clusters to the left of the keypad; and the divide (/) and ENTER keys in the keypad.</span></span>
 
-<span data-ttu-id="e50bf-150">Tastatureingabe Ereignisse werden generiert, wenn ein beliebiger Schlüssel, einschließlich der Steuerelement Schlüssel, gedrückt oder freigegeben wird.</span><span class="sxs-lookup"><span data-stu-id="e50bf-150">Keyboard input events are generated when any key, including control keys, is pressed or released.</span></span> <span data-ttu-id="e50bf-151">Die Alt-Taste, wenn Sie gedrückt und freigegeben wird, ohne mit einem anderen Zeichen zu kombinieren, hat jedoch eine besondere Bedeutung für das System und wird nicht an die Anwendung übermittelt.</span><span class="sxs-lookup"><span data-stu-id="e50bf-151">However, the ALT key when pressed and released without combining with another character, has special meaning to the system and is not passed through to the application.</span></span> <span data-ttu-id="e50bf-152">Außerdem wird die Tastenkombination STRG + C nicht durchlaufen, wenn sich das Eingabe Handle im verarbeiteten Modus befindet **( \_ verarbeitete \_ Eingaben aktivieren** ).</span><span class="sxs-lookup"><span data-stu-id="e50bf-152">Also, the CTRL+C key combination is not passed through if the input handle is in processed mode ( **ENABLE\_PROCESSED\_INPUT** ).</span></span>
+<span data-ttu-id="d32a2-150">Tastatureingabe Ereignisse werden generiert, wenn ein beliebiger Schlüssel, einschließlich der Steuerelement Schlüssel, gedrückt oder freigegeben wird.</span><span class="sxs-lookup"><span data-stu-id="d32a2-150">Keyboard input events are generated when any key, including control keys, is pressed or released.</span></span> <span data-ttu-id="d32a2-151">Die Alt-Taste, wenn Sie gedrückt und freigegeben wird, ohne mit einem anderen Zeichen zu kombinieren, hat jedoch eine besondere Bedeutung für das System und wird nicht an die Anwendung übermittelt.</span><span class="sxs-lookup"><span data-stu-id="d32a2-151">However, the ALT key when pressed and released without combining with another character, has special meaning to the system and is not passed through to the application.</span></span> <span data-ttu-id="d32a2-152">Außerdem wird die Tastenkombination STRG + C nicht durchlaufen, wenn sich das Eingabe Handle im verarbeiteten Modus befindet **( \_ verarbeitete \_ Eingaben aktivieren**).</span><span class="sxs-lookup"><span data-stu-id="d32a2-152">Also, the CTRL+C key combination is not passed through if the input handle is in processed mode (**ENABLE\_PROCESSED\_INPUT**).</span></span>
 
-## <a name="examples"></a><span data-ttu-id="e50bf-153">Beispiele</span><span class="sxs-lookup"><span data-stu-id="e50bf-153">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="d32a2-153">Beispiele</span><span class="sxs-lookup"><span data-stu-id="d32a2-153">Examples</span></span>
 
-<span data-ttu-id="e50bf-154">Ein Beispiel finden Sie unter [Lesen von Eingabepuffer Ereignissen](reading-input-buffer-events.md).</span><span class="sxs-lookup"><span data-stu-id="e50bf-154">For an example, see [Reading Input Buffer Events](reading-input-buffer-events.md).</span></span>
+<span data-ttu-id="d32a2-154">Ein Beispiel finden Sie unter [Lesen von Eingabepufferereignissen](reading-input-buffer-events.md).</span><span class="sxs-lookup"><span data-stu-id="d32a2-154">For an example, see [Reading Input Buffer Events](reading-input-buffer-events.md).</span></span>
 
-## <a name="requirements"></a><span data-ttu-id="e50bf-155">Requirements (Anforderungen)</span><span class="sxs-lookup"><span data-stu-id="e50bf-155">Requirements</span></span>
+## <a name="requirements"></a><span data-ttu-id="d32a2-155">Anforderungen</span><span class="sxs-lookup"><span data-stu-id="d32a2-155">Requirements</span></span>
 
 | &nbsp; | &nbsp; |
 |-|-|
-| <span data-ttu-id="e50bf-156">Unterstützte Mindestversion (Client)</span><span class="sxs-lookup"><span data-stu-id="e50bf-156">Minimum supported client</span></span> | <span data-ttu-id="e50bf-157">Nur Windows 2000 Professional \[ Desktop-Apps\]</span><span class="sxs-lookup"><span data-stu-id="e50bf-157">Windows 2000 Professional \[desktop apps only\]</span></span> |
-| <span data-ttu-id="e50bf-158">Unterstützte Mindestversion (Server)</span><span class="sxs-lookup"><span data-stu-id="e50bf-158">Minimum supported server</span></span> | <span data-ttu-id="e50bf-159">Nur Windows 2000 \[ -Server Desktop-Apps\]</span><span class="sxs-lookup"><span data-stu-id="e50bf-159">Windows 2000 Server \[desktop apps only\]</span></span> |
-| <span data-ttu-id="e50bf-160">Header</span><span class="sxs-lookup"><span data-stu-id="e50bf-160">Header</span></span> | <span data-ttu-id="e50bf-161">Wincontypes. h (über WinCon. h, Include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="e50bf-161">WinConTypes.h (via WinCon.h, include Windows.h)</span></span> |
+| <span data-ttu-id="d32a2-156">Unterstützte Mindestversion (Client)</span><span class="sxs-lookup"><span data-stu-id="d32a2-156">Minimum supported client</span></span> | <span data-ttu-id="d32a2-157">Windows 2000 Professional \[nur Desktop-Apps\]</span><span class="sxs-lookup"><span data-stu-id="d32a2-157">Windows 2000 Professional \[desktop apps only\]</span></span> |
+| <span data-ttu-id="d32a2-158">Unterstützte Mindestversion (Server)</span><span class="sxs-lookup"><span data-stu-id="d32a2-158">Minimum supported server</span></span> | <span data-ttu-id="d32a2-159">Windows 2000 Server \[nur Desktop-Apps\]</span><span class="sxs-lookup"><span data-stu-id="d32a2-159">Windows 2000 Server \[desktop apps only\]</span></span> |
+| <span data-ttu-id="d32a2-160">Header</span><span class="sxs-lookup"><span data-stu-id="d32a2-160">Header</span></span> | <span data-ttu-id="d32a2-161">Wincontypes. h (über WinCon. h, Include Windows. h)</span><span class="sxs-lookup"><span data-stu-id="d32a2-161">WinConTypes.h (via WinCon.h, include Windows.h)</span></span> |
 
-## <a name="see-also"></a><span data-ttu-id="e50bf-162">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="e50bf-162">See also</span></span>
+## <a name="see-also"></a><span data-ttu-id="d32a2-162">Weitere Informationen</span><span class="sxs-lookup"><span data-stu-id="d32a2-162">See also</span></span>
 
-[<span data-ttu-id="e50bf-163">**PeekConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="e50bf-163">**PeekConsoleInput**</span></span>](peekconsoleinput.md)
+[<span data-ttu-id="d32a2-163">**PeekConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="d32a2-163">**PeekConsoleInput**</span></span>](peekconsoleinput.md)
 
-[<span data-ttu-id="e50bf-164">**ReadConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="e50bf-164">**ReadConsoleInput**</span></span>](readconsoleinput.md)
+[<span data-ttu-id="d32a2-164">**ReadConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="d32a2-164">**ReadConsoleInput**</span></span>](readconsoleinput.md)
 
-[<span data-ttu-id="e50bf-165">**WriteConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="e50bf-165">**WriteConsoleInput**</span></span>](writeconsoleinput.md)
+[<span data-ttu-id="d32a2-165">**WriteConsoleInput**</span><span class="sxs-lookup"><span data-stu-id="d32a2-165">**WriteConsoleInput**</span></span>](writeconsoleinput.md)
 
-[<span data-ttu-id="e50bf-166">**Eingabe \_ Daten Satz**</span><span class="sxs-lookup"><span data-stu-id="e50bf-166">**INPUT\_RECORD**</span></span>](input-record-str.md)
+[<span data-ttu-id="d32a2-166">**Eingabe \_ Daten Satz**</span><span class="sxs-lookup"><span data-stu-id="d32a2-166">**INPUT\_RECORD**</span></span>](input-record-str.md)
